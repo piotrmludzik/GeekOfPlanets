@@ -1,0 +1,12 @@
+canvas {
+  border: 1px black;
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  width: 90%;
+  height: 90%;
+  background-image: url("https://www.techexplorist.com/wp-content/uploads/2018/11/universe.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
