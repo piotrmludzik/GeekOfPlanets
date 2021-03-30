@@ -10,5 +10,5 @@ CREATE TABLE user_registration_data (
                         password  CHAR(250) NOT NULL
 );
 
-ALTER TABLE ONLY user_registration_data ADD CONSTRAINT fk_genre_id
+ALTER TABLE ONLY user_registration_data ADD CONSTRAINT fk_user_id
     FOREIGN KEY (user_id) REFERENCES "user"(id);
