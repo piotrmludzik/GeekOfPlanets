@@ -21,11 +21,12 @@ public class WebsocketController {
     public ServerPlayerMovement receiveUserEventData(ClientPlayerMovement clientPlayerMovement) {
         System.out.println("WebSocket | " + clientPlayerMovement);  // NOTE: dev code: console log
 
-        gameLogic.movePlayer(clientPlayerMovement.getPlayerId(), clientPlayerMovement.getDirection());
-        Player movingPlayer = gameLogic.getPlayer(clientPlayerMovement.getPlayerId());
-        ServerPlayerMovement serverPlayerMovement = new ServerPlayerMovement(movingPlayer.getId(), movingPlayer.getX(), movingPlayer.getY());
-
-        System.out.println("WebSocket | " + serverPlayerMovement);  // NOTE: dev code: console log
-        return serverPlayerMovement;
+//        gameLogic.movePlayer(clientPlayerMovement.getPlayerId(), clientPlayerMovement.getDirection());
+//        Player movingPlayer = gameLogic.getPlayer(clientPlayerMovement.getPlayerId());
+//        ServerPlayerMovement serverPlayerMovement = new ServerPlayerMovement(movingPlayer.getId(), movingPlayer.getX(), movingPlayer.getY());
+//
+//        System.out.println("WebSocket | " + serverPlayerMovement);  // NOTE: dev code: console log
+//        return serverPlayerMovement;
+        return null;  // FIXME: update the game with a targetX and a targetY data received from the client
     }
 }
