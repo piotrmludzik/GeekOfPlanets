@@ -18,12 +18,19 @@
 	<properties>
 		<!-- server side -->
 		<java.version>11</java.version>
+		<postgresql.version>42.2.5</postgresql.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.version>3.8.0</maven.compiler.version>
     </properties>
 
 	<dependencies>
+		<!-- postgresql database -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+		</dependency>
+
 		<!-- spring web dependencies -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -72,11 +79,6 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<version>2.4.4</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${maven.compiler.version}</version>
 			</plugin>
 		</plugins>
 	</build>
