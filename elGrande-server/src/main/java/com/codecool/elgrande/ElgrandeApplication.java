@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ElgrandeApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(ElgrandeApplication.class, args);
 	}
 
