@@ -5,10 +5,13 @@ import com.codecool.elgrande.qualifier.BoardWidth;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 @Component
 public class GameBoard {
+    private List<Planet> planets = new ArrayList<>();
     private Cell[][] board;
     private final int height;
     private final int width;
@@ -25,6 +28,20 @@ public class GameBoard {
         return board;
     }
 
+    public Planet getEmptyPlanet(){
+        for (Planet planet: planets){
+            if (!planet.getColonized()){
+                planet.Colonize();
+                return planet;
+            }
+        }
+        return null;
+    }
+
+    public void addPlanet(Cell position){
+        planets.add(new Planet(position));
+    }
+
     public void setBoard(Cell[][] board) {
         this.board = board;
     }
@@ -32,12 +49,16 @@ public class GameBoard {
     private void initBoard() {
         for (int i = 0; i < this.width; i++) {
             for (int j = 0; j < this.height; j++)
-                this.board[i][j] = new Cell(new Coordinates(i, j));
+                this.board[i][j] = new Cell(i, j);
         }
     }
 
-    public Cell getCell(Coordinates coordinates) {
-        return board[coordinates.getX()][coordinates.getY()];
+    public Cell getCell(Cell cell) {
+        return board[cell.getX()][cell.getY()];
+    }
+
+    public void createPlanet(Cell position){
+        planets.add(new Planet(position));
     }
 
     @Override

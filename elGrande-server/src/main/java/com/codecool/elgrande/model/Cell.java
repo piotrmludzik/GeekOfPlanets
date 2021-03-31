@@ -5,42 +5,64 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Cell {
-    private Coordinates coordinates;
-    private Actor actor;
-
-    public Cell(Coordinates coordinates, Actor actor) {
-        this.coordinates = coordinates;
-        this.actor = actor;
-    }
+    private Player player;
+    private Planet planet;
+    private int x;
+    private int y;
 
     @Autowired
-    public Cell(Coordinates coordinates) {
-        this.coordinates = coordinates;
-        this.actor = null;
+    public Cell() {}
+
+    public Cell(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 
-    public Coordinates getCoordinates() {
-        return coordinates;
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 
-    public void setCoordinates(Coordinates coordinates) {
-        this.coordinates = coordinates;
+    public void setPlanet(Planet planet) {
+        this.planet = planet;
     }
 
-    public Actor getActor() {
-        return actor;
+    public Player getPlayer() {
+        return player;
     }
 
-    public void setActor(Actor actor) {
-        this.actor = actor;
+    public Planet getPlanet() {
+        return planet;
     }
 
-    public void clearCell() {
-        this.actor = null;
+    public void clearCell(){
+        this.player = null;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof Cell
+                && ((Cell) obj).x == this.x
+                && ((Cell) obj).y == this.y;
     }
 
     @Override
     public String toString() {
-        return String.format("Cell[actor=%s, coordinates=%s]", actor, coordinates);
+        return String.format("Coordinates[x=%d, y=%d]", x, y);
     }
 }

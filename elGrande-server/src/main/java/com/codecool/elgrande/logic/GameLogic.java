@@ -1,9 +1,6 @@
 package com.codecool.elgrande.logic;
 
-import com.codecool.elgrande.model.Actor;
-import com.codecool.elgrande.model.Cell;
-import com.codecool.elgrande.model.Coordinates;
-import com.codecool.elgrande.model.GameBoard;
+import com.codecool.elgrande.model.*;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -12,7 +9,7 @@ import java.util.List;
 @Component
 public class GameLogic {
     private final GameBoard gameBoard;
-    private final List<Actor> actors = new ArrayList<>();
+    private final List<Player> players = new ArrayList<>();
 
     public GameLogic(GameBoard gameBoard) {
         this.gameBoard = gameBoard;
@@ -22,28 +19,45 @@ public class GameLogic {
         return gameBoard;
     }
 
-    public Actor createActor(int id, Coordinates coordinates) {
-        Actor actor = new Actor(id, gameBoard.getCell(coordinates));
-        this.addActor(actor);
-        return actor;
+    public Player createPlayer(int id, String name, Cell position, Planet planet) {
+        Player player = new Player(id, name, position, planet);
+        this.addPlayer(player);
+        return player;
     }
 
-    private void addActor(Actor actor) {
-        actors.add(actor);
+    public Player createPlayer(String name) {
+        int newId = getId();
+        Planet planet = gameBoard.getEmptyPlanet();
+        Player player = new Player(newId, name, planet);
+        this.addPlayer(player);
+        return player;
     }
 
-    public Actor getActor(int id) {
-        return actors.stream().
-                filter(actor -> actor.getId() == id).
+    private void addPlayer(Player player) {
+        players.add(player);
+    }
+
+    public Player getPlayer(int id) {
+        return players.stream().
+                filter(player -> player.getId() == id).
                 findAny().
                 orElseThrow(() -> new RuntimeException(String.format("No actor with id %d", id)));
     }
 
-    public void moveActor(int id, Direction direction) {
-        Actor actor = this.getActor(id);
-        Cell actualCell = actor.getCell();
-        Cell destinationCell = this.gameBoard.getCell(new Coordinates(actor.getX() + direction.getCoordinates().getX(), actor.getY() + direction.getCoordinates().getY()));
-        actor.setCell(destinationCell);
+    public void movePlayer(int id, Direction direction) {
+        Player player = this.getPlayer(id);
+        Cell actualCell = player.getCoordinates();
+        Cell destinationCoordinates = new Cell(actualCell.getX()+direction.getCoordinates().getX(), actualCell.getY()+direction.getCoordinates().getY());
+        player.setCoordinates(destinationCoordinates);
         actualCell.clearCell();
+    }
+
+    private int getId(){
+        if (players.get(-1) == null){
+            return 1;
+        }
+        else {
+            return players.get(-1).getId() +1;
+        }
     }
 }

@@ -1,7 +1,7 @@
 package com.codecool.elgrande.websocket;
 
 import com.codecool.elgrande.logic.GameLogic;
-import com.codecool.elgrande.model.Actor;
+import com.codecool.elgrande.model.Player;
 import com.codecool.elgrande.websocket.messages.ClientPlayerMovement;
 import com.codecool.elgrande.websocket.messages.ServerPlayerMovement;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +24,9 @@ public class WebSocketController {
     @SendTo("/websocket/playerMovement")
     public ServerPlayerMovement receiveUserEventData(ClientPlayerMovement clientPlayerMovement) {
         System.out.println("WebSocket | Received user movement message from client: " + clientPlayerMovement);  // NOTE: dev code: console log
-        gameLogic.moveActor(clientPlayerMovement.getPlayerId(), clientPlayerMovement.getDirection());
-        Actor movingActor = gameLogic.getActor(clientPlayerMovement.getPlayerId());
-        ServerPlayerMovement serverPlayerMovement = new ServerPlayerMovement(movingActor.getId(), movingActor.getX(), movingActor.getY());
+        gameLogic.movePlayer(clientPlayerMovement.getPlayerId(), clientPlayerMovement.getDirection());
+        Player movingPlayer = gameLogic.getPlayer(clientPlayerMovement.getPlayerId());
+        ServerPlayerMovement serverPlayerMovement = new ServerPlayerMovement(movingPlayer.getId(), movingPlayer.getX(), movingPlayer.getY());
         return serverPlayerMovement;
     }
 
