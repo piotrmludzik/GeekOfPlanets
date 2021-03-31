@@ -26,7 +26,7 @@ public class WebSocketController {
         System.out.println("WebSocket | Received user movement message from client: " + clientPlayerMovement);  // NOTE: dev code: console log
         gameLogic.movePlayer(clientPlayerMovement.getPlayerId(), clientPlayerMovement.getDirection());
         Player movingPlayer = gameLogic.getPlayer(clientPlayerMovement.getPlayerId());
-        ServerPlayerMovement serverPlayerMovement = new ServerPlayerMovement(movingPlayer.getId(), movingPlayer.getX(), movingPlayer.getY());
+        ServerPlayerMovement serverPlayerMovement = new ServerPlayerMovement(movingPlayer.getId(), movingPlayer.getField().getX(), movingPlayer.getField().getY());
         return serverPlayerMovement;
     }
 

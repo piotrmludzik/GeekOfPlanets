@@ -11,26 +11,35 @@ import java.util.List;
 
 @Component
 public class GameBoard {
+    private List<SpaceObject> spaceObjects = new ArrayList<>();
     private List<Planet> planets = new ArrayList<>();
-    private Cell[][] board;
+    private Field[][] board;
     private final int height;
     private final int width;
+
 
     @Autowired
     public GameBoard(@BoardHeight int height, @BoardWidth int width) {
         this.height = height;
         this.width = width;
-        this.board = new Cell[width][height];
+        this.board = new Field[width][height];
+        createPlanet(new Field(3,1), "Ziemia");
+        createPlanet(new Field(17,10), "Mars");
         initBoard();
     }
 
-    public Cell[][] getBoard() {
+    public void addSpaceObject(SpaceObject spaceObject){
+        spaceObjects.add(spaceObject);
+    }
+
+
+    public Field[][] getBoard() {
         return board;
     }
 
     public Planet getEmptyPlanet(){
         for (Planet planet: planets){
-            if (!planet.getColonized()){
+            if (!planet.getColonized()) {
                 planet.Colonize();
                 return planet;
             }
@@ -38,27 +47,25 @@ public class GameBoard {
         return null;
     }
 
-    public void addPlanet(Cell position){
-        planets.add(new Planet(position));
-    }
-
-    public void setBoard(Cell[][] board) {
+    public void setBoard(Field[][] board) {
         this.board = board;
     }
 
     private void initBoard() {
         for (int i = 0; i < this.width; i++) {
             for (int j = 0; j < this.height; j++)
-                this.board[i][j] = new Cell(i, j);
+                this.board[i][j] = new Field(i, j);
         }
     }
 
-    public Cell getCell(Cell cell) {
-        return board[cell.getX()][cell.getY()];
+    public Field getCell(Field field) {
+        return board[field.getX()][field.getY()];
     }
 
-    public void createPlanet(Cell position){
-        planets.add(new Planet(position));
+    public void createPlanet(Field position, String name){
+        Planet newPlanet = new Planet(position, name);
+        planets.add(newPlanet);
+        spaceObjects.add(newPlanet);
     }
 
     @Override

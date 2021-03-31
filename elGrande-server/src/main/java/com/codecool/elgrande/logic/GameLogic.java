@@ -19,7 +19,7 @@ public class GameLogic {
         return gameBoard;
     }
 
-    public Player createPlayer(int id, String name, Cell position, Planet planet) {
+    public Player createPlayer(int id, String name, Field position, Planet planet) {
         Player player = new Player(id, name, position, planet);
         this.addPlayer(player);
         return player;
@@ -30,11 +30,13 @@ public class GameLogic {
         Planet planet = gameBoard.getEmptyPlanet();
         Player player = new Player(newId, name, planet);
         this.addPlayer(player);
+        gameBoard.addSpaceObject(player);
         return player;
     }
 
     private void addPlayer(Player player) {
         players.add(player);
+        gameBoard.addSpaceObject(player);
     }
 
     public Player getPlayer(int id) {
@@ -46,10 +48,10 @@ public class GameLogic {
 
     public void movePlayer(int id, Direction direction) {
         Player player = this.getPlayer(id);
-        Cell actualCell = player.getCoordinates();
-        Cell destinationCoordinates = new Cell(actualCell.getX()+direction.getCoordinates().getX(), actualCell.getY()+direction.getCoordinates().getY());
+        Field actualField = player.getField();
+        Field destinationCoordinates = new Field(actualField.getX()+direction.getCoordinates().getX(), actualField.getY()+direction.getCoordinates().getY());
         player.setCoordinates(destinationCoordinates);
-        actualCell.clearCell();
+        actualField.clearCell();
     }
 
     private int getId(){

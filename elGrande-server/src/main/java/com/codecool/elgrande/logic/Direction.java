@@ -1,30 +1,30 @@
 package com.codecool.elgrande.logic;
 
-import com.codecool.elgrande.model.Cell;
+import com.codecool.elgrande.model.Field;
 
 public enum Direction {
     NORTH("N") {
         @Override
-        public Cell getCoordinates() {
-            return new Cell(0,-1);
+        public Field getCoordinates() {
+            return new Field(0,-1);
         }
     },
     SOUTH("S") {
         @Override
-        public Cell getCoordinates() {
-            return new Cell(0,1);
+        public Field getCoordinates() {
+            return new Field(0,1);
         }
     },
     EAST("E") {
         @Override
-        public Cell getCoordinates() {
-            return new Cell(1,0);
+        public Field getCoordinates() {
+            return new Field(1,0);
         }
     },
     WEST("W") {
         @Override
-        public Cell getCoordinates() {
-            return new Cell(-1,0);
+        public Field getCoordinates() {
+            return new Field(-1,0);
         }
     };
 
@@ -38,8 +38,8 @@ public enum Direction {
         return shortName;
     }
 
-    public Cell getCoordinates() {
-        return new Cell(0,0);
+    public Field getCoordinates() {
+        return new Field(0,0);
     }
 
     static public Direction getDirection(String shortName) {

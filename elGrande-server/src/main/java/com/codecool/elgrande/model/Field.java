@@ -4,16 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Cell {
+public class Field {
     private Player player;
     private Planet planet;
     private int x;
     private int y;
 
     @Autowired
-    public Cell() {}
+    public Field() {}
 
-    public Cell(int x, int y) {
+    public Field(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -56,9 +56,9 @@ public class Cell {
 
     @Override
     public boolean equals(Object obj) {
-        return obj instanceof Cell
-                && ((Cell) obj).x == this.x
-                && ((Cell) obj).y == this.y;
+        return obj instanceof Field
+                && ((Field) obj).x == this.x
+                && ((Field) obj).y == this.y;
     }
 
     @Override
