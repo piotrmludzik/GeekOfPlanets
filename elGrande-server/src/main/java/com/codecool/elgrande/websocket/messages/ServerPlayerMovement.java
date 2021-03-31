@@ -22,4 +22,9 @@ public class ServerPlayerMovement {
     public int getTargetY() {
         return targetY;
     }
+
+    @Override
+    public String toString() {
+        return "The server's message: the player " + id + " move on a " + targetX + ", " + targetY + " field.";
+    }
 }
