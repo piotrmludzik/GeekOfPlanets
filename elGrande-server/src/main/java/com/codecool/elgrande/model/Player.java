@@ -1,5 +1,6 @@
 package com.codecool.elgrande.model;
 
+import com.codecool.elgrande.model.technologie.Technology;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -8,6 +9,7 @@ public class Player extends SpaceObject {
     private int id;
     private Statistics statistics;
     private Planet planet;
+    private Technology technologies;
 
     @Autowired
     public Player(int id, String name, Field field, Planet planet) {
