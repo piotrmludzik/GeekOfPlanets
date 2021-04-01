@@ -11,36 +11,36 @@ import java.util.Optional;
 @Service
 public class PlayerServiceImpl implements PlayerService {
 
-    PlayerRepository repository;
+    private final PlayerRepository playerRepository;
 
     @Autowired
-    public PlayerServiceImpl(PlayerRepository repository) {
-        this.repository = repository;
+    public PlayerServiceImpl(PlayerRepository playerRepository) {
+        this.playerRepository = playerRepository;
     }
 
     @Override
     public List<Player> findAllPlayers() {
-        return (List<Player>) repository.findAll();
+        return (List<Player>) playerRepository.findAll();
     }
 
     @Override
     public Player getPlayerById(int id) {
-        Optional<Player> opt = repository.findById(id);
+        Optional<Player> opt = playerRepository.findById(id);
         return opt.orElse(null);
     }
 
     @Override
     public void deletePlayerById(int id) {
-        repository.deleteById(id);
+        playerRepository.deleteById(id);
     }
 
     @Override
     public void addNewPlayer(Player player) {
-        repository.save(player);
+        playerRepository.save(player);
     }
 
     @Override
     public long getPlayerCount() {
-        return repository.count();
+        return playerRepository.count();
     }
 }

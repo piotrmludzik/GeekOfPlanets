@@ -14,8 +14,7 @@ public class Player {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
 
-    private String name;
-
+    private transient String name;
     private transient Cell cell;
     private transient Statistics statistics;
     private transient Planet planet;
