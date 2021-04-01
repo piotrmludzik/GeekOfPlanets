@@ -4,66 +4,41 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Player {
+public class Player extends SpaceObject {
     private int id;
-    private String name;
-    private Cell cell;
     private Statistics statistics;
     private Planet planet;
 
     @Autowired
-    public Player(int id, String name, Cell cell, Planet planet) {
+    public Player(int id, String name, Field field, Planet planet) {
+        super(field, name);
         this.id = id;
-        this.name = name;
-        this.cell = cell;
+
         this.statistics = new Statistics(0,0,10);
         this.planet = planet;
-        this.cell.setPlayer(this);
+        this.getField().setPlayer(this);
     }
 
     public Player(int id, String name, Planet planet ) {
+        super(planet.getPosition(), name);
         this.id = id;
-        this.name = name;
-        this.cell = planet.getPosition();
         this.statistics = new Statistics(0,0,8);
         this.planet = planet;
-        this.cell.setPlayer(this);
-    }
-
-    public Player(int id, Cell cell) {
-        this.id = id;
-        this.cell = cell;
-        this.cell.setPlayer(this);
+        this.getField().setPlayer(this);
     }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
-    public Cell getCoordinates() {
-        return cell;
-    }
-
-    public void setCoordinates(Cell cell) {
-        this.cell = cell;
-        this.cell.setPlayer(this);
-    }
-
-    public int getX() {
-        return cell.getX();
-    }
-
-    public int getY() {
-        return cell.getY();
+    public void setCoordinates(Field field) {
+        this.getField().setPlayer(this);
     }
 
     @Override
     public String toString() {
-        return String.format("Actor[id=%d, x=%d, y=%d]", id, getX(), getY());
+        return String.format("Actor[id=%d, x=%d, y=%d]", id, this.getField().getX(), this.getField().getY());
     }
 
     public static class Statistics {
