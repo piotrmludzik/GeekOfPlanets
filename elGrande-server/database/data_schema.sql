@@ -1,6 +1,7 @@
 CREATE TABLE "user" (
                       id       SERIAL PRIMARY KEY NOT NULL,
-                      cell     CHAR(250) NOT NULL
+                      pos_x    INTEGER NOT NULL,
+                      pos_y    INTEGER NOT NULL
 );
 
 CREATE TABLE user_registration_data (
