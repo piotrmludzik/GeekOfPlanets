@@ -17,7 +17,7 @@ public class WebSocketController {
     }
 
     @MessageMapping("/playerMovement")
-    @SendTo("/websocket/playerMovement")
+    @SendTo("/topic/playerMovement")
     public ServerPlayerMovement receiveUserEventData(ClientPlayerMovement clientPlayerMovement) {
         System.out.println("WebSocket | " + clientPlayerMovement);  // NOTE: dev code: console log
 
