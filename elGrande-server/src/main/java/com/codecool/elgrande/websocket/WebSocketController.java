@@ -9,10 +9,10 @@ import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class WebsocketController {
+public class WebSocketController {
     private final GameLogic gameLogic;
 
-    public WebsocketController(GameLogic gameLogic) {
+    public WebSocketController(GameLogic gameLogic) {
         this.gameLogic = gameLogic;
     }
 
