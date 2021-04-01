@@ -3,15 +3,28 @@ package com.codecool.elgrande.model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.*;
+
 @Component
+@Entity
+@Table(name="user")
 public class Player {
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
+
     private String name;
-    private Cell cell;
-    private Statistics statistics;
-    private Planet planet;
+
+    private transient Cell cell;
+    private transient Statistics statistics;
+    private transient Planet planet;
 
     @Autowired
+    public Player() {
+        this.cell.setPlayer(this);
+    }
+
     public Player(int id, String name, Cell cell, Planet planet) {
         this.id = id;
         this.name = name;
