@@ -53,10 +53,6 @@ public class Player {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public Cell getCoordinates() {
         return cell;
     }
@@ -80,18 +76,18 @@ public class Player {
     }
 
     public static class Statistics {
-        private int atack;
+        private int attack;
         private int defence;
         private int radius;
 
-        public Statistics(int atack, int defence, int radius){
-            this.atack = atack;
+        public Statistics(int attack, int defence, int radius){
+            this.attack = attack;
             this.defence = defence;
             this.radius = radius;
         }
 
-        public int getAtack() {
-            return atack;
+        public int getAttack() {
+            return attack;
         }
 
         public int getDefence() {
@@ -102,8 +98,8 @@ public class Player {
             return radius;
         }
 
-        public void setAtack(int atack) {
-            this.atack = atack;
+        public void setAttack(int attack) {
+            this.attack = attack;
         }
 
         public void setDefence(int defence) {
