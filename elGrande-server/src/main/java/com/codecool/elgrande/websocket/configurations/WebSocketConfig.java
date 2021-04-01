@@ -1,4 +1,4 @@
-package com.codecool.elgrande.websocket;
+package com.codecool.elgrande.websocket.configurations;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
