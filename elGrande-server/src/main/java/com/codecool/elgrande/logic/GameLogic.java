@@ -29,12 +29,11 @@ public class GameLogic {
         return player;
     }
 
-    public Player createPlayer(String name) {
+    public void createPlayer(String name) {
         int newId = getId();
         Planet planet = gameBoard.getEmptyPlanet();
         Player player = new Player(newId, name, planet);
         this.addPlayer(player);
-        return player;
     }
 
     private void addPlayer(Player player) {
