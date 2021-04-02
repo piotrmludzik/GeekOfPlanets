@@ -61,10 +61,12 @@ public class Player {
         this.cell.setPlayer(this);
     }
 
+    @Column(name="pos_x")
     public int getX() {
         return cell.getX();
     }
 
+    @Column(name="pos_y")
     public int getY() {
         return cell.getY();
     }
