@@ -1,8 +1,8 @@
 package com.codecool.elgrande.model.game;
 
-import com.codecool.elgrande.model.game.objects.Planet;
 import com.codecool.elgrande.configuration.qualifier.BoardHeight;
 import com.codecool.elgrande.configuration.qualifier.BoardWidth;
+import com.codecool.elgrande.model.game.objects.Planet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -14,42 +14,41 @@ import java.util.List;
 public class GameBoard {
     private List<FieldEntity> fieldEntities = new ArrayList<>();
     private List<Planet> planets = new ArrayList<>();
-    private Field[][] board;
+    private final Field[][] board;
     private final int height;
     private final int width;
-
 
     @Autowired
     public GameBoard(@BoardHeight int height, @BoardWidth int width) {
         this.height = height;
         this.width = width;
         this.board = new Field[width][height];
-        createPlanet(new Field(3,1), "Ziemia");
-        createPlanet(new Field(17,10), "Mars");
+        setPlanetOnBoard(new Field(3,1), "Earth");
+        setPlanetOnBoard(new Field(17,10), "Mars");
         initBoard();
     }
 
-    public void addSpaceObject(FieldEntity fieldEntity){
+    public void addFieldEntity(FieldEntity fieldEntity){
         fieldEntities.add(fieldEntity);
     }
 
-
-    public Field[][] getBoard() {
-        return board;
+    public void setPlanetOnBoard(Field position, String name){
+        // TODO: move to GameLogic
+        Planet newPlanet = new Planet(position);
+        newPlanet.setName(name);
+        planets.add(newPlanet);
+        fieldEntities.add(newPlanet);
     }
 
     public Planet getEmptyPlanet(){
+        // TODO: to separate class taking care of computations
         for (Planet planet: planets){
             if (!planet.getColonized()) {
-                planet.Colonize();
+                planet.colonize();
                 return planet;
             }
         }
         return null;
-    }
-
-    public void setBoard(Field[][] board) {
-        this.board = board;
     }
 
     private void initBoard() {
@@ -57,16 +56,6 @@ public class GameBoard {
             for (int j = 0; j < this.height; j++)
                 this.board[i][j] = new Field(i, j);
         }
-    }
-
-    public Field getCell(Field field) {
-        return board[field.getX()][field.getY()];
-    }
-
-    public void createPlanet(Field position, String name){
-        Planet newPlanet = new Planet(position, name);
-        planets.add(newPlanet);
-        fieldEntities.add(newPlanet);
     }
 
     @Override

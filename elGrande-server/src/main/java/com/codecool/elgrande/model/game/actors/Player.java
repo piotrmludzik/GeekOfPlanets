@@ -19,33 +19,29 @@ public class Player extends FieldEntity {
     @Column(name="id")
     private int id;
 
-    private transient String name;
     private transient Field field;
     private transient Statistics statistics;
     private transient Planet planet;
     private transient Technology technologies;
 
-    @Autowired
-    public Player(Field field) {
-        super(field, "player");
-    }
 
     public Player() {
-        super(null, "player");
+        super(null);
     }
 
-    public Player(int id, String name, Field field, Planet planet) {
-        super(field, name);
-        this.id = id;
-        this.statistics = new Statistics(0,0,10);
+    @Autowired
+    public Player(Planet planet) {
+        super(planet.getPosition());
+        this.statistics = new Statistics(0,0,8);
         this.planet = planet;
         this.getField().setPlayer(this);
     }
 
-    public Player(int id, String name, Planet planet ) {
-        super(planet.getPosition(), name);
+    public Player(int id, String name, Field field, Planet planet) {
+        super(field);
+        super.setName(name);
         this.id = id;
-        this.statistics = new Statistics(0,0,8);
+        this.statistics = new Statistics(0,0,10);
         this.planet = planet;
         this.getField().setPlayer(this);
     }
@@ -56,6 +52,11 @@ public class Player extends FieldEntity {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public void setName(String name) {
+        super.setName(name);
     }
 
     public void setCoordinates(Field field) {

@@ -15,8 +15,8 @@ public class Planet extends FieldEntity {
     private boolean colonized = false;
 
     @Autowired
-    public Planet(Field position, String name){
-        super(position, name);
+    public Planet(Field position){
+        super(position);
         this.getField().setPlanet(this);
     }
 
@@ -24,10 +24,13 @@ public class Planet extends FieldEntity {
         return colonized;
     }
 
-    public void Colonize(){
+    public void colonize(){
         this.colonized = true;
     }
 
+    public void setName(String name){
+        super.setName(name);
+    }
 
     public Field getPosition() {
         return this.getField();
@@ -42,6 +45,5 @@ public class Planet extends FieldEntity {
         Laboratory laboratory;
         PowerPlant powerPlant;
         Storage storage;
-
     }
 }
