@@ -1,4 +1,4 @@
-CREATE TABLE users (
+CREATE TABLE player (
                       id       SERIAL PRIMARY KEY NOT NULL,
                       name     CHAR(250) NOT NULL,
                       pos_x    INTEGER,

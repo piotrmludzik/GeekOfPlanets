@@ -11,13 +11,22 @@ import javax.persistence.*;
 
 @Component
 @Entity
-@Table(name="users")
+@Table(name="player")
 public class Player extends FieldEntity {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id")
     private int id;
+
+    @Column(name="name")
+    private String name;
+
+    @Column(name="pos_x")
+    private int posX;
+
+    @Column(name="pos_y")
+    private int posY;
 
     private transient Field field;
     private transient Statistics statistics;
@@ -55,22 +64,33 @@ public class Player extends FieldEntity {
     }
 
     @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
     public void setName(String name) {
-        super.setName(name);
+        this.name = name;
     }
 
     public void setCoordinates(Field field) {
         this.getField().setPlayer(this);
     }
 
-    @Column(name="pos_x")
-    public int getX() {
-        return this.getField().getX();
+    public int getPosX() {
+        return posX;
     }
 
-    @Column(name="pos_y")
-    public int getY() {
-        return this.getField().getY();
+    public void setPosX(int posX) {
+        this.posX = this.getField().getX();
+    }
+
+    public int getPosY() {
+        return posY;
+    }
+
+    public void setPosY(int posY) {
+        this.posY = this.getField().getY();
     }
 
     public void setField(Field field) {
