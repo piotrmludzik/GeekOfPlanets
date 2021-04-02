@@ -1,6 +1,11 @@
 package com.codecool.elgrande.logic;
 
-import com.codecool.elgrande.model.*;
+import com.codecool.elgrande.model.Cell;
+import com.codecool.elgrande.model.GameBoard;
+import com.codecool.elgrande.model.Planet;
+import com.codecool.elgrande.model.Player;
+import com.codecool.elgrande.service.PlayerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -9,10 +14,12 @@ import java.util.List;
 @Component
 public class GameLogic {
     private final GameBoard gameBoard;
-    private final List<Player> players = new ArrayList<>();
+    private final PlayerService playerService;
 
-    public GameLogic(GameBoard gameBoard) {
+    @Autowired
+    public GameLogic(GameBoard gameBoard, PlayerService playerService) {
         this.gameBoard = gameBoard;
+        this.playerService = playerService;
     }
 
     public GameBoard getGameBoard() {
@@ -25,7 +32,7 @@ public class GameLogic {
         return player;
     }
 
-    public Player createPlayer(String name) {
+    public void createPlayer(String name) {
         int newId = getId();
         Planet planet = gameBoard.getEmptyPlanet();
         Player player = new Player(newId, name, planet);
@@ -35,15 +42,12 @@ public class GameLogic {
     }
 
     private void addPlayer(Player player) {
-        players.add(player);
+        playerService.addNewPlayer(player);
         gameBoard.addSpaceObject(player);
     }
 
     public Player getPlayer(int id) {
-        return players.stream().
-                filter(player -> player.getId() == id).
-                findAny().
-                orElseThrow(() -> new RuntimeException(String.format("No actor with id %d", id)));
+        return playerService.getPlayerById(id);
     }
 
     public void movePlayer(int id, Direction direction) {
@@ -55,11 +59,11 @@ public class GameLogic {
     }
 
     private int getId(){
-        if (players.get(-1) == null){
+        if (playerService.getPlayerCount() == 0){
             return 1;
         }
         else {
-            return players.get(-1).getId() +1;
+            return (int) playerService.getPlayerCount() + 1;
         }
     }
 }

@@ -4,18 +4,31 @@ import com.codecool.elgrande.model.technologie.Technology;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.*;
+
 @Component
+@Entity
+@Table(name="user")
 public class Player extends SpaceObject {
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
-    private Statistics statistics;
-    private Planet planet;
-    private Technology technologies;
+
+    private transient String name;
+    private transient Field field;
+    private transient Statistics statistics;
+    private transient Planet planet;
+    private transient Technology technologies;
 
     @Autowired
+    public Player() {
+        this.getField().setPlayer(this);
+    }
+
     public Player(int id, String name, Field field, Planet planet) {
         super(field, name);
         this.id = id;
-
         this.statistics = new Statistics(0,0,10);
         this.planet = planet;
         this.getField().setPlayer(this);
@@ -33,9 +46,21 @@ public class Player extends SpaceObject {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public void setCoordinates(Field field) {
         this.getField().setPlayer(this);
+
+    @Column(name="pos_x")
+    public int getX() {
+        return field.getX();
+    }
+
+    @Column(name="pos_y")
+    public int getY() {
+        return field.getY();
     }
 
     @Override
@@ -44,18 +69,18 @@ public class Player extends SpaceObject {
     }
 
     public static class Statistics {
-        private int atack;
+        private int attack;
         private int defence;
         private int radius;
 
-        public Statistics(int atack, int defence, int radius){
-            this.atack = atack;
+        public Statistics(int attack, int defence, int radius){
+            this.attack = attack;
             this.defence = defence;
             this.radius = radius;
         }
 
-        public int getAtack() {
-            return atack;
+        public int getAttack() {
+            return attack;
         }
 
         public int getDefence() {
@@ -66,8 +91,8 @@ public class Player extends SpaceObject {
             return radius;
         }
 
-        public void setAtack(int atack) {
-            this.atack = atack;
+        public void setAttack(int attack) {
+            this.attack = attack;
         }
 
         public void setDefence(int defence) {
