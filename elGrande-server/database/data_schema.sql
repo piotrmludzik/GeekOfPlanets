@@ -1,6 +1,6 @@
-CREATE TABLE "user" (
+CREATE TABLE users (
                       id       SERIAL PRIMARY KEY NOT NULL,
-                      pos_x    INTEGER NOT NULL,
-                      pos_y    INTEGER NOT NULL
+                      pos_x    INTEGER,
+                      pos_y    INTEGER
 );
 

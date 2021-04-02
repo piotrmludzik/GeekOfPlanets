@@ -1,15 +1,12 @@
 package com.codecool.elgrande.logic;
 
-import com.codecool.elgrande.model.Cell;
-import com.codecool.elgrande.model.GameBoard;
-import com.codecool.elgrande.model.Planet;
-import com.codecool.elgrande.model.Player;
-import com.codecool.elgrande.service.PlayerService;
+import com.codecool.elgrande.model.game.Field;
+import com.codecool.elgrande.model.game.GameBoard;
+import com.codecool.elgrande.model.game.objects.Planet;
+import com.codecool.elgrande.model.game.actors.Player;
+import com.codecool.elgrande.jdbc.service.game.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Component
 public class GameLogic {
@@ -20,10 +17,6 @@ public class GameLogic {
     public GameLogic(GameBoard gameBoard, PlayerService playerService) {
         this.gameBoard = gameBoard;
         this.playerService = playerService;
-    }
-
-    public GameBoard getGameBoard() {
-        return gameBoard;
     }
 
     public Player createPlayer(int id, String name, Field position, Planet planet) {
@@ -38,7 +31,6 @@ public class GameLogic {
         Player player = new Player(newId, name, planet);
         this.addPlayer(player);
         gameBoard.addSpaceObject(player);
-        return player;
     }
 
     private void addPlayer(Player player) {

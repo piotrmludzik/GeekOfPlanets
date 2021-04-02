@@ -1,6 +1,6 @@
 package com.codecool.elgrande.logic;
 
-import com.codecool.elgrande.model.Field;
+import com.codecool.elgrande.model.game.Field;
 
 public enum Direction {
     NORTH("N") {

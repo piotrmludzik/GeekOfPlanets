@@ -1,7 +1,6 @@
 package com.codecool.elgrande.websocket;
 
 import com.codecool.elgrande.logic.GameLogic;
-import com.codecool.elgrande.model.Player;
 import com.codecool.elgrande.websocket.messages.ClientPlayerMovement;
 import com.codecool.elgrande.websocket.messages.ServerPlayerMovement;
 import org.springframework.messaging.handler.annotation.MessageMapping;
