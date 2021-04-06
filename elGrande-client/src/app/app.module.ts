@@ -1,18 +1,49 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { AppRoutingModule } from './app-routing.module';
+
+import { HttpInterceptorService } from './httpInterceptor.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CanvasComponent } from './components/canvas/canvas.component';
+import {MatButtonModule} from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+
+import { LoginComponent } from './components/login/login.component';
+import { LogoutComponent } from './components/logout/logout.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { GameComponent } from './components/game/game.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    CanvasComponent
+    CanvasComponent,
+    LoginComponent,
+    LogoutComponent,
+    MenuComponent,
+    GameComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    MatButtonModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    MatSidenavModule,
+    BrowserAnimationsModule
+
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
