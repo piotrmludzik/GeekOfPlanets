@@ -5,11 +5,25 @@ import com.codecool.elgrande.model.game.objects.Planet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.*;
+
 @Component
+@Entity
+@Table(name="field")
 public class Field {
-    private Player player;
-    private Planet planet;
+
+    @Id
+    @Column(name="id")
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private int id;
+
+    private transient Player player;
+    private transient Planet planet;
+
+    @Column(name="pos_x")
     private int x;
+
+    @Column(name="pos_y")
     private int y;
 
     @Autowired
