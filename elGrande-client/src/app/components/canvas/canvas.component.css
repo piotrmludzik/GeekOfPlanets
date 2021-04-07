@@ -4,9 +4,10 @@ canvas {
   margin-left: auto;
   display: block;
   width: 90%;
-  height: 90%;
-  background-image: url("https://www.techexplorist.com/wp-content/uploads/2018/11/universe.jpg");
-  background-position: center;
+  height: 50%;
+  background-image: url("https://cdn.wallpapersafari.com/11/88/RpvTds.jpg");
+  background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+
 }
