@@ -45,7 +45,6 @@ public class Player extends FieldEntity {
         super(planet.getField());
         this.statistics = new Statistics(0,0,8);
         this.planet = planet;
-        this.getField().setPlayer(this);
     }
 
     public Player(int id, String name, Field field, Planet planet) {
@@ -54,7 +53,6 @@ public class Player extends FieldEntity {
         this.id = id;
         this.statistics = new Statistics(0,0,10);
         this.planet = planet;
-        this.getField().setPlayer(this);
     }
 
     public int getId() {

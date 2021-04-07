@@ -15,6 +15,6 @@ public class AppInitializer {
 
     @PostConstruct
     public void init() {
-        gameLogic.createPlayer("Morty");
+
     }
 }

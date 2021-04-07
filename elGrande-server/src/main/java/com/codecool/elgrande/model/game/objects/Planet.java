@@ -39,7 +39,6 @@ public class Planet extends FieldEntity {
     @Autowired
     public Planet(Field position){
         super(position);
-        this.getField().setPlanet(this);
     }
 
     public boolean isColonized() {
