@@ -40,7 +40,7 @@ public class Planet extends FieldEntity {
         MetalMine metalMine;
         HydratMine hydratMine;
         EtherMine etherMine;
-        Shypyard shypyard;
+        Shipyard shipyard;
         Docks docks;
         Laboratory laboratory;
         PowerPlant powerPlant;
