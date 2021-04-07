@@ -4,6 +4,7 @@ import com.codecool.elgrande.security.JsonObjectAuthenticationFilter;
 import com.codecool.elgrande.security.RestAuthenticationFailureHandler;
 import com.codecool.elgrande.security.RestAuthenticationSuccessHandler;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
@@ -29,7 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private RestAuthenticationFailureHandler restAuthenticationFailureHandler;
     private final DataSource dataSource;
 
-    public SecurityConfig(RestAuthenticationSuccessHandler restAuthenticationSuccessHandler, RestAuthenticationFailureHandler restAuthenticationFailureHandler, DataSource dataSource) throws SQLException {
+    public SecurityConfig(RestAuthenticationSuccessHandler restAuthenticationSuccessHandler, RestAuthenticationFailureHandler restAuthenticationFailureHandler, @Qualifier("usersDB") DataSource dataSource) throws SQLException {
         this.restAuthenticationSuccessHandler = restAuthenticationSuccessHandler;
         this.restAuthenticationFailureHandler = restAuthenticationFailureHandler;
         this.dataSource = dataSource;

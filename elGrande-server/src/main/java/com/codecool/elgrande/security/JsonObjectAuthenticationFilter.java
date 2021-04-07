@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.Arrays;
 import java.util.List;
 
@@ -27,7 +29,7 @@ public class JsonObjectAuthenticationFilter extends UsernamePasswordAuthenticati
                 sb.append(line);
             }
             UserCredentials user = objectMapper.readValue(sb.toString(), UserCredentials.class);
-            System.out.println("Date: " + LocalDateTime.now() + ", " + user);
+            System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)) + ", " + user);  // NOTE: dev code
             UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
             setDetails(request, token);
 
