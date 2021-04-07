@@ -9,15 +9,15 @@ import { GameService} from './game.service';
 })
 export class GameComponent implements OnInit {
   welcomeMessage = '';
+  isResponse = false;
 
   constructor(private route: ActivatedRoute, private router: Router, private gameService: GameService)  { }
 
   ngOnInit(): void {
     this.gameService.executeGameService().subscribe((res) => {
-      this.welcomeMessage = res.content;
+      console.log("result: " + res.message)
+      this.isResponse = true;
+      this.welcomeMessage = res.message;
     });
   }
-
-
-
 }

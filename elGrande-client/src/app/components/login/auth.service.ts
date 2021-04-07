@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpRequest} from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -16,8 +16,10 @@ export class AuthenticationService {
 
   // tslint:disable-next-line:typedef
   authenticationService(username: string, password: string) {
+    let body = `{"username":"${username}","password":"${password}"}`;
+    let httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json', "Origin": "http://localhost:4200"}), withCredentials: true};
     return this.http.post(`http://localhost:8080/login`,
-      {username, password}).pipe(map((res) => {
+      body, httpOptions).pipe(map((res) => {
       this.username = username;
       this.password = password;
       this.registerSuccessfulLogin(username, password);

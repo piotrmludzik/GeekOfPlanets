@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Message } from '../model/message';
 
 @Injectable({
@@ -11,6 +11,7 @@ export class GameService {
 
   // tslint:disable-next-line:typedef
   executeGameService(){
-    return this.http.get<any>('http://localhost:8080/secured', { withCredentials: true });
+    let httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json'}), withCredentials: true};
+    return this.http.get<any>('http://localhost:8080/secured', httpOptions);
   }
 }

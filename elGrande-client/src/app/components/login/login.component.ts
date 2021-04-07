@@ -38,5 +38,4 @@ export class LoginComponent implements OnInit {
         this.errorMessage = 'Login failed';
       });
   }
-
 }

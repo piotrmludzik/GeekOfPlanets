@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 
-import { HttpInterceptorService } from './httpInterceptor.service';
+import { HttpInterceptorService } from './httpinterceptor.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CanvasComponent } from './components/canvas/canvas.component';
