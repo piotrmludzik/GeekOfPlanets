@@ -11,4 +11,9 @@ public class UserCredentials {
     public String getPassword() {
         return password;
     }
+
+    @Override
+    public String toString() {
+        return String.format("UserCredentials[username='%s', password='%s']", username, password);
+    }
 }
