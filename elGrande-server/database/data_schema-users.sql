@@ -1,3 +1,4 @@
+
 DROP TABLE IF EXISTS user_registration_data;
 
 CREATE TABLE user_registration_data (
@@ -7,6 +8,7 @@ CREATE TABLE user_registration_data (
                                         password   CHAR(250) NOT NULL,
                                         enabled    INT2 NOT NULL DEFAULT 1
 );
+
 
 DROP TABLE IF EXISTS authorities;
 
