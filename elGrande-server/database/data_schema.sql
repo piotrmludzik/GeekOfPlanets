@@ -3,9 +3,10 @@ DROP TABLE IF EXISTS statistics;
 CREATE TABLE statistics (
                             id        SERIAL PRIMARY KEY NOT NULL,
                             attack    INTEGER NOT NULL,
-                            defense   INTEGER NOT NULL,
+                            defence   INTEGER NOT NULL,
                             radius    INTEGER NOT NULL
 );
+
 
 DROP TABLE IF EXISTS field;
 
@@ -15,6 +16,7 @@ CREATE TABLE field (
                        pos_y    INTEGER NOT NULL
 );
 
+
 DROP TABLE IF EXISTS technologies;
 
 CREATE TABLE technologies (
@@ -22,12 +24,14 @@ CREATE TABLE technologies (
                               technology_id   INTEGER NOT NULL
 );
 
+
 DROP TABLE IF EXISTS buildings;
 
 CREATE TABLE buildings (
                            id           SERIAL PRIMARY KEY NOT NULL,
                            building_id  INTEGER NOT NULL
 );
+
 
 DROP TABLE IF EXISTS player;
 
@@ -49,6 +53,7 @@ CREATE TABLE player (
                           REFERENCES technologies (id)
 );
 
+
 DROP TABLE IF EXISTS planets;
 
 CREATE TABLE planets (
@@ -64,5 +69,3 @@ CREATE TABLE planets (
                          CONSTRAINT fk_buildings FOREIGN KEY (buildings_id)
                              REFERENCES buildings (id)
 );
-
-

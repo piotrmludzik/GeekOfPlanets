@@ -43,7 +43,7 @@ public class GameBoard {
     public Planet getEmptyPlanet(){
         // TODO: to separate class taking care of computations
         for (Planet planet: planets){
-            if (!planet.getColonized()) {
+            if (!planet.isColonized()) {
                 planet.colonize();
                 return planet;
             }
