@@ -27,7 +27,7 @@ public class User {
     public User() {
     }
 
-    @Column(name="user_id")
+    @Column(name="player_id")
     public int getPlayerId() {
         return player.getId();
     }
