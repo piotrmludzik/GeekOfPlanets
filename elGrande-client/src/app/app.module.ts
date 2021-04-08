@@ -16,6 +16,8 @@ import { MenuComponent } from './components/menu/menu.component';
 import { GameComponent } from './components/game/game.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { SnackbarComponent } from './components/shared/snack-bar/snackbar.component';
 
 
 @NgModule({
@@ -26,6 +28,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     LogoutComponent,
     MenuComponent,
     GameComponent,
+    RegistrationComponent,
+    SnackbarComponent
+
   ],
   imports: [
     BrowserModule,

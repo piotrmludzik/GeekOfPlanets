@@ -7,20 +7,21 @@
         <h2 class="text-center">Login Now</h2>
         <form class="login-form">
           <form class="form-group">
-            <div class="alert alert-danger"  *ngIf='invalidLogin'>{{errorMessage}}</div>
-            <div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div>
+<!--            <div class="alert alert-danger"  *ngIf='invalidLogin'>{{errorMessage}}</div>-->
+<!--            <div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div>-->
             <div class="form-group">
               <label for="username">User Name :</label>
               <input type="text" class="form-control" id="username"required [(ngModel)]="username"
                      placeholder="Enter User Name" name="username">
             </div>
-
             <div class="form-group">
               <label for="password">Password:</label>
               <input type="password" class="form-control" [(ngModel)]="password" id="password" placeholder="Enter password"
                      name="password">
             </div>
-            <button (click)=handleLogin() class="btn btn-success">Login</button>
+            <small class="text-danger" *ngIf='invalidLogin'>{{errorMessage}}</small>
+            <button (click)=handleLogin() class="btn btn-info">Login</button>
+
           </form>
         </form>
       </div>

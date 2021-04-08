@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService} from './auth.service';
+import {SnackbarService} from '../shared/snack-bar/snackbar.service';
+
 
 @Component({
   selector: 'app-login',
@@ -18,10 +20,12 @@ export class LoginComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService) {   }
+    private authenticationService: AuthenticationService,
+    private snackbarService: SnackbarService) { }
 
 
   ngOnInit(): void {
+
   }
   handleLogin(): void {
     this.authenticationService.authenticationService(this.username, this.password).subscribe(
@@ -30,12 +34,13 @@ export class LoginComponent implements OnInit {
         this.loginSuccess = true;
         this.successMessage = 'Success! Login successful';
         this.router.navigate(['/game']).then(r => {
-          this.successMessage = 'Success! Login successful';
+          this.snackbarService.show('Login success!');
         });
       }, () => {
         this.invalidLogin = true;
         this.loginSuccess = false;
-        this.errorMessage = 'Login failed';
+        this.errorMessage = 'Bad credentials, please enter valid username and password';
+        this.snackbarService.show('Bad credentials, please enter valid username and password', 'danger');
       });
   }
 }

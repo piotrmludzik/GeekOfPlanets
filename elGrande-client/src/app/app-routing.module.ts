@@ -8,7 +8,7 @@ import {GameComponent} from './components/game/game.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: '', component: LoginComponent},
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'game', component: GameComponent},
   {path: 'logout', component: LogoutComponent},
 ];
