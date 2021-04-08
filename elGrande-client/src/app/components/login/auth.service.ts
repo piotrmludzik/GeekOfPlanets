@@ -16,8 +16,9 @@ export class AuthenticationService {
 
   // tslint:disable-next-line:typedef
   authenticationService(username: string, password: string) {
-    let body = `{"username":"${username}","password":"${password}"}`;
-    let httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json', "Origin": "http://localhost:4200"}), withCredentials: true};
+    const body = `{"username":"${username}","password":"${password}"}`;
+    const httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json', Origin: 'http://localhost:4200'}),
+      withCredentials: true};
     return this.http.post(`http://localhost:8080/login`,
       body, httpOptions).pipe(map((res) => {
       this.username = username;
