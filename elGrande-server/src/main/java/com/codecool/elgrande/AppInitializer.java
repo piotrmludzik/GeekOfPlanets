@@ -1,6 +1,7 @@
 package com.codecool.elgrande;
 
 import com.codecool.elgrande.logic.GameLogic;
+import com.codecool.elgrande.model.game.Field;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -15,6 +16,7 @@ public class AppInitializer {
 
     @PostConstruct
     public void init() {
-
+        Field field = new Field(2, 2);
+        gameLogic.createPlayer("Monica", field);
     }
 }

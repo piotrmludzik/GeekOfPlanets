@@ -3,6 +3,7 @@ package com.codecool.elgrande.model.game.objects;
 import com.codecool.elgrande.model.game.Field;
 import com.codecool.elgrande.model.game.FieldEntity;
 import com.codecool.elgrande.model.game.objects.buildings.Buildings;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -29,7 +30,8 @@ public class Planet extends FieldEntity {
     @JoinColumn(name="field_id", referencedColumnName="id")
     private Field field;
 
-    @OneToMany(mappedBy="planet", cascade=CascadeType.REMOVE, orphanRemoval=true)
+    @JsonIgnore
+    @OneToMany(mappedBy="planet", cascade=CascadeType.ALL, orphanRemoval=true)
     private Set<Buildings> buildings;
 
     public Planet() {

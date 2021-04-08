@@ -2,10 +2,14 @@ package com.codecool.elgrande.model.game;
 
 public abstract class FieldEntity {
 
-    private final Field field;
+    private Field field;
     private String name;
 
     public FieldEntity(Field field){
+        this.field = field;
+    }
+
+    public void setField(Field field) {
         this.field = field;
     }
 
