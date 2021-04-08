@@ -1,27 +1,28 @@
-<app-menu></app-menu>
 
+<app-menu></app-menu>
 <div class="login-block">
   <div class="container">
     <div class="row">
       <div class="col-md-4 login-sec">
         <h2 class="text-center">Login Now</h2>
         <form class="login-form">
-          <form class="form-group">
+          <form #loginForm="ngForm">
 <!--            <div class="alert alert-danger"  *ngIf='invalidLogin'>{{errorMessage}}</div>-->
 <!--            <div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div>-->
             <div class="form-group">
               <label for="username">User Name :</label>
-              <input type="text" class="form-control" id="username"required [(ngModel)]="username"
-                     placeholder="Enter User Name" name="username">
+              <input type="text" class="form-control" id="username" required [(ngModel)]="user.username"
+                     placeholder="Enter User Name" name="username" >
             </div>
             <div class="form-group">
               <label for="password">Password:</label>
-              <input type="password" class="form-control" [(ngModel)]="password" id="password" placeholder="Enter password"
-                     name="password">
+              <input type="password" class="form-control" [(ngModel)]="user.password" id="password" placeholder="Enter password"
+                     name="password" required >
             </div>
-            <small class="text-danger" *ngIf='invalidLogin'>{{errorMessage}}</small>
-            <button (click)=handleLogin() class="btn btn-info">Login</button>
 
+            <button (click)=handleLogin() class="btn btn-info" [disabled]="loginForm.invalid">Login</button><br>
+
+<!--            <small class="text-danger" *ngIf='invalidLogin'>{{errorMessage}}</small>-->
           </form>
         </form>
       </div>
@@ -69,3 +70,4 @@
   </div>
 
 </div>
+

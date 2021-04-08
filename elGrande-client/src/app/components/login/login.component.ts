@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService} from './auth.service';
 import {SnackbarService} from '../shared/snack-bar/snackbar.service';
+import {User} from '../../model/user';
+
 
 
 @Component({
@@ -10,10 +12,7 @@ import {SnackbarService} from '../shared/snack-bar/snackbar.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  username: string;
-  password: string;
-  errorMessage: string;
-  successMessage: string;
+  user = new User();
   invalidLogin: boolean;
   loginSuccess: boolean;
 
@@ -28,18 +27,16 @@ export class LoginComponent implements OnInit {
 
   }
   handleLogin(): void {
-    this.authenticationService.authenticationService(this.username, this.password).subscribe(
-      (result) => {
+    this.authenticationService.authenticationService(this.user.username, this.user.password).subscribe(
+      (data) => {
         this.invalidLogin = false;
         this.loginSuccess = true;
-        this.successMessage = 'Success! Login successful';
         this.router.navigate(['/game']).then(r => {
           this.snackbarService.show('Login success!');
         });
       }, () => {
         this.invalidLogin = true;
         this.loginSuccess = false;
-        this.errorMessage = 'Bad credentials, please enter valid username and password';
         this.snackbarService.show('Bad credentials, please enter valid username and password', 'danger');
       });
   }
