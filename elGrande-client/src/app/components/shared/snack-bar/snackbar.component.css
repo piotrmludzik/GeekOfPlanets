@@ -1,22 +1,27 @@
+#snackbar{
+  z-index: 1;
+}
 .snackbar-wrap {
   position: fixed;
   bottom: 20px;
   left: 50%;
-  padding: 20px 20px;
+  padding: 10px 10px;
   border-radius: 5px;
-  min-width: 20%;
+  min-width: 15%;
   transform-origin: center center;
   transform: translate(-50%, 0);
 }
 .snackbar-wrap.success{
-  background: rgb(0,173,72);
+  background: #90EE90;
    }
 .snackbar-wrap.danger{
-  background: red;
+  background: #F84F31;
 }
 .snackbar-text{
   text-align: center;
-  font-size: 1.3em;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
   color: white;
   margin: 0;
+
 }
