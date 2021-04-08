@@ -40,4 +40,8 @@ export class LoginComponent implements OnInit {
         this.snackbarService.show('Bad credentials, please enter valid username and password', 'danger');
       });
   }
+
+  gotoRegistration() {
+    this.router.navigate(['/registration']);
+  }
 }
