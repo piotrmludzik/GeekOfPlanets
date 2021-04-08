@@ -37,8 +37,8 @@ DROP TABLE IF EXISTS player;
 
 CREATE TABLE player (
                       id               SERIAL PRIMARY KEY NOT NULL,
-                      name             CHAR(250) NOT NULL,
-                      field_id         INTEGER NOT NULL,
+                      name             VARCHAR NOT NULL,
+                      field_id         INTEGER DEFAULT NULL,
                       statistics_id    INTEGER DEFAULT NULL,
                       technologies_id  INTEGER DEFAULT NULL,
 
@@ -58,7 +58,7 @@ DROP TABLE IF EXISTS planets;
 
 CREATE TABLE planets (
                          id            SERIAL PRIMARY KEY NOT NULL,
-                         name          CHAR(250) NOT NULL,
+                         name          VARCHAR NOT NULL,
                          is_colonized  BOOLEAN DEFAULT FALSE,
                          field_id      INTEGER NOT NULL,
                          buildings_id  INTEGER DEFAULT NULL,

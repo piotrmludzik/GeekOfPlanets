@@ -2,12 +2,16 @@ package com.codecool.elgrande.model.game;
 
 import com.codecool.elgrande.model.game.actors.Player;
 import com.codecool.elgrande.model.game.objects.Planet;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
 @Component
+@Getter
+@Setter
 @Entity
 @Table(name="field")
 public class Field {
@@ -34,40 +38,8 @@ public class Field {
         this.y = y;
     }
 
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
-
-    public void setPlanet(Planet planet) {
-        this.planet = planet;
-    }
-
-    public Player getPlayer() {
-        return player;
-    }
-
-    public Planet getPlanet() {
-        return planet;
-    }
-
     public void clearCell(){
         this.player = null;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
     }
 
     @Override
