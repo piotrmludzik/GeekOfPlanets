@@ -5,12 +5,13 @@
   background: linear-gradient(to bottom, #FFB88C, #DE6262);
   width:100%;
   padding : 50px 0;
-  height : 90%;
+  height : 100%;
 }
 
 
 .carousel-item{
-  max-height: 80vh;
+  max-height: 100%;
+
 }
 .carousel-inner{
   border-radius:0 10px 10px 0;
@@ -62,10 +63,14 @@
   width:70%;
   position:absolute;
   bottom:40px;
-  padding-left:20px;}
+  padding-left:20px;
+}
+
 .banner-text h2{
   color:#fff;
-  font-weight:600;}
+  font-weight:600;
+}
+
 .banner-text h2:after{content:" ";
   width:100px; height:5px;
   background:#FFF;
@@ -75,4 +80,7 @@
 }
 .banner-text p{
   color:#fff;
+}
+.container{
+  background: white;
 }
