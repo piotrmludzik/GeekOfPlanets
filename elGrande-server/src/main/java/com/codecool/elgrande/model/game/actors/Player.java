@@ -3,6 +3,7 @@ package com.codecool.elgrande.model.game.actors;
 import com.codecool.elgrande.model.game.Field;
 import com.codecool.elgrande.model.game.objects.Planet;
 import com.codecool.elgrande.model.game.FieldEntity;
+import com.codecool.elgrande.model.game.technologies.Technologies;
 import com.codecool.elgrande.model.game.technologies.Technology;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -31,7 +32,7 @@ public class Player extends FieldEntity {
     private transient Field field;
     private transient Statistics statistics;
     private transient Planet planet;
-    private transient Technology technologies;
+    private transient Technologies technologies;
 
 
     public Player() {
@@ -44,6 +45,7 @@ public class Player extends FieldEntity {
         this.statistics = new Statistics(0,0,8);
         this.planet = planet;
         this.getField().setPlayer(this);
+        this.technologies = new Technologies();
     }
 
     public Player(int id, String name, Field field, Planet planet) {
@@ -52,8 +54,18 @@ public class Player extends FieldEntity {
         this.id = id;
         this.statistics = new Statistics(0,0,10);
         this.planet = planet;
+        this.technologies = new Technologies();
         this.getField().setPlayer(this);
     }
+
+    public void visitPlanet(Planet planet){
+        planet.visit();
+    }
+
+    public void discoverTechnologies(Technologies technologies, String technology){
+        planet.discoverTechnologies(technologies, technology);
+    }
+
 
     public int getId() {
         return id;
@@ -102,39 +114,4 @@ public class Player extends FieldEntity {
         return String.format("Player[id=%d, x=%d, y=%d]", id, this.getField().getX(), this.getField().getY());
     }
 
-    public static class Statistics {
-        private int attack;
-        private int defence;
-        private int radius;
-
-        public Statistics(int attack, int defence, int radius){
-            this.attack = attack;
-            this.defence = defence;
-            this.radius = radius;
-        }
-
-        public int getAttack() {
-            return attack;
-        }
-
-        public int getDefence() {
-            return defence;
-        }
-
-        public int getRadius() {
-            return radius;
-        }
-
-        public void setAttack(int attack) {
-            this.attack = attack;
-        }
-
-        public void setDefence(int defence) {
-            this.defence = defence;
-        }
-
-        public void setRadius(int radius) {
-            this.radius = radius;
-        }
-    }
 }
