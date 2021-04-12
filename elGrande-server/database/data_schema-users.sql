@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS user_registration_data;
 
 CREATE TABLE user_registration_data (
                                         id         SERIAL PRIMARY KEY NOT NULL,
-                                        player_id  INTEGER DEFAULT NULL,
+                                        player_id  INTEGER NOT NULL,
                                         username   VARCHAR UNIQUE NOT NULL,
                                         password   VARCHAR NOT NULL,
                                         enabled    INT2 NOT NULL DEFAULT 1
@@ -13,6 +13,7 @@ CREATE TABLE user_registration_data (
 DROP TABLE IF EXISTS authorities;
 
 CREATE TABLE authorities (
+                             id        SERIAL PRIMARY KEY NOT NULL,
                              username  VARCHAR UNIQUE NOT NULL,
                              authority VARCHAR NOT NULL DEFAULT 'ROLE_USER',
 
@@ -29,14 +30,14 @@ CREATE UNIQUE INDEX IF NOT EXISTS user_registration_data_id_uindex ON user_regis
 
 CREATE UNIQUE INDEX IF NOT EXISTS user_registration_data_username_uindex ON user_registration_data (username);
 
-INSERT INTO user_registration_data (username, password)
-VALUES ('user','$2a$10$8.UnVuG9HHgffUDAlk8qfOuVGkqRzgVymGe07xd00DMxs.AQubh4a');
+INSERT INTO user_registration_data (player_id, username, password)
+VALUES (1, 'user','$2a$10$8.UnVuG9HHgffUDAlk8qfOuVGkqRzgVymGe07xd00DMxs.AQubh4a');
 
 INSERT INTO authorities (username)
 VALUES ('user');
 
-INSERT INTO user_registration_data (username, password)
-VALUES ('user2','$2a$10$8.UnVuG9HHgffUDAlk8qfOuVGkqRzgVymGe07xd00DMxs.AQubh4a');
+INSERT INTO user_registration_data (player_id, username, password)
+VALUES (2, 'user2','$2a$10$8.UnVuG9HHgffUDAlk8qfOuVGkqRzgVymGe07xd00DMxs.AQubh4a');
 
 INSERT INTO authorities (username)
 VALUES ('user2');

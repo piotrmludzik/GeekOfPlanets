@@ -1,10 +1,11 @@
 package com.codecool.elgrande.jdbc.service.user;
 
-import com.codecool.elgrande.model.user.User;
 import com.codecool.elgrande.jdbc.repository.user.UserRepository;
+import com.codecool.elgrande.model.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,7 +36,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void addNewUser(User user) {
         userRepository.save(user);
     }
+
 }
