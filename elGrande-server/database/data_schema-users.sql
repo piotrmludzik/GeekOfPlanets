@@ -15,7 +15,7 @@ DROP TABLE IF EXISTS authorities;
 CREATE TABLE authorities (
                              id        SERIAL PRIMARY KEY NOT NULL,
                              username  VARCHAR UNIQUE NOT NULL,
-                             authority VARCHAR NOT NULL DEFAULT 'ROLE_USER',
+                             authority VARCHAR DEFAULT 'ROLE_USER',
 
                              CONSTRAINT fk_authorities_users FOREIGN KEY (username)
                                  REFERENCES user_registration_data (username)
