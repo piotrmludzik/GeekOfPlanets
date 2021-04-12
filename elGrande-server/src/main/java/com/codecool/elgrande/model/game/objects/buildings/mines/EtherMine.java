@@ -2,6 +2,7 @@ package com.codecool.elgrande.model.game.objects.buildings.mines;
 
 import com.codecool.elgrande.model.game.Resources;
 
+
 public class EtherMine extends Mine {
 
     public EtherMine(){

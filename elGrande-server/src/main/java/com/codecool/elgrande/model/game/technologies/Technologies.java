@@ -1,5 +1,6 @@
 package com.codecool.elgrande.model.game.technologies;
 
+import com.codecool.elgrande.model.game.Resources;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
@@ -14,9 +15,22 @@ import javax.persistence.*;
 public class Technologies {
 
     @Id
-    @Column(name="id")
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private transient ColonizationTechology colonizationTechology = new ColonizationTechology();
+    private transient CombatTechnology combatTechnology = new CombatTechnology();
+    private transient ConstructionTechnology constructionTechnology = new ConstructionTechnology();
+    private transient DriveTechnology driveTechnology = new DriveTechnology();
+    private transient EnergeticTechnology energeticTechnology = new EnergeticTechnology();
+    private transient MiningTechnology miningTechnology = new MiningTechnology();
+    private transient SpyTechnology spyTechnology = new SpyTechnology();
+    private transient StorageTechnology storageTechnology = new StorageTechnology();
+
+
+    public Technologies() {
+    }
+
     public void discover(String name, Resources resources) {
         switch (name) {
             case "colonization":
@@ -51,10 +65,9 @@ public class Technologies {
                 resources.substractCost(storageTechnology.getCost());
                 this.storageTechnology.levelUp();
         }
-
-    public Technologies() {
     }
 }
+
 
 
 

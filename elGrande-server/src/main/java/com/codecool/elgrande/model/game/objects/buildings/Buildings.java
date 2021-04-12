@@ -1,5 +1,6 @@
 package com.codecool.elgrande.model.game.objects.buildings;
 
+import com.codecool.elgrande.model.game.Resources;
 import com.codecool.elgrande.model.game.objects.buildings.mines.EtherMine;
 import com.codecool.elgrande.model.game.objects.buildings.mines.HydratMine;
 import com.codecool.elgrande.model.game.objects.buildings.mines.MetalMine;
@@ -31,6 +32,12 @@ public class Buildings {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void buildNew(String name, Resources resources){
         switch (name) {
             case "metal mine":
@@ -65,9 +72,5 @@ public class Buildings {
                 resources.substractCost(storage.getCost());
                 this.storage.levelUp();
         }
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }
