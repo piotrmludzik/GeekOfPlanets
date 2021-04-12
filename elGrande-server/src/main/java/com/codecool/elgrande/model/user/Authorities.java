@@ -18,7 +18,7 @@ public class Authorities {
     private int id;
 
     @OneToOne(cascade=CascadeType.MERGE)
-    @JoinColumn(name="username", referencedColumnName="username")
+    @JoinColumn(name="username")
     private User user;
 
     @Column(name="authority")
