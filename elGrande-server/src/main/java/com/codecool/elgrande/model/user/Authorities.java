@@ -17,14 +17,15 @@ public class Authorities {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
 
-    @OneToOne(cascade=CascadeType.MERGE)
-    @JoinColumn(name="username")
+    @OneToOne(cascade=CascadeType.MERGE, orphanRemoval=true)
+    @JoinColumn(name="username", referencedColumnName="username")
     private User user;
-
-    @Column(name="authority")
-    private String authority;
 
     @Autowired
     public Authorities() {
+    }
+
+    public Authorities(User user) {
+        this.user = user;
     }
 }
