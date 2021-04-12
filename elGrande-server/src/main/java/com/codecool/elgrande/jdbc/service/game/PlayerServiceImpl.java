@@ -1,7 +1,7 @@
 package com.codecool.elgrande.jdbc.service.game;
 
-import com.codecool.elgrande.model.game.actors.Player;
 import com.codecool.elgrande.jdbc.repository.game.PlayerRepository;
+import com.codecool.elgrande.model.game.actors.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

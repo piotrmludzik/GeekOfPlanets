@@ -4,15 +4,12 @@ import com.codecool.elgrande.model.game.Field;
 import com.codecool.elgrande.model.game.FieldEntity;
 import com.codecool.elgrande.model.game.objects.Planet;
 import com.codecool.elgrande.model.game.technologies.Technologies;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Component
 @Getter
@@ -38,12 +35,11 @@ public class Player extends FieldEntity {
     @JoinColumn(name="statistics_id", referencedColumnName="id")
     private Statistics statistics;
 
-    private transient Planet planet;
+    @OneToOne(cascade=CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name="technologies_id", referencedColumnName="id")
+    private Technologies technologies;
 
-    @JsonIgnore
-    @OneToMany(fetch=FetchType.EAGER, mappedBy="player", cascade={CascadeType.PERSIST, CascadeType.MERGE,
-            CascadeType.DETACH, CascadeType.REFRESH}, orphanRemoval=true)
-    private List<Technologies> technologies;
+    private transient Planet planet;
 
     public Player() {
         super(null);
@@ -58,13 +54,5 @@ public class Player extends FieldEntity {
 
     public void setCoordinates(Field field) {
         this.getField().setPlayer(this);
-    }
-
-    public void add(Technologies tempTechnologies) {
-        if (technologies == null) {
-            technologies = new ArrayList<>();
-        }
-        technologies.add(tempTechnologies);
-        tempTechnologies.setPlayer(this);
     }
 }

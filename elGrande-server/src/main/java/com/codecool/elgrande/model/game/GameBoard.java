@@ -12,8 +12,8 @@ import java.util.List;
 
 @Component
 public class GameBoard {
-    private List<FieldEntity> fieldEntities = new ArrayList<>();
-    private List<Planet> planets = new ArrayList<>();
+    private final List<FieldEntity> fieldEntities = new ArrayList<>();
+    private final List<Planet> planets = new ArrayList<>();
     private final Field[][] board;
     private final int height;
     private final int width;

@@ -3,12 +3,10 @@ package com.codecool.elgrande.model.game.objects;
 import com.codecool.elgrande.model.game.Field;
 import com.codecool.elgrande.model.game.FieldEntity;
 import com.codecool.elgrande.model.game.objects.buildings.Buildings;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Component
 @Entity
@@ -30,9 +28,9 @@ public class Planet extends FieldEntity {
     @JoinColumn(name="field_id", referencedColumnName="id")
     private Field field;
 
-    @JsonIgnore
-    @OneToMany(mappedBy="planet", cascade=CascadeType.ALL, orphanRemoval=true)
-    private Set<Buildings> buildings;
+    @OneToOne(cascade=CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name="buildings_id", referencedColumnName="id")
+    private Buildings buildings;
 
     public Planet() {
         super(null);
@@ -82,11 +80,11 @@ public class Planet extends FieldEntity {
         return field;
     }
 
-    public Set<Buildings> getBuildings() {
+    public Buildings getBuildings() {
         return buildings;
     }
 
-    public void setBuildings(Set<Buildings> buildings) {
+    public void setBuildings(Buildings buildings) {
         this.buildings = buildings;
     }
 }

@@ -1,10 +1,12 @@
 package com.codecool.elgrande.logic;
 
 import com.codecool.elgrande.jdbc.service.game.PlayerService;
+import com.codecool.elgrande.jdbc.service.user.UserService;
 import com.codecool.elgrande.model.game.Field;
 import com.codecool.elgrande.model.game.GameBoard;
 import com.codecool.elgrande.model.game.actors.Player;
 import com.codecool.elgrande.model.game.objects.Planet;
+import com.codecool.elgrande.model.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,11 +18,13 @@ public class GameLogic {
     private final GameBoard gameBoard;
     private final List<Player> players = new LinkedList<>();
     private final PlayerService playerService;
+    private final UserService userService;
 
     @Autowired
-    public GameLogic(GameBoard gameBoard, PlayerService playerService) {
+    public GameLogic(GameBoard gameBoard, PlayerService playerService, UserService userService) {
         this.gameBoard = gameBoard;
         this.playerService = playerService;
+        this.userService = userService;
     }
 
     public void createPlayer(String name, Field field) {
@@ -32,9 +36,26 @@ public class GameLogic {
         addPlayer(player);
     }
 
+    public void createUser(User user, int id) {
+        user.setPlayerId(id);
+        addUserToDb(user);
+    }
+
     private void addPlayer(Player player) {
         playerService.addNewPlayer(player);
         gameBoard.addFieldEntity(player);
+    }
+
+    private void addUserToDb(User user) {
+        userService.addNewUser(user);
+    }
+
+    public void getAllUsers() {
+        for (User user: userService.findAllUsers()) {
+            System.out.println("id: " + user.getId());
+            System.out.println("username: " + user.getUsername());
+            System.out.println("password: " + user.getPassword());
+        }
     }
 
     public Player getPlayer(int id) {

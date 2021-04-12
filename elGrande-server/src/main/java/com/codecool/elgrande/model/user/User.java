@@ -1,6 +1,5 @@
 package com.codecool.elgrande.model.user;
 
-import com.codecool.elgrande.model.game.actors.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -13,9 +12,10 @@ public class User {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private String id;
+    private int id;
 
-    private transient Player player;
+    @Column(name="player_id")
+    private int playerId;
 
     @Column(name="username")
     private String username;
@@ -23,32 +23,37 @@ public class User {
     @Column(name="password")
     private String password;
 
+
     @Autowired
     public User() {
     }
 
-    @Column(name="player_id")
-    public int getPlayerId() {
-        return player.getId();
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getPlayerId() {
+        return playerId;
+    }
+
+    public void setPlayerId(int playerId) {
+        this.playerId = playerId;
     }
 
     public String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getPassword() {
         return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 }
