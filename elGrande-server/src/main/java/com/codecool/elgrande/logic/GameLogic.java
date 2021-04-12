@@ -1,11 +1,13 @@
 package com.codecool.elgrande.logic;
 
 import com.codecool.elgrande.jdbc.service.game.PlayerService;
+import com.codecool.elgrande.jdbc.service.user.AuthoritiesService;
 import com.codecool.elgrande.jdbc.service.user.UserService;
 import com.codecool.elgrande.model.game.Field;
 import com.codecool.elgrande.model.game.GameBoard;
 import com.codecool.elgrande.model.game.actors.Player;
 import com.codecool.elgrande.model.game.objects.Planet;
+import com.codecool.elgrande.model.user.Authorities;
 import com.codecool.elgrande.model.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -19,21 +21,24 @@ public class GameLogic {
     private final List<Player> players = new LinkedList<>();
     private final PlayerService playerService;
     private final UserService userService;
+    private final AuthoritiesService authoritiesService;
 
     @Autowired
-    public GameLogic(GameBoard gameBoard, PlayerService playerService, UserService userService) {
+    public GameLogic(GameBoard gameBoard, PlayerService playerService, UserService userService, AuthoritiesService authoritiesService) {
         this.gameBoard = gameBoard;
         this.playerService = playerService;
         this.userService = userService;
+        this.authoritiesService = authoritiesService;
     }
 
-    public void createPlayer(String name, Field field) {
+    public Player createPlayer(String name, Field field) {
         Planet planet = gameBoard.getEmptyPlanet();
         Player player = new Player(planet);
         player.setName(name);
         player.setField(field);
         players.add(player);
         addPlayer(player);
+        return player;
     }
 
     public void createUser(User user, int id) {
@@ -48,6 +53,8 @@ public class GameLogic {
 
     private void addUserToDb(User user) {
         userService.addNewUser(user);
+        Authorities authorities = new Authorities(user);
+        authoritiesService.addNewAuthority(authorities);
     }
 
     public void getAllUsers() {
