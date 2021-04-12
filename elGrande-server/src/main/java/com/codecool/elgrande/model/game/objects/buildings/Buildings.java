@@ -19,37 +19,38 @@ public class Buildings {
 
 
     public void buildNew(String name, Resources resources){
-        if (name.equals("metal mine")) {
-            resources.substractCost(metalMine.getCost());
-            this.metalMine.levelUp();
-        }
-        else if (name.equals("hydrat mine")){
-            resources.substractCost(hydratMine.getCost());
-            this.hydratMine.levelUp();
-        }
-        else if (name.equals("ether mine")){
-            resources.substractCost(etherMine.getCost());
-            this.etherMine.levelUp();
-        }
-        else if (name.equals("docks")){
-            resources.substractCost(docks.getCost());
-            this.docks.levelUp();
-        }
-        else if (name.equals("laboratory")) {
-            resources.substractCost(laboratory.getCost());
-            this.laboratory.levelUp();
-        }
-        else if (name.equals("power plant")) {
-            resources.substractCost(powerPlant.getCost());
-            this.powerPlant.levelUp();
-        }
-        else if (name.equals("shipyard")) {
-            resources.substractCost(shipyard.getCost());
-            this.shipyard.levelUp();
-        }
-        else if (name.equals("storage")) {
-            resources.substractCost(storage.getCost());
-            this.storage.levelUp();
+        switch (name) {
+            case "metal mine":
+                resources.substractCost(metalMine.getCost());
+                this.metalMine.levelUp();
+                break;
+            case "hydrat mine":
+                resources.substractCost(hydratMine.getCost());
+                this.hydratMine.levelUp();
+                break;
+            case "ether mine":
+                resources.substractCost(etherMine.getCost());
+                this.etherMine.levelUp();
+                break;
+            case "docks":
+                resources.substractCost(docks.getCost());
+                this.docks.levelUp();
+                break;
+            case "laboratory":
+                resources.substractCost(laboratory.getCost());
+                this.laboratory.levelUp();
+                break;
+            case "power plant":
+                resources.substractCost(powerPlant.getCost());
+                this.powerPlant.levelUp();
+                break;
+            case "shipyard":
+                resources.substractCost(shipyard.getCost());
+                this.shipyard.levelUp();
+                break;
+            case "storage":
+                resources.substractCost(storage.getCost());
+                this.storage.levelUp();
         }
     }
 

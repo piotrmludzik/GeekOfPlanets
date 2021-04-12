@@ -13,30 +13,38 @@ public class Technologies {
     private final StorageTechnology storageTechnology = new StorageTechnology();
 
     public void discover(String name, Resources resources) {
-        if (name.equals("colonization")) {
-            resources.substractCost(colonizationTechology.getCost());
-            this.colonizationTechology.levelUp();
-        } else if (name.equals("combat")) {
-            resources.substractCost(combatTechnology.getCost());
-            this.combatTechnology.levelUp();
-        } else if (name.equals("construction")) {
-            resources.substractCost(constructionTechnology.getCost());
-            this.constructionTechnology.levelUp();
-        } else if (name.equals("drive")) {
-            resources.substractCost(driveTechnology.getCost());
-            this.driveTechnology.levelUp();
-        } else if (name.equals("energetic")) {
-            resources.substractCost(energeticTechnology.getCost());
-            this.energeticTechnology.levelUp();
-        } else if (name.equals("mining")) {
-            resources.substractCost(miningTechnology.getCost());
-            this.miningTechnology.levelUp();
-        } else if (name.equals("spy")) {
-            resources.substractCost(spyTechnology.getCost());
-            this.spyTechnology.levelUp();
-        } else if (name.equals("storage")) {
-            resources.substractCost(storageTechnology.getCost());
-            this.storageTechnology.levelUp();
+        switch (name) {
+            case "colonization":
+                resources.substractCost(colonizationTechology.getCost());
+                this.colonizationTechology.levelUp();
+                break;
+            case "combat":
+                resources.substractCost(combatTechnology.getCost());
+                this.combatTechnology.levelUp();
+                break;
+            case "construction":
+                resources.substractCost(constructionTechnology.getCost());
+                this.constructionTechnology.levelUp();
+                break;
+            case "drive":
+                resources.substractCost(driveTechnology.getCost());
+                this.driveTechnology.levelUp();
+                break;
+            case "energetic":
+                resources.substractCost(energeticTechnology.getCost());
+                this.energeticTechnology.levelUp();
+                break;
+            case "mining":
+                resources.substractCost(miningTechnology.getCost());
+                this.miningTechnology.levelUp();
+                break;
+            case "spy":
+                resources.substractCost(spyTechnology.getCost());
+                this.spyTechnology.levelUp();
+                break;
+            case "storage":
+                resources.substractCost(storageTechnology.getCost());
+                this.storageTechnology.levelUp();
         }
 
     }
