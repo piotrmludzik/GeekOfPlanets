@@ -31,6 +31,40 @@ public class Buildings {
 
     public int getId() {
         return id;
+    public void buildNew(String name, Resources resources){
+        switch (name) {
+            case "metal mine":
+                resources.substractCost(metalMine.getCost());
+                this.metalMine.levelUp();
+                break;
+            case "hydrat mine":
+                resources.substractCost(hydratMine.getCost());
+                this.hydratMine.levelUp();
+                break;
+            case "ether mine":
+                resources.substractCost(etherMine.getCost());
+                this.etherMine.levelUp();
+                break;
+            case "docks":
+                resources.substractCost(docks.getCost());
+                this.docks.levelUp();
+                break;
+            case "laboratory":
+                resources.substractCost(laboratory.getCost());
+                this.laboratory.levelUp();
+                break;
+            case "power plant":
+                resources.substractCost(powerPlant.getCost());
+                this.powerPlant.levelUp();
+                break;
+            case "shipyard":
+                resources.substractCost(shipyard.getCost());
+                this.shipyard.levelUp();
+                break;
+            case "storage":
+                resources.substractCost(storage.getCost());
+                this.storage.levelUp();
+        }
     }
 
     public void setId(int id) {
