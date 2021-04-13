@@ -1,28 +1,39 @@
-<app-menu></app-menu>
 
+<!--<app-menu></app-menu>-->
 <div class="login-block">
   <div class="container">
     <div class="row">
       <div class="col-md-4 login-sec">
-        <h2 class="text-center">Login Now</h2>
-        <form class="login-form">
-          <form class="form-group">
-            <div class="alert alert-danger"  *ngIf='invalidLogin'>{{errorMessage}}</div>
-            <div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div>
+        <div class="logo"></div>
+        <div class="title">Space Invader</div>
+        <div class="sub-title">Login</div>
+          <form #loginForm="ngForm" autocomplete="off">
+<!--            <div class="alert alert-danger"  *ngIf='invalidLogin'>{{errorMessage}}</div>-->
+<!--            <div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div>-->
             <div class="form-group">
-              <label for="username">User Name :</label>
-              <input type="text" class="form-control" id="username"required [(ngModel)]="username"
-                     placeholder="Enter User Name" name="username">
+              <div class="username">
+                <input type="text" class="form-control" id="username" required [(ngModel)]="user.username"
+                       placeholder="Enter User Name" name="username" >
+              </div>
             </div>
+            <div class="form-group">
+              <div class="password">
+                <input type="password" class="form-control" [(ngModel)]="user.password" id="password" placeholder="Enter password"
+                       name="password" required >
+              </div>
+            </div>
+            <button (click)=handleLogin() class="sign-in-button" [disabled]="loginForm.invalid">Login</button><br>
 
-            <div class="form-group">
-              <label for="password">Password:</label>
-              <input type="password" class="form-control" [(ngModel)]="password" id="password" placeholder="Enter password"
-                     name="password">
-            </div>
-            <button (click)=handleLogin() class="btn btn-success">Login</button>
+
           </form>
-        </form>
+        <br>
+        <small class="float-right" >
+          <a href="/">Forgot password?</a>
+        </small>
+        <br>
+        <button (click)=gotoRegistration() class="register-in-button" >Sign up</button><br>
+        <!--            <small class="text-danger" *ngIf='invalidLogin'>{{errorMessage}}</small>-->
+
       </div>
 
       <div class="col-md-8 banner-sec">
@@ -68,3 +79,4 @@
   </div>
 
 </div>
+

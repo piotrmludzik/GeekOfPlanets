@@ -1,0 +1,44 @@
+<app-menu></app-menu>
+
+<div class="register-block">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 login-sec">
+        <h2 class="text-center">Register here</h2>
+        <form class="login-form">
+          <form #registerForm="ngForm">
+            <!--            <div class="alert alert-danger"  *ngIf='invalidLogin'>{{errorMessage}}</div>-->
+            <!--            <div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div>-->
+            <div class="form-group">
+              <label for="username">User Name :</label>
+              <input type="text" class="form-control" id="username" required [(ngModel)]="user.username"
+                     placeholder="Enter User Name" name="username" >
+            </div>
+            <div class="form-group">
+              <label for="email">E-mail:</label>
+              <input type="text" class="form-control" id="email" required [(ngModel)]="user.email"
+                     placeholder="Enter User Name" name="username" >
+            </div>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input type="password" class="form-control" [(ngModel)]="user.password" id="password" placeholder="Enter password"
+                     name="password" required >
+            </div>
+            <div class="form-group">
+              <label for="passwordConfirm">Confirm password:</label>
+              <input type="password" class="form-control" [(ngModel)]="user.password" id="passwordConfirm" placeholder="Confirm password"
+                     name="passwordConfirm" required >
+            </div>
+
+            <button  class="btn btn-info" (click)= handRegistration() [disabled]="registerForm.invalid">Login</button><br>
+
+            <!--            <small class="text-danger" *ngIf='invalidLogin'>{{errorMessage}}</small>-->
+          </form>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
