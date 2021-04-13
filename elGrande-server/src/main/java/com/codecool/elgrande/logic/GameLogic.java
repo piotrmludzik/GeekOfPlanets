@@ -41,8 +41,7 @@ public class GameLogic {
         return player;
     }
 
-    public void createUser(User user, int id) {
-        user.setPlayerId(id);
+    public void createUser(User user) {
         addUserToDb(user);
     }
 

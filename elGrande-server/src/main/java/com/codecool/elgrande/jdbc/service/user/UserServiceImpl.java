@@ -1,11 +1,12 @@
 package com.codecool.elgrande.jdbc.service.user;
 
 import com.codecool.elgrande.jdbc.repository.user.UserRepository;
+import com.codecool.elgrande.model.user.Authorities;
 import com.codecool.elgrande.model.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,10 +14,14 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+    private final AuthoritiesService authoritiesService;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository) {
+    public UserServiceImpl(UserRepository userRepository, AuthoritiesService authoritiesService, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.authoritiesService = authoritiesService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -36,9 +41,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional
     public void addNewUser(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
+        Authorities authorities = new Authorities(user);
+        authoritiesService.addNewAuthority(authorities);
     }
 
 }
