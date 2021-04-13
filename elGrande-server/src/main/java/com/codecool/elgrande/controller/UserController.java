@@ -34,6 +34,7 @@ public class UserController {
 
     @PostMapping("/register")
     public MessageDto handleUserForm(@RequestBody User user) {
+        user.setEnabled(1);
         userService.addNewUser(user);
         int id = userService.getUserByUsername(user.getUsername()).getId();
         Field field = new Field(2, 2);

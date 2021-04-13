@@ -21,6 +21,9 @@ public class Authorities {
     @JoinColumn(name="username", referencedColumnName="username")
     private User user;
 
+    @Column(name="authority")
+    private String authority;
+
     @Autowired
     public Authorities() {
     }

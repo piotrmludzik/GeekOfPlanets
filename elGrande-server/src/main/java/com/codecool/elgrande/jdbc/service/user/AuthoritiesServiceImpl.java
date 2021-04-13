@@ -26,4 +26,9 @@ public class AuthoritiesServiceImpl implements AuthoritiesService{
     public void addNewAuthority(Authorities authorities) {
         authoritiesRepository.save(authorities);
     }
+
+    @Override
+    public void changeAuthority(String authority) {
+        authoritiesRepository.changeAuthority(authority);
+    }
 }
