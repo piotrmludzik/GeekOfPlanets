@@ -36,16 +36,26 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User getUserByUsername(String username) {
+        return userRepository.getUserByUsername(username);
+    }
+
+    @Override
     public void deleteUserById(int id) {
         userRepository.deleteById(id);
     }
 
     @Override
     public void addNewUser(User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        userRepository.save(user);
-        Authorities authorities = new Authorities(user);
-        authoritiesService.addNewAuthority(authorities);
+        try {
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+            userRepository.save(user);
+            Authorities authorities = new Authorities(user);
+            authoritiesService.addNewAuthority(authorities);
+        } catch(Exception e) {
+            if(getUserByUsername(user.getUsername()).getUsername().equals(user.getUsername())) {
+                throw new IllegalArgumentException("Username: " + user.getUsername() + " already exists!");
+            }
+        }
     }
-
 }
