@@ -1,16 +1,15 @@
 package com.codecool.elgrande.controller;
 
 import com.codecool.elgrande.dto.MessageDto;
-import com.codecool.elgrande.jdbc.service.user.UserService;
-import com.codecool.elgrande.logic.GameLogic;
-import com.codecool.elgrande.model.game.Field;
-import com.codecool.elgrande.model.user.User;
+import com.codecool.elgrande.user.jdbc.service.UserService;
+import com.codecool.elgrande.game.logic.GameLogic;
+import com.codecool.elgrande.game.model.Field;
+import com.codecool.elgrande.user.model.user.User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-// TODO: verify class name
 @RestController
 public class UserController {
 
