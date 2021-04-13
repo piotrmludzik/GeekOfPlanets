@@ -28,4 +28,14 @@ public class WebSocketController {
 //        return serverPlayerMovement;
         return null;  // FIXME: update the game with a targetX and a targetY data received from the client
     }
+
+//    NOTE: the code below is an example for sending messages to all active clients
+//    @MessageMapping("/playerMovement")
+//    @SendTo("/topic/playerMovement")
+//    public ServerPlayerMovement receiveUserEventData(ClientPlayerMovement clientPlayerMovement) {
+//        System.out.println("WebSocket | " + clientPlayerMovement);  // NOTE: dev code: console log
+//        var serverPlayerMovement = new ServerPlayerMovement(0, 0, 0);
+//        System.out.println("WebSocket | " + serverPlayerMovement);  // NOTE: dev code: console log
+//        return serverPlayerMovement;
+//    }
 }
