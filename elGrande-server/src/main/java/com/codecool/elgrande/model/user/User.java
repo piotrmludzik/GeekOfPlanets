@@ -20,6 +20,9 @@ public class User {
     @Column(name="password")
     private String password;
 
+    @Column(name="enabled")
+    private int enabled;
+
     @Autowired
     public User() {
     }
@@ -47,5 +50,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(int enabled) {
+        this.enabled = enabled;
     }
 }

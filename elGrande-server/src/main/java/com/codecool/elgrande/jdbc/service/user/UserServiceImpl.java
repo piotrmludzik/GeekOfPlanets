@@ -53,10 +53,24 @@ public class UserServiceImpl implements UserService {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
         Authorities authorities = new Authorities(user);
+        authorities.setAuthority("ROLE_USER");
         authoritiesService.addNewAuthority(authorities);
     }
 
     private boolean usernameExists(String username) {
         return getUserByUsername(username) != null;
+    }
+
+    @Override
+    public void changePermissions(String username) {
+        if(getUserByUsername(username).getEnabled() == 1) {
+            userRepository.takeAwayPermissions();
+        }
+        userRepository.givePermissions();
+    }
+
+    @Override
+    public void changePassword(String newPassword) {
+        userRepository.changePassword(newPassword);
     }
 }
