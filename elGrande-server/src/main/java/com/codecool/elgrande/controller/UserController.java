@@ -37,7 +37,7 @@ public class UserController {
         userService.addNewUser(user);
         int id = userService.getUserByUsername(user.getUsername()).getId();
         Field field = new Field(2, 2);
-        gameLogic.createPlayer("Boris", field, id);
+        gameLogic.createPlayer(user.getUsername(), field, id);
 
         return new MessageDto("Hello registered");
     }
