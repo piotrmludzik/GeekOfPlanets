@@ -43,4 +43,9 @@ public class PlayerServiceImpl implements PlayerService {
     public long getPlayerCount() {
         return playerRepository.count();
     }
+
+    @Override
+    public void changePlayerName(String newName) {
+        playerRepository.changePlayerName(newName);
+    }
 }
