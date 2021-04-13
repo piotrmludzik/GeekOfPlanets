@@ -39,6 +39,9 @@ public class Player extends FieldEntity {
     @JoinColumn(name="technologies_id", referencedColumnName="id")
     private Technologies technologies;
 
+    @Column(name="user_id")
+    private int userId;
+
     private transient Planet planet;
 
     public Player() {

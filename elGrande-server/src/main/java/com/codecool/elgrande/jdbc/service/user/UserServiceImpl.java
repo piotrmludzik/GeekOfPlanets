@@ -46,16 +46,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void addNewUser(User user) {
-        try {
-            user.setPassword(passwordEncoder.encode(user.getPassword()));
-            userRepository.save(user);
-            Authorities authorities = new Authorities(user);
-            authoritiesService.addNewAuthority(authorities);
-        } catch(Exception e) {
-            if(getUserByUsername(user.getUsername()).getUsername().equals(user.getUsername())) {
-                throw new IllegalArgumentException("Username: " + user.getUsername() + " already exists!");
-            }
+    public void addNewUser(User user) throws IllegalArgumentException {
+        if(usernameExists(user.getUsername())) {
+            throw new IllegalArgumentException("Username: " + user.getUsername() + " already exists!");
         }
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        userRepository.save(user);
+        Authorities authorities = new Authorities(user);
+        authoritiesService.addNewAuthority(authorities);
+    }
+
+    private boolean usernameExists(String username) {
+        return getUserByUsername(username) != null;
     }
 }
