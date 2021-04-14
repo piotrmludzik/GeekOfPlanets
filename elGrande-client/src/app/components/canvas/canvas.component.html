@@ -1,7 +1,3 @@
-
-<button mat-raised-button color="warn" (click) = 'moveLeft()'>Move right</button>
-<button mat-fab (click) = 'moveRight()'>Move right</button>
-
-
-<canvas #canvas id="space"></canvas>
+<canvas #canvas id="space" (keypress)="onKeypressEvent($event)">
+</canvas>
 
