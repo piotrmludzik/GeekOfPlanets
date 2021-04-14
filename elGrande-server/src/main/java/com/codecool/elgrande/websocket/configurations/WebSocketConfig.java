@@ -20,7 +20,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/space-game-websocket").withSockJS();
+        registry.addEndpoint("/space-game-websocket").setAllowedOrigins("http://localhost:4200").withSockJS();  // NOTE: allowed origin for development
     }
 
     @Override

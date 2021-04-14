@@ -28,10 +28,10 @@ public class WebSocketController {
 //        Player movingPlayer = gameLogic.getPlayer(clientPlayerMovement.getPlayerId());
 //        ServerPlayerMovement serverPlayerMovement = new ServerPlayerMovement(movingPlayer.getId(), movingPlayer.getX(), movingPlayer.getY());
 
-        ServerPlayerMovement serverPlayerMovement = new ServerPlayerMovement(0, 0, 0);
+        ServerPlayerMovement serverPlayerMovement = new ServerPlayerMovement(clientPlayerMovement.getPlayerName(), clientPlayerMovement.getTargetX(), clientPlayerMovement.getTargetY());
 
 //        System.out.println("WebSocket | " + serverPlayerMovement);  // NOTE: dev code: console log
-        messagingTemplate.convertAndSendToUser("user2", "/queue/reply", serverPlayerMovement);  // NOTE: fixed user2 destination
+        messagingTemplate.convertAndSendToUser("user", "/queue/reply", serverPlayerMovement);  // NOTE: fixed user2 destination
     }
 
 //    NOTE: the code below is an example for sending messages to all active clients
