@@ -7,8 +7,6 @@ import com.codecool.elgrande.model.game.Field;
 import com.codecool.elgrande.model.game.GameBoard;
 import com.codecool.elgrande.model.game.actors.Player;
 import com.codecool.elgrande.model.game.objects.Planet;
-import com.codecool.elgrande.model.user.Authorities;
-import com.codecool.elgrande.model.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -31,38 +29,19 @@ public class GameLogic {
         this.authoritiesService = authoritiesService;
     }
 
-    public Player createPlayer(String name, Field field) {
+    public void createPlayer(String name, Field field, int userId) {
         Planet planet = gameBoard.getEmptyPlanet();
         Player player = new Player(planet);
         player.setName(name);
         player.setField(field);
+        player.setUserId(userId);
         players.add(player);
         addPlayer(player);
-        return player;
-    }
-
-    public void createUser(User user, int id) {
-        user.setPlayerId(id);
-        addUserToDb(user);
     }
 
     private void addPlayer(Player player) {
         playerService.addNewPlayer(player);
         gameBoard.addFieldEntity(player);
-    }
-
-    private void addUserToDb(User user) {
-        userService.addNewUser(user);
-        Authorities authorities = new Authorities(user);
-        authoritiesService.addNewAuthority(authorities);
-    }
-
-    public void getAllUsers() {
-        for (User user: userService.findAllUsers()) {
-            System.out.println("id: " + user.getId());
-            System.out.println("username: " + user.getUsername());
-            System.out.println("password: " + user.getPassword());
-        }
     }
 
     public Player getPlayer(int id) {

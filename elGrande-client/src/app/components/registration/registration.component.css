@@ -1,5 +1,4 @@
-@import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
-.login-block{
+.register-block{
   font-family: 'Montserrat', sans-serif;
   /*background: #DE6262;*/
   /*background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262);*/
@@ -8,7 +7,6 @@
   padding : 50px 0;
   height : 100%;
 }
-
 
 .carousel-item{
   max-height: 100%;
@@ -142,7 +140,7 @@
   box-shadow: none;
 }
 
-.username, .password {
+.username, .password, .email {
   margin-bottom: 30px;
   border-radius: 25px;
   box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
@@ -196,3 +194,4 @@
 .carousel-item img{
   border-radius: 40px;
 }
+

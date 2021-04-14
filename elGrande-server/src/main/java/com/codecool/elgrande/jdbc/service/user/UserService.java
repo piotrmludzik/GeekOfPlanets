@@ -8,6 +8,9 @@ public interface UserService {
 
     List<User> findAllUsers();
     User getUserById(int id);
+    User getUserByUsername(String username);
     void deleteUserById(int id);
     void addNewUser(User user);
+    void changePermissions(String username);
+    void changePassword(String newPassword);
 }

@@ -8,7 +8,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CanvasComponent } from './components/canvas/canvas.component';
 import {MatButtonModule} from '@angular/material/button';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
@@ -16,6 +16,8 @@ import { MenuComponent } from './components/menu/menu.component';
 import { GameComponent } from './components/game/game.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { SnackbarComponent } from './components/shared/snack-bar/snackbar.component';
 
 
 @NgModule({
@@ -26,15 +28,19 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     LogoutComponent,
     MenuComponent,
     GameComponent,
+    RegistrationComponent,
+    SnackbarComponent
+
   ],
   imports: [
     BrowserModule,
     MatButtonModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
+    ReactiveFormsModule,
     MatSidenavModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
 
   ],
   providers: [

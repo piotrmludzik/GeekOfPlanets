@@ -7,8 +7,8 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 export class LogoutService {
 
   constructor(private http: HttpClient) { }
-    executeLogoutService() {
-      let httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json'}), withCredentials: true};
+    executeLogoutService(): any {
+      const httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json'}), withCredentials: true};
       return this.http.get<any>('http://localhost:8080/logout', httpOptions);
     }
 }
