@@ -1,7 +1,8 @@
 @import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
 #login-page{
-  background: url("https://images8.alphacoders.com/503/503792.jpg")  no-repeat center center fixed;
+  background: url("https://cdn.wallpapersafari.com/11/88/RpvTds.jpg")  no-repeat center center fixed;
   background-size: cover;
+
 }
 
 .login-block{
@@ -9,8 +10,9 @@
   width:100%;
   padding : 50px 0;
   height : 100%;
+  background-color: rgba(255,255,255, 0.6);
+  background-blend-mode: luminosity;
 }
-
 
 .carousel-item{
   max-height: 100%;
@@ -19,14 +21,17 @@
 .carousel-inner{
   border-radius:0 10px 10px 0;
 }
+
 .carousel-caption{
   text-align:left;
   left:5%;
 }
+
 .login-sec{
   padding: 50px 30px;
   position:relative;
 }
+
 .login-sec .copy-text{
   position:absolute;
   width:80%;
@@ -34,8 +39,6 @@
   font-size:13px;
   text-align:center;
 }
-
-
 
 .banner-text{
   width:70%;
@@ -47,9 +50,16 @@
 .banner-text h2{
   color:#fff;
   font-weight:600;
+  letter-spacing:4px;
+}
+.banner-text p{
+  color:#fff;
+  font-weight:400;
+  letter-spacing:3px;
 }
 
-.banner-text h2:after{content:" ";
+.banner-text h2:after{
+  content:" ";
   width:100px; height:5px;
   background:#FFF;
   display:block;
@@ -58,6 +68,7 @@
 }
 .banner-text p{
   color:#fff;
+
 }
 
 .container{
@@ -72,7 +83,7 @@
 }
 
 .logo{
-  background: url('src/assets/img/logo2.png') no-repeat center center;
+  background: url('src/assets/img/spaceShip_50.png') no-repeat center center;
   background-size:contain;
   width:130px;
   height: 130px;
@@ -92,6 +103,8 @@
   padding-top: 20px;
   letter-spacing:4px;
   user-select: none;
+  color: black;
+
 
 }
 .sub-title{
@@ -112,11 +125,12 @@
   outline: none;
   background: none;
   font-size: 18px;
-  color: black;
+  color: #FFFFFF;
   padding: 20px 10px 20px 5px;
   text-align: center;
 }
 .form-control:focus {
+  content:" ";
   border-color: inherit;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -125,7 +139,10 @@
 .username, .password {
   margin-bottom: 30px;
   border-radius: 25px;
-  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
+  /*box-shadow: inset 8px 8px 8px #000, inset -8px -8px 8px #000;*/
+  background-color: rgba(46, 49, 49, 1);
+  letter-spacing:4px;
+
 }
 
 .form-group svg{
@@ -144,18 +161,20 @@
   font-size: 20px;
   font-weight: 700;
   font-family: 'Montserrat', sans-serif;
+  letter-spacing:4px;
   color:#fff;
   text-align: center;
   background: rgb(72,121,202);
-  box-shadow: 3px 3px 8px #b1b1b1,
-  -3px -3px 8px #ffffff;
+  /*box-shadow: 3px 3px 8px #b1b1b1,*/
+  /*-3px -3px 8px #ffffff;*/
   transition: 0.5s;
 }
+
 .register-in-button{
-  position: absolute;
-  width: 90%;
-  bottom:   20px;
-  background: rgb(102,95,144);
+  position: relative;
+
+  top:   50px;
+  background: #74B72E;
 }
 .sign-in-button:hover {
   background: rgb(113,119,163);
@@ -180,3 +199,17 @@
 .carousel-item img{
   border-radius: 40px;
 }
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgba(218, 223, 225, 1);
+  letter-spacing:2px;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  background-color: transparent;
+  letter-spacing:2px;
+}
+
+

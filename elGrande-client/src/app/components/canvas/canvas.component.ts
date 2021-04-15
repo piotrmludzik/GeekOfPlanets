@@ -80,7 +80,7 @@ export class CanvasComponent implements OnInit {
     return spaceShip;
   }
   drawSpaceship( ): any{
-    this.ctx.drawImage(spaceShipImage, spaceShip.x, spaceShip.y, spaceShipImage.width / 1 , spaceShipImage.height / 1 );
+    this.ctx.drawImage(spaceShipImage, spaceShip.x, spaceShip.y, spaceShipImage.width / 2 , spaceShipImage.height / 1 );
   }
   clearBoard(): void{
     this.ctx.clearRect(0, 0, gameBoardSetup.boardSize.width, gameBoardSetup.boardSize.height);

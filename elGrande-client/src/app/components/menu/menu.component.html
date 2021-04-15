@@ -1,14 +1,26 @@
 <header>
   <nav class="navbar navbar-expand-md navbar-custom fixed-top">
     <div class="navbar-brand">Geek of Planets</div>
-      <div class="logged-user" *ngIf="isLoggedIn"  class="nav-link"> TEMP/Logged in as: {{getLoggedInUSerName()}}
+      <div class="logged-user" *ngIf="isLoggedIn"  class="nav-link"> Player: {{getLoggedInUSerName()}}
     </div>
+
     <ul class="navbar-nav navbar-collapse justify-content-end inline-navbar">
       <li>
         <a *ngIf="isLoggedIn" class="nav-link" href="/logout" (click)=handleLogout()>Logout</a>
       </li>
       <li>
         <a *ngIf="!isLoggedIn" class="nav-link" href="/" (click)=handleLogout()>Not logged in</a>
+      </li>
+      <li class="nav-item dropdown" dropdown>
+        <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+          Settings<span class="caret"></span></a>
+        <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Action</a>
+          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Another action</a>
+          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Something else here</a>
+          <div class="divider dropdown-divider"></div>
+          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Separated link</a>
+        </div>
       </li>
     </ul>
   </nav>
