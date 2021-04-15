@@ -45,6 +45,10 @@ public class Player extends FieldEntity {
         super(null);
     }
 
+    public void discoverTechnology(String name){
+        planet.discoverTechnology(technologies, name);
+    }
+
     @Autowired
     public Player(Planet planet) {
         super(planet.getField());

@@ -2,11 +2,16 @@ package com.codecool.elgrande.model.game.objects;
 
 import com.codecool.elgrande.model.game.Field;
 import com.codecool.elgrande.model.game.FieldEntity;
+import com.codecool.elgrande.model.game.Resources;
 import com.codecool.elgrande.model.game.objects.buildings.Buildings;
+import com.codecool.elgrande.model.game.technologies.Technologies;
+import com.codecool.elgrande.model.game.technologies.Technology;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.time.Duration;
+import java.time.LocalDate;
 
 @Component
 @Entity
@@ -32,8 +37,19 @@ public class Planet extends FieldEntity {
     @JoinColumn(name="buildings_id", referencedColumnName="id")
     private Buildings buildings;
 
+    private LocalDate lastVisit;
+
+    private transient Resources resources;
+
+
     public Planet() {
         super(null);
+    }
+
+    public void newVisit(){
+        long duration = Duration.between(LocalDate.now(), lastVisit).toSeconds();
+        this.resources.extract(duration, buildings.getExtraction());
+        this.lastVisit = LocalDate.now();
     }
 
     @Autowired
@@ -43,10 +59,6 @@ public class Planet extends FieldEntity {
 
     public boolean isColonized() {
         return colonized;
-    }
-
-    public void setColonized(boolean colonized) {
-        this.colonized = true;
     }
 
     public void colonize(){
@@ -86,5 +98,9 @@ public class Planet extends FieldEntity {
 
     public void setBuildings(Buildings buildings) {
         this.buildings = buildings;
+    }
+
+    public void discoverTechnology(Technologies technologies, String name){
+        technologies.discover(name, resources);
     }
 }
