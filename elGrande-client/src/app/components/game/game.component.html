@@ -1,12 +1,5 @@
 <app-menu></app-menu>
 <div class="container">
-
   <h2 *ngIf="isResponse">{{welcomeMessage}}</h2>
-
-  <!-- NOTE: websocket try code -->
-  <form>
-    <input (click)="sendMessage()" type="button" value="send message">
-  </form>
-
 </div>
 <app-canvas></app-canvas>

@@ -77,6 +77,8 @@ export class CanvasComponent implements OnInit {
     this.clearBoard();
     this.drawSpaceship();
 
+    
+
     return spaceShip;
   }
   drawSpaceship( ): any{

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpRequest} from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import {WebsocketService} from '../../services/websocket.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class AuthenticationService {
   public username: string;
   public password: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private websocket: WebsocketService) { }
 
   // tslint:disable-next-line:typedef
   authenticationService(username: string, password: string) {
@@ -31,9 +32,11 @@ export class AuthenticationService {
   }
   registerSuccessfulLogin(username, password): void{
     sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, username);
+    this.websocket.connect();
   }
   logout(): void {
     sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
+    this.websocket.disconnect();
     this.username = null;
     this.password = null;
   }
