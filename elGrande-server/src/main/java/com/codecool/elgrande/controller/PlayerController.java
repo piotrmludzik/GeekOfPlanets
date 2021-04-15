@@ -25,7 +25,7 @@ public class PlayerController {
     @GetMapping("/game")
     public MessageDto getPlayerOnBoard() {
         int id = player.getId();
-        gameLogic.movePlayer(id, Direction.EAST);
+        gameLogic.movePlayer(id, Direction.SOUTH);
         return new MessageDto("Player on the board");
     }
 
