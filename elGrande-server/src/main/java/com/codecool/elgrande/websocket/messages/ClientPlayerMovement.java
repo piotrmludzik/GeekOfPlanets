@@ -1,30 +1,26 @@
 package com.codecool.elgrande.websocket.messages;
 
+import com.codecool.elgrande.logic.Direction;
+
 public class ClientPlayerMovement {
     private final String playerName;
-    private final int targetX;
-    private final int targetY;
+    private final Direction direction;
 
-    public ClientPlayerMovement(String playerName, int targetX, int targetY) {
+    public ClientPlayerMovement(String playerName, Direction direction) {
         this.playerName = playerName;
-        this.targetX = targetX;
-        this.targetY = targetY;
+        this.direction = direction;
     }
 
     public String getPlayerName() {
         return playerName;
     }
 
-    public int getTargetX() {
-        return targetX;
-    }
-
-    public int getTargetY() {
-        return targetY;
+    public Direction getDirection() {
+        return direction;
     }
 
     @Override
     public String toString() {
-        return "The client's message: the player " + playerName + " move on a " + targetX + ", " + targetY + " field.";
+        return "The client's message: the player " + playerName + " move towards " + direction;
     }
 }
