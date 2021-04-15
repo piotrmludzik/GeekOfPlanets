@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Component
 @Getter
@@ -19,7 +20,7 @@ public class Field {
     @Id
     @GeneratedValue(generator="uuid2")
     @GenericGenerator(name="uuid2", strategy="org.hibernate.id.UUIDGenerator")
-    private String id;
+    private UUID id;
 
     private transient Player player;
     private transient Planet planet;
@@ -38,7 +39,7 @@ public class Field {
         this.y = y;
     }
 
-    public void clearCell(){
+    public void clearField(){
         this.player = null;
     }
 

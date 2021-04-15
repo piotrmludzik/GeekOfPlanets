@@ -33,6 +33,7 @@ public class JsonObjectAuthenticationFilter extends UsernamePasswordAuthenticati
             UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
             setDetails(request, token);
 
+            // NOTE: dev code, to check
             String originHeader = request.getHeader("Origin");
             response.setHeader("Access-Control-Allow-Credentials", "true");
             response.setHeader("Access-Control-Allow-Origin", origins.contains(originHeader) ? originHeader : "");

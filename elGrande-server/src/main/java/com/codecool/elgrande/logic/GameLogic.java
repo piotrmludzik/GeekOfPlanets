@@ -1,5 +1,6 @@
 package com.codecool.elgrande.logic;
 
+import com.codecool.elgrande.controller.GameController;
 import com.codecool.elgrande.jdbc.service.game.PlayerService;
 import com.codecool.elgrande.model.game.Field;
 import com.codecool.elgrande.model.game.GameBoard;
@@ -10,20 +11,23 @@ import org.springframework.stereotype.Component;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.UUID;
 
 @Component
 public class GameLogic {
+    private final GameController gameController;
     private final GameBoard gameBoard;
     private final List<Player> players = new LinkedList<>();
     private final PlayerService playerService;
 
     @Autowired
-    public GameLogic(GameBoard gameBoard, PlayerService playerService) {
+    public GameLogic(GameController gameController, GameBoard gameBoard, PlayerService playerService) {
+        this.gameController = gameController;
         this.gameBoard = gameBoard;
         this.playerService = playerService;
     }
 
-    public void createPlayer(String name, Field field, String userId) {
+    public void createPlayer(String name, Field field, UUID userId) {
         Planet planet = gameBoard.getEmptyPlanet();
         Player player = new Player(planet);
         player.setName(name);
@@ -38,15 +42,13 @@ public class GameLogic {
         gameBoard.addFieldEntity(player);
     }
 
-    public Player getPlayer(String id) {
-        return playerService.getPlayerById(id);
-    }
-
-    public void movePlayer(String id, Direction direction) {
-        Player player = this.getPlayer(id);
+    public void movePlayer(String playerName, Direction direction) {
+        Player player = gameController.getPlayer(playerName);
         Field actualField = player.getField();
-        Field destinationCoordinates = new Field(actualField.getX()+direction.getCoordinates().getX(), actualField.getY()+direction.getCoordinates().getY());
-        player.setCoordinates(destinationCoordinates);
-        actualField.clearCell();
+        Field destinationCoordinates = new Field(
+                actualField.getX() + direction.getCoordinates().getX(),
+                actualField.getY() + direction.getCoordinates().getY());
+        player.setField(destinationCoordinates);
+        actualField.clearField();
     }
 }

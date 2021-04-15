@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class PlayerServiceImpl implements PlayerService {
@@ -25,6 +26,11 @@ public class PlayerServiceImpl implements PlayerService {
     @Override
     public Player getPlayerById(String id) {
         return playerRepository.getPlayerById(id);
+    }
+
+    @Override
+    public Player getPlayerByUserId(UUID userId) {
+        return playerRepository.getPlayerByUserId(userId);
     }
 
     @Override

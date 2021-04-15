@@ -22,13 +22,6 @@ public class PlayerController {
         this.playerService = playerService;
     }
 
-    @GetMapping("/game")
-    public MessageDto getPlayerOnBoard() {
-        String id = player.getId();
-        gameLogic.movePlayer(id, Direction.SOUTH);
-        return new MessageDto("Player on the board");
-    }
-
     @PostMapping("/dashboard")
     public MessageDto changePlayerName(String newName) {
         playerService.changePlayerName(newName);
