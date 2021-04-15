@@ -1,5 +1,6 @@
 package com.codecool.elgrande.model.user;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -11,8 +12,9 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int id;
+    @GeneratedValue(generator="uuid2")
+    @GenericGenerator(name="uuid2", strategy="org.hibernate.id.UUIDGenerator")
+    private String id;
 
     @Column(name="username")
     private String username;
@@ -32,11 +34,11 @@ public class User {
         this.password = password;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -35,7 +35,7 @@ public class UserController {
     public MessageDto handleUserForm(@RequestBody User user) {
         user.setEnabled(1);
         userService.addNewUser(user);
-        int id = userService.getUserByUsername(user.getUsername()).getId();
+        String id = userService.getUserByUsername(user.getUsername()).getId();
         Field field = new Field(2, 2);
         gameLogic.createPlayer(user.getUsername(), field, id);
 

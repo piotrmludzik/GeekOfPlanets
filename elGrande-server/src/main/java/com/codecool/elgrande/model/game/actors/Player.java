@@ -6,6 +6,7 @@ import com.codecool.elgrande.model.game.objects.Planet;
 import com.codecool.elgrande.model.game.technologies.Technologies;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,11 +18,10 @@ import javax.persistence.*;
 @Entity
 @Table(name="player")
 public class Player extends FieldEntity {
-
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="id")
-    private int id;
+    @GeneratedValue(generator="uuid2")
+    @GenericGenerator(name="uuid2", strategy="org.hibernate.id.UUIDGenerator")
+    private String id;
 
     @Column(name="name")
     private String name;
@@ -40,7 +40,7 @@ public class Player extends FieldEntity {
     private Technologies technologies;
 
     @Column(name="user_id")
-    private int userId;
+    private String userId;
 
     private transient Planet planet;
 

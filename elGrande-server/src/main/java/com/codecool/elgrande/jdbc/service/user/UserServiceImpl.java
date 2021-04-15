@@ -8,7 +8,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -30,9 +29,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserById(int id) {
-        Optional<User> opt = userRepository.findById(id);
-        return opt.orElse(null);
+    public User getUserById(String id) {
+        return userRepository.getUserById(id);
     }
 
     @Override

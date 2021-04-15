@@ -5,7 +5,7 @@ import com.codecool.elgrande.model.game.FieldEntity;
 import com.codecool.elgrande.model.game.Resources;
 import com.codecool.elgrande.model.game.objects.buildings.Buildings;
 import com.codecool.elgrande.model.game.technologies.Technologies;
-import com.codecool.elgrande.model.game.technologies.Technology;
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,11 +17,10 @@ import java.time.LocalDate;
 @Entity
 @Table(name="planets")
 public class Planet extends FieldEntity {
-
     @Id
-    @Column(name="id")
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int id;
+    @GeneratedValue(generator="uuid2")
+    @GenericGenerator(name="uuid2", strategy="org.hibernate.id.UUIDGenerator")
+    private String id;
 
     @Column(name="name")
     private String name;
@@ -65,11 +64,11 @@ public class Planet extends FieldEntity {
         this.colonized = true;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

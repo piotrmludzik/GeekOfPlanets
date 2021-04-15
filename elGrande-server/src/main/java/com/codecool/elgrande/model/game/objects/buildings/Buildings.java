@@ -4,11 +4,13 @@ import com.codecool.elgrande.model.game.Resources;
 import com.codecool.elgrande.model.game.objects.buildings.mines.EtherMine;
 import com.codecool.elgrande.model.game.objects.buildings.mines.HydratMine;
 import com.codecool.elgrande.model.game.objects.buildings.mines.MetalMine;
-import com.codecool.elgrande.model.game.technologies.Technologies;
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.*;
-import java.awt.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Component
 @Entity
@@ -16,9 +18,9 @@ import java.awt.*;
 public class Buildings {
 
     @Id
-    @Column(name="id")
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int id;
+    @GeneratedValue(generator="uuid2")
+    @GenericGenerator(name="uuid2", strategy="org.hibernate.id.UUIDGenerator")
+    private String id;
 
     private final transient EtherMine etherMine = new EtherMine();
     private final transient HydratMine hydratMine = new HydratMine();
@@ -29,13 +31,13 @@ public class Buildings {
     private final transient Shipyard shipyard = new Shipyard();
     private final transient Storage storage = new Storage();
     private transient Resources extraction;
-    private  transient final Building[] avaliableToBuild = new Building[9];
+    private  transient final Building[] availableToBuild = new Building[9];
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
