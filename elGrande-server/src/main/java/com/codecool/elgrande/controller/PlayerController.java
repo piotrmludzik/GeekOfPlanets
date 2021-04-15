@@ -1,10 +1,10 @@
 package com.codecool.elgrande.controller;
 
 import com.codecool.elgrande.dto.MessageDto;
-import com.codecool.elgrande.game.jdbc.service.PlayerService;
-import com.codecool.elgrande.game.logic.Direction;
-import com.codecool.elgrande.game.logic.GameLogic;
-import com.codecool.elgrande.game.model.actors.Player;
+import com.codecool.elgrande.jdbc.service.game.PlayerService;
+import com.codecool.elgrande.logic.Direction;
+import com.codecool.elgrande.logic.GameLogic;
+import com.codecool.elgrande.model.game.actors.Player;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
