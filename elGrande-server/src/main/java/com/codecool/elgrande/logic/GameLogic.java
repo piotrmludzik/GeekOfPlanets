@@ -45,8 +45,10 @@ public class GameLogic {
     public void movePlayer(String playerName, Direction direction) {
         Player player = gameController.getPlayer(playerName);
         Field actualField = player.getField();
-        Field destinationCoordinates = new Field(actualField.getX()+direction.getCoordinates().getX(), actualField.getY()+direction.getCoordinates().getY());
-        player.setCoordinates(destinationCoordinates);
-        actualField.clearCell();
+        Field destinationCoordinates = new Field(
+                actualField.getX() + direction.getCoordinates().getX(),
+                actualField.getY() + direction.getCoordinates().getY());
+        player.setField(destinationCoordinates);
+        actualField.clearField();
     }
 }

@@ -4,6 +4,7 @@ import com.codecool.elgrande.model.game.Field;
 import com.codecool.elgrande.model.game.FieldEntity;
 import com.codecool.elgrande.model.game.objects.Planet;
 import com.codecool.elgrande.model.game.technologies.Technologies;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -27,6 +28,7 @@ public class Player extends FieldEntity {
     @Column(name="name")
     private String name;
 
+    @Setter(AccessLevel.NONE)
     @OneToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE,
             CascadeType.DETACH, CascadeType.REFRESH})
     @JoinColumn(name="field_id", referencedColumnName="id")
@@ -60,7 +62,8 @@ public class Player extends FieldEntity {
         this.planet = planet;
     }
 
-    public void setCoordinates(Field field) {
-        this.getField().setPlayer(this);
+    public void setField(Field field) {
+        this.field = field;
+        this.field.setPlayer(this);
     }
 }

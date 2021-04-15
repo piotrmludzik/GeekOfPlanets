@@ -39,7 +39,7 @@ public class Field {
         this.y = y;
     }
 
-    public void clearCell(){
+    public void clearField(){
         this.player = null;
     }
 
