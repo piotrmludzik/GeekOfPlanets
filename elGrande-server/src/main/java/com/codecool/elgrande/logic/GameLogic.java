@@ -1,8 +1,6 @@
 package com.codecool.elgrande.logic;
 
 import com.codecool.elgrande.jdbc.service.game.PlayerService;
-import com.codecool.elgrande.jdbc.service.user.AuthoritiesService;
-import com.codecool.elgrande.jdbc.service.user.UserService;
 import com.codecool.elgrande.model.game.Field;
 import com.codecool.elgrande.model.game.GameBoard;
 import com.codecool.elgrande.model.game.actors.Player;
@@ -18,15 +16,11 @@ public class GameLogic {
     private final GameBoard gameBoard;
     private final List<Player> players = new LinkedList<>();
     private final PlayerService playerService;
-    private final UserService userService;
-    private final AuthoritiesService authoritiesService;
 
     @Autowired
-    public GameLogic(GameBoard gameBoard, PlayerService playerService, UserService userService, AuthoritiesService authoritiesService) {
+    public GameLogic(GameBoard gameBoard, PlayerService playerService) {
         this.gameBoard = gameBoard;
         this.playerService = playerService;
-        this.userService = userService;
-        this.authoritiesService = authoritiesService;
     }
 
     public void createPlayer(String name, Field field, int userId) {

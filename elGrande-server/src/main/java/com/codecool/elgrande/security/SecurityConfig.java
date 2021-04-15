@@ -1,8 +1,5 @@
-package com.codecool.elgrande.configuration;
+package com.codecool.elgrande.security;
 
-import com.codecool.elgrande.security.JsonObjectAuthenticationFilter;
-import com.codecool.elgrande.security.RestAuthenticationFailureHandler;
-import com.codecool.elgrande.security.RestAuthenticationSuccessHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;

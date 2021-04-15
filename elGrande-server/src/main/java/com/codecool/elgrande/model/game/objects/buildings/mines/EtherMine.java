@@ -10,4 +10,5 @@ public class EtherMine extends Mine {
         this.setProduction(10);
     }
 
+    public void levelUp(){}
 }
