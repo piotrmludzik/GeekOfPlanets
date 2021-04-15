@@ -34,29 +34,8 @@
   font-size:13px;
   text-align:center;
 }
-.login-sec .copy-text i{
-  color:#FEB58A;
-}
-.login-sec .copy-text a{
-  color:#E36262;
-}
-.login-sec h2{
-  margin-bottom:30px;
-  font-weight:800;
-  font-size:30px;
-  color: #DE6262;}
 
-.login-sec h2:after{
-  content:" ";
-  width:100px;
-  height:5px;
-  background:#FEB58A;
-  display:block;
-  margin-top:20px;
-  border-radius:3px;
-  margin-left:auto;
-  margin-right:auto;
-}
+
 
 .banner-text{
   width:70%;
@@ -84,8 +63,8 @@
 .container{
   padding: 60px 35px 35px 35px;
   border-radius: 40px;
-  background: #ecf0f3;
-  box-shadow: 13px 13px 20px #cbced1;
+  background: transparent;
+  /*box-shadow: 13px 13px 13px #725aea;*/
   -webkit-border-radius: 40px;
   -moz-border-radius: 40px;
   -ms-border-radius: 40px;
@@ -108,16 +87,19 @@
 
 .title{
   text-align: center;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: bolder;
   padding-top: 20px;
   letter-spacing:4px;
+  user-select: none;
+
 }
 .sub-title{
   text-align: center;
   font-size: 18px;
   padding-top: 10px;
   letter-spacing: 4px;
+  user-select: none;
 }
 
 .form-group{
@@ -130,7 +112,7 @@
   outline: none;
   background: none;
   font-size: 18px;
-  color: #555;
+  color: black;
   padding: 20px 10px 20px 5px;
   text-align: center;
 }
@@ -150,6 +132,7 @@
   height: 30px;
   margin: 0 10px -3px 25px;
 }
+
 
 .sign-in-button, .register-in-button{
   outline: none;

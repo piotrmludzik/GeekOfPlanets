@@ -14,7 +14,7 @@ const y = 5;
 let moveDirection: string;
 const spaceShip = {x: 0, y: 0};
 const spaceShipImage = new Image();
-spaceShipImage.src = '../assets/img/spaceShip.png';
+spaceShipImage.src = '../assets/img/spaceShip_50.png';
 
 
 @Component({
@@ -80,7 +80,7 @@ export class CanvasComponent implements OnInit {
     return spaceShip;
   }
   drawSpaceship( ): any{
-    this.ctx.drawImage(spaceShipImage, spaceShip.x, spaceShip.y, spaceShipImage.width / 8 , spaceShipImage.height / 8 );
+    this.ctx.drawImage(spaceShipImage, spaceShip.x, spaceShip.y, spaceShipImage.width / 1 , spaceShipImage.height / 1 );
   }
   clearBoard(): void{
     this.ctx.clearRect(0, 0, gameBoardSetup.boardSize.width, gameBoardSetup.boardSize.height);
