@@ -4,9 +4,11 @@ import com.codecool.elgrande.model.game.Resources;
 import com.codecool.elgrande.model.game.objects.buildings.mines.EtherMine;
 import com.codecool.elgrande.model.game.objects.buildings.mines.HydratMine;
 import com.codecool.elgrande.model.game.objects.buildings.mines.MetalMine;
+import com.codecool.elgrande.model.game.technologies.Technologies;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.awt.*;
 
 @Component
 @Entity
@@ -18,17 +20,16 @@ public class Buildings {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
 
-    private transient EtherMine etherMine;
-    private transient HydratMine hydratMine;
-    private transient MetalMine metalMine;
+    private final transient EtherMine etherMine = new EtherMine();
+    private final transient HydratMine hydratMine = new HydratMine();
+    private final transient MetalMine metalMine = new MetalMine();
     private transient Docks docks;
-    private transient Laboratory laboratory;
-    private transient PowerPlant powerPlant;
-    private transient Shipyard shipyard;
-    private transient Storage storage;
-
-    public Buildings() {
-    }
+    private final transient Laboratory laboratory = new Laboratory();
+    private final transient PowerPlant powerPlant = new PowerPlant();
+    private final transient Shipyard shipyard = new Shipyard();
+    private final transient Storage storage = new Storage();
+    private transient Resources extraction;
+    private  transient final Building[] avaliableToBuild = new Building[9];
 
     public int getId() {
         return id;
@@ -72,5 +73,15 @@ public class Buildings {
                 resources.substractCost(storage.getCost());
                 this.storage.levelUp();
         }
+    }
+
+
+
+
+    public Resources getExtraction(){
+        extraction.setMetal(this.metalMine.getProduction());
+        extraction.setEther(this.etherMine.getProduction());
+        extraction.setHydrate(this.hydratMine.getProduction());
+        return extraction;
     }
 }
