@@ -24,9 +24,7 @@ export class WebsocketService {
     }, (frame) => {
       // tslint:disable-next-line:only-arrow-functions typedef
       this.stompClient.subscribe('/user/queue/reply', (message) => {
-        const msg = JSON.parse(message.body).content;
-        console.log('WebSocket | Retriever message: ' + msg);  // NOTE: dev code
-        this.messageController(msg);
+        this.messageController(JSON.parse(message.body));
       });
     });
   }

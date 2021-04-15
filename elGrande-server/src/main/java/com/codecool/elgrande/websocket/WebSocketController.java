@@ -38,14 +38,4 @@ public class WebSocketController {
         System.out.println("WebSocket | " + serverPlayerMovement);  // NOTE: dev code: console log
         messagingTemplate.convertAndSendToUser(movingPlayer.getName(), "/queue/reply", serverPlayerMovement);
     }
-
-//    NOTE: the code below is an example for sending messages to all active clients
-//    @MessageMapping("/playerMovement")
-//    @SendTo("/topic/playerMovement")
-//    public ServerPlayerMovement receiveUserEventData(ClientPlayerMovement clientPlayerMovement) {
-//        System.out.println("WebSocket | " + clientPlayerMovement);  // NOTE: dev code: console log
-//        var serverPlayerMovement = new ServerPlayerMovement(0, 0, 0);
-//        System.out.println("WebSocket | " + serverPlayerMovement);  // NOTE: dev code: console log
-//        return serverPlayerMovement;
-//    }
 }
