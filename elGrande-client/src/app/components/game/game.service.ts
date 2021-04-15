@@ -11,7 +11,7 @@ export class GameService {
 
   // tslint:disable-next-line:typedef
   executeGameService(){
-    let httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json'}), withCredentials: true};
+    const httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json'}), withCredentials: true};
     return this.http.get<any>('http://localhost:8080/secured', httpOptions);
   }
 }
