@@ -1,18 +1,18 @@
 package com.codecool.elgrande.websocket.messages;
 
 public class ServerPlayerMovement {
-    private final int id;
+    private final String playerName;
     private final int targetX;
     private final int targetY;
 
-    public ServerPlayerMovement(int id, int targetX, int targetY) {
-        this.id = id;
+    public ServerPlayerMovement(String playerName, int targetX, int targetY) {
+        this.playerName = playerName;
         this.targetX = targetX;
         this.targetY = targetY;
     }
 
-    public int getId() {
-        return id;
+    public String getPlayerName() {
+        return playerName;
     }
 
     public int getTargetX() {
@@ -25,6 +25,6 @@ public class ServerPlayerMovement {
 
     @Override
     public String toString() {
-        return "The server's message: the player " + id + " move on a " + targetX + ", " + targetY + " field.";
+        return "The server's message: the player " + playerName + " move on a " + targetX + ", " + targetY + " field.";
     }
 }
