@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.UUID;
 
 @Component
 public class GameLogic {
@@ -23,7 +24,7 @@ public class GameLogic {
         this.playerService = playerService;
     }
 
-    public void createPlayer(String name, Field field, String userId) {
+    public void createPlayer(String name, Field field, UUID userId) {
         Planet planet = gameBoard.getEmptyPlanet();
         Player player = new Player(planet);
         player.setName(name);

@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.UUID;
 
 @Component
 @Entity
@@ -20,7 +21,7 @@ public class Buildings {
     @Id
     @GeneratedValue(generator="uuid2")
     @GenericGenerator(name="uuid2", strategy="org.hibernate.id.UUIDGenerator")
-    private String id;
+    private UUID id;
 
     private final transient EtherMine etherMine = new EtherMine();
     private final transient HydratMine hydratMine = new HydratMine();
@@ -33,11 +34,11 @@ public class Buildings {
     private transient Resources extraction;
     private  transient final Building[] availableToBuild = new Building[9];
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

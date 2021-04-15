@@ -2,7 +2,7 @@
 DROP TABLE IF EXISTS user_registration_data;
 
 CREATE TABLE user_registration_data (
-                                        id         VARCHAR PRIMARY KEY NOT NULL,
+                                        id         UUID PRIMARY KEY NOT NULL,
                                         username   VARCHAR UNIQUE NOT NULL,
                                         password   VARCHAR NOT NULL,
                                         enabled    INT2 NOT NULL DEFAULT 1
@@ -12,7 +12,7 @@ CREATE TABLE user_registration_data (
 DROP TABLE IF EXISTS authorities;
 
 CREATE TABLE authorities (
-                             id        VARCHAR PRIMARY KEY NOT NULL,
+                             id        UUID PRIMARY KEY NOT NULL,
                              username  VARCHAR UNIQUE NOT NULL,
                              authority VARCHAR DEFAULT 'ROLE_USER',
 

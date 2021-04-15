@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.UUID;
+
 @RestController
 public class UserController {
 
@@ -35,7 +37,7 @@ public class UserController {
     public MessageDto handleUserForm(@RequestBody User user) {
         user.setEnabled(1);
         userService.addNewUser(user);
-        String id = userService.getUserByUsername(user.getUsername()).getId();
+        UUID id = userService.getUserByUsername(user.getUsername()).getId();
         Field field = new Field(2, 2);
         gameLogic.createPlayer(user.getUsername(), field, id);
 

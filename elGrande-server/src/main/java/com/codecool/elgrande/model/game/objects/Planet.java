@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import javax.persistence.*;
 import java.time.Duration;
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Component
 @Entity
@@ -20,7 +21,7 @@ public class Planet extends FieldEntity {
     @Id
     @GeneratedValue(generator="uuid2")
     @GenericGenerator(name="uuid2", strategy="org.hibernate.id.UUIDGenerator")
-    private String id;
+    private UUID id;
 
     @Column(name="name")
     private String name;
@@ -64,11 +65,11 @@ public class Planet extends FieldEntity {
         this.colonized = true;
     }
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

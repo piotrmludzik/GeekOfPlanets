@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Component
 @Getter
@@ -17,7 +18,7 @@ public class Authorities {
     @Id
     @GeneratedValue(generator="uuid2")
     @GenericGenerator(name="uuid2", strategy="org.hibernate.id.UUIDGenerator")
-    private String id;
+    private UUID id;
 
     @OneToOne(cascade=CascadeType.MERGE, orphanRemoval=true)
     @JoinColumn(name="username", referencedColumnName="username")

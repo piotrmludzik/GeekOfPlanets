@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Component
 @Entity
@@ -13,7 +14,7 @@ public class Statistics {
     @Id
     @GeneratedValue(generator="uuid2")
     @GenericGenerator(name="uuid2", strategy="org.hibernate.id.UUIDGenerator")
-    private String id;
+    private UUID id;
 
     @Column(name="attack")
     private int attack;
@@ -34,11 +35,11 @@ public class Statistics {
         this.radius = radius;
     }
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
