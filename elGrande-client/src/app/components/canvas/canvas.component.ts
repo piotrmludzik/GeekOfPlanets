@@ -81,7 +81,7 @@ export class CanvasComponent implements OnInit {
       spaceShipImage,
       this.gameService.spaceShip.x,
       this.gameService.spaceShip.y,
-      spaceShipImage.width,
-      spaceShipImage.height);
+      spaceShipImage.width / 4,
+      spaceShipImage.height / 2);
   }
 }
