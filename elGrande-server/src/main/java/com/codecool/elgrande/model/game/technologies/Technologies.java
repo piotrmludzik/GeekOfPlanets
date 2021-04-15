@@ -18,14 +18,14 @@ public class Technologies {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private transient ColonizationTechology colonizationTechology = new ColonizationTechology();
-    private transient CombatTechnology combatTechnology = new CombatTechnology();
-    private transient ConstructionTechnology constructionTechnology = new ConstructionTechnology();
-    private transient DriveTechnology driveTechnology = new DriveTechnology();
-    private transient EnergeticTechnology energeticTechnology = new EnergeticTechnology();
-    private transient MiningTechnology miningTechnology = new MiningTechnology();
-    private transient SpyTechnology spyTechnology = new SpyTechnology();
-    private transient StorageTechnology storageTechnology = new StorageTechnology();
+    private transient ColonizationTechology colonizationTechology;
+    private transient CombatTechnology combatTechnology;
+    private transient ConstructionTechnology constructionTechnology;
+    private transient DriveTechnology driveTechnology;
+    private transient EnergeticTechnology energeticTechnology;
+    private transient MiningTechnology miningTechnology;
+    private transient SpyTechnology spyTechnology;
+    private transient StorageTechnology storageTechnology;
 
 
     public Technologies() {

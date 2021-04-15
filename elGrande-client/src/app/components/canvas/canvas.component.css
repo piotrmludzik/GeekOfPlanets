@@ -3,11 +3,10 @@ canvas {
   margin-right: auto;
   margin-left: auto;
   display: block;
-  width: 90%;
-  height: 50%;
+  width: 100vw;
+  height: 100vh;
   background-image: url("https://cdn.wallpapersafari.com/11/88/RpvTds.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-
 }

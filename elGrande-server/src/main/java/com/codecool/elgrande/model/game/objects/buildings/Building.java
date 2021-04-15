@@ -1,6 +1,7 @@
 package com.codecool.elgrande.model.game.objects.buildings;
 
 import com.codecool.elgrande.model.game.Resources;
+import com.codecool.elgrande.model.game.technologies.Technologies;
 
 
 public abstract class Building {
@@ -28,4 +29,5 @@ public abstract class Building {
     public int getLevel(){
         return this.level;
     }
+
 }

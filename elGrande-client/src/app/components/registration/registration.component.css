@@ -1,7 +1,11 @@
+@import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
+#register-page{
+  background: url("https://images8.alphacoders.com/503/503792.jpg")  no-repeat center center fixed;
+  background-size: cover;
+}
+
 .register-block{
-  background: #DE6262;
-  background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262);
-  background: linear-gradient(to bottom, #FFB88C, #DE6262);
+  font-family: 'Montserrat', sans-serif;
   width:100%;
   padding : 50px 0;
   height : 100%;
@@ -9,7 +13,6 @@
 
 .carousel-item{
   max-height: 100%;
-
 
 }
 .carousel-inner{
@@ -53,12 +56,142 @@
   margin-left:auto;
   margin-right:auto;
 }
-.btn-login{
-  background: #DE6262;
+
+.banner-text{
+  width:70%;
+  position:absolute;
+  bottom:40px;
+  padding-left:20px;
+}
+
+.banner-text h2{
   color:#fff;
   font-weight:600;
 }
+
+.banner-text h2:after{content:" ";
+  width:100px; height:5px;
+  background:#FFF;
+  display:block;
+  margin-top:20px;
+  border-radius:3px;
+}
+.banner-text p{
+  color:#fff;
+}
+
 .container{
-  background: white;
+  padding: 60px 35px 35px 35px;
+  border-radius: 40px;
+  background: #ecf0f3;
+  box-shadow: 13px 13px 20px #cbced1;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -ms-border-radius: 40px;
+  -o-border-radius: 40px;
+}
+
+.logo{
+  background: url('src/assets/img/logo2.png') no-repeat center center;
+  background-size:contain;
+  width:130px;
+  height: 130px;
+  border-radius: 50%;
+  margin:0 auto;
+  box-shadow:   /* logo shadow */  0px 0px 2px #5f5f5f,  /* offset */  0px 0px 0px 5px #ecf0f3,  /*bottom right */  8px 8px 15px #a7aaaf,  /* top left */  -8px -8px 15px #ffffff  ;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.title{
+  text-align: center;
+  font-size: 28px;
+  font-weight: bolder;
+  padding-top: 20px;
+  letter-spacing:4px;
+}
+.sub-title{
+  text-align: center;
+  font-size: 18px;
+  padding-top: 10px;
+  letter-spacing: 4px;
+}
+
+.form-group{
+  width: 100%;
+  padding: 5px 5px 5px 5px;
+}
+
+.form-group input{
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 18px;
+  color: #555;
+  padding: 20px 10px 20px 5px;
+  text-align: center;
+}
+.form-control:focus {
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.username, .password, .email {
+  margin-bottom: 30px;
+  border-radius: 25px;
+  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
+}
+
+.form-group svg{
+  height: 30px;
+  margin: 0 10px -3px 25px;
+}
+
+.sign-in-button, .register-in-button{
+  outline: none;
+  border:none;
+  cursor: pointer;
+  width:100%;
+  height: 60px;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  color:#fff;
+  text-align: center;
+  background: #24cfaa;
+  box-shadow: 3px 3px 8px #b1b1b1,
+  -3px -3px 8px #ffffff;
+  transition: 0.5s;
+}
+.register-in-button{
+  position: absolute;
+  width: 90%;
+  bottom:   20px;
+  background: rgb(102,95,144);
+}
+
+.register-in-button:hover {
+  background: rgb(113,119,163);
+}
+
+.sign-in-button:active {
+  background:#1da88a;
+}
+.link {
+  padding-top: 20px;
+  text-align: center;
+}
+.link a {
+  text-decoration: none;
+  color:#aaa;
+  font-size: 15px;
+}
+
+.carousel-item img{
+  border-radius: 40px;
 }
 
