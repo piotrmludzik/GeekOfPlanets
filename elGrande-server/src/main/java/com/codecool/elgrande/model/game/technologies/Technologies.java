@@ -3,9 +3,13 @@ package com.codecool.elgrande.model.game.technologies;
 import com.codecool.elgrande.model.game.Resources;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Component
 @Getter
@@ -13,11 +17,11 @@ import javax.persistence.*;
 @Entity
 @Table(name="technologies")
 public class Technologies {
-
     @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @GeneratedValue(generator="uuid2")
+    @GenericGenerator(name="uuid2", strategy="org.hibernate.id.UUIDGenerator")
+    private String id;
+
     private transient ColonizationTechology colonizationTechology;
     private transient CombatTechnology combatTechnology;
     private transient ConstructionTechnology constructionTechnology;

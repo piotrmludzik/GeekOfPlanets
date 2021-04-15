@@ -1,5 +1,6 @@
 package com.codecool.elgrande.model.game.actors;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -9,11 +10,10 @@ import javax.persistence.*;
 @Entity
 @Table(name="statistics")
 public class Statistics {
-
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name="id")
-    private int id;
+    @GeneratedValue(generator="uuid2")
+    @GenericGenerator(name="uuid2", strategy="org.hibernate.id.UUIDGenerator")
+    private String id;
 
     @Column(name="attack")
     private int attack;
@@ -34,11 +34,11 @@ public class Statistics {
         this.radius = radius;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

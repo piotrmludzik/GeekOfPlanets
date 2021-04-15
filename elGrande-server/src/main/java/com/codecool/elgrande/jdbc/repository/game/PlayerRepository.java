@@ -9,6 +9,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PlayerRepository extends CrudRepository<Player, Integer> {
 
+    @Query("SELECT p FROM Player p WHERE p.id = ?1")
+    Player getPlayerById(String id);
+
     @Modifying
     @Query("UPDATE Player p SET p.name = ?1")
     void changePlayerName(String newName);

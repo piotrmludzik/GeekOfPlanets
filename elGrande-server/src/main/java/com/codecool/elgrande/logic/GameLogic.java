@@ -23,7 +23,7 @@ public class GameLogic {
         this.playerService = playerService;
     }
 
-    public void createPlayer(String name, Field field, int userId) {
+    public void createPlayer(String name, Field field, String userId) {
         Planet planet = gameBoard.getEmptyPlanet();
         Player player = new Player(planet);
         player.setName(name);
@@ -38,11 +38,11 @@ public class GameLogic {
         gameBoard.addFieldEntity(player);
     }
 
-    public Player getPlayer(int id) {
+    public Player getPlayer(String id) {
         return playerService.getPlayerById(id);
     }
 
-    public void movePlayer(int id, Direction direction) {
+    public void movePlayer(String id, Direction direction) {
         Player player = this.getPlayer(id);
         Field actualField = player.getField();
         Field destinationCoordinates = new Field(actualField.getX()+direction.getCoordinates().getX(), actualField.getY()+direction.getCoordinates().getY());

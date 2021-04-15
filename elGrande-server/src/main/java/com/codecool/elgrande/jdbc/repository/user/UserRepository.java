@@ -12,6 +12,9 @@ public interface UserRepository extends CrudRepository<User, Integer> {
     @Query("SELECT u FROM User u WHERE u.username = ?1")
     User getUserByUsername(String username);
 
+    @Query("SELECT u FROM User u WHERE u.id = ?1")
+    User getUserById(String id);
+
     @Modifying
     @Query("UPDATE User u SET u.enabled=2")
     void takeAwayPermissions();

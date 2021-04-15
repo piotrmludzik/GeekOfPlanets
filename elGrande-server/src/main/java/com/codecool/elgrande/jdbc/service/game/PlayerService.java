@@ -7,7 +7,7 @@ import java.util.List;
 public interface PlayerService {
 
     List<Player> findAllPlayers();
-    Player getPlayerById(int id);
+    Player getPlayerById(String id);
     void deletePlayerById(int id);
     void addNewPlayer(Player player);
     long getPlayerCount();

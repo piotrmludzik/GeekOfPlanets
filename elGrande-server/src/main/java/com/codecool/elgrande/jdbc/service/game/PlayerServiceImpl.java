@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PlayerServiceImpl implements PlayerService {
@@ -24,9 +23,8 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     @Override
-    public Player getPlayerById(int id) {
-        Optional<Player> opt = playerRepository.findById(id);
-        return opt.orElse(null);
+    public Player getPlayerById(String id) {
+        return playerRepository.getPlayerById(id);
     }
 
     @Override
