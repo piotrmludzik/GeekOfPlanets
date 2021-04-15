@@ -1,0 +1,11 @@
+.navbar-nav {
+  flex-direction: row;
+  user-select: none;
+}
+.navbar-brand{
+  user-select: none;
+}
+
+.navbar-custom {
+  background-color: lightgreen;
+}

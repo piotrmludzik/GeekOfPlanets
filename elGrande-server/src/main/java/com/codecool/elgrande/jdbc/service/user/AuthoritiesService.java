@@ -8,4 +8,5 @@ public interface AuthoritiesService {
 
     List<Authorities> findAllAuthorities();
     void addNewAuthority(Authorities authorities);
+    void changeAuthority(String authority);
 }

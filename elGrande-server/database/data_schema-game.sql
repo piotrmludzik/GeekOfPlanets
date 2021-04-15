@@ -41,6 +41,7 @@ CREATE TABLE player (
                       field_id         INTEGER DEFAULT NULL,
                       statistics_id    INTEGER DEFAULT NULL,
                       technologies_id  INTEGER DEFAULT NULL,
+                      user_id          INTEGER NOT NULL,
 
                       CONSTRAINT fk_statistics FOREIGN KEY (statistics_id)
                           REFERENCES statistics (id)

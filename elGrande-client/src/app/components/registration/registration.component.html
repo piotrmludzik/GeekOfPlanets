@@ -1,5 +1,5 @@
-<div id="login-page">
-  <div class="login-block">
+<div id="register-page">
+  <div class="register-block">
     <div class="container">
       <div class="row">
         <div class="col-md-4 login-sec">
@@ -7,28 +7,34 @@
             <div class="logo"></div>
           </a>
           <div class="title">Geek of Planets</div>
-          <div class="sub-title">Login</div>
-            <form #loginForm="ngForm" autocomplete="off">
+          <div class="sub-title">Register form</div>
+            <form #registerForm="ngForm" autocomplete="off">
               <div class="form-group">
                 <div class="username">
                   <input type="text" class="form-control" id="username" required [(ngModel)]="user.username"
-                         placeholder="Enter User Name" name="username" >
+                       placeholder="Enter User Name" name="username" >
                 </div>
+              </div>
+              <div class="form-group">
+                  <div class="email">
+                    <input type="email" class="form-control" id="email" required [(ngModel)]="user.email"
+                       placeholder="Enter e-mail Address" name="email" >
+                  </div>
               </div>
               <div class="form-group">
                 <div class="password">
                   <input type="password" class="form-control" [(ngModel)]="user.password" id="password" placeholder="Enter password"
-                         name="password" required >
+                       name="password" required >
                 </div>
               </div>
-              <button (click)=handleLogin() class="sign-in-button" [disabled]="loginForm.invalid">Login</button><br>
+              <div class="form-group">
+                <div class="password">
+                  <input type="password" class="form-control" [(ngModel)]="user.password" id="passwordConfirm" placeholder="Confirm password"
+                       name="passwordConfirm" required >
+                </div>
+              </div>
+              <button  class="register-in-button" (click)= handleRegistration() [disabled]="registerForm.invalid">Register</button><br>
             </form>
-          <br>
-          <small class="float-right" >
-            <a href="/">Forgot password?</a>
-          </small>
-          <br>
-          <button (click)=gotoRegistration() class="register-in-button" >Sign up</button><br>
         </div>
 
         <div class="col-md-8 banner-sec">
@@ -74,4 +80,3 @@
     </div>
   </div>
 </div>
-

@@ -1,12 +1,16 @@
 body {
-  background: #f3f3f3;
+  background: #ecf0f3;
   color: #353535;
   font-family: 'Montserrat', sans-serif;
-  font-size: 1em;
+  font-weight: 700;
   margin: 0;
   padding: 0;
+
 }
 /* You can add global styles to this file, and also import other style files */
 .header {
   text-align: center;
+}
+* {
+  box-sizing: border-box;
 }

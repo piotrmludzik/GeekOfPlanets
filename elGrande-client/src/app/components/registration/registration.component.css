@@ -1,16 +1,15 @@
 @import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
-#login-page{
+#register-page{
   background: url("https://images8.alphacoders.com/503/503792.jpg")  no-repeat center center fixed;
   background-size: cover;
 }
 
-.login-block{
+.register-block{
   font-family: 'Montserrat', sans-serif;
   width:100%;
   padding : 50px 0;
   height : 100%;
 }
-
 
 .carousel-item{
   max-height: 100%;
@@ -34,8 +33,29 @@
   font-size:13px;
   text-align:center;
 }
+.login-sec .copy-text i{
+  color:#FEB58A;
+}
+.login-sec .copy-text a{
+  color:#E36262;
+}
+.login-sec h2{
+  margin-bottom:30px;
+  font-weight:800;
+  font-size:30px;
+  color: #DE6262;}
 
-
+.login-sec h2:after{
+  content:" ";
+  width:100px;
+  height:5px;
+  background:#FEB58A;
+  display:block;
+  margin-top:20px;
+  border-radius:3px;
+  margin-left:auto;
+  margin-right:auto;
+}
 
 .banner-text{
   width:70%;
@@ -63,8 +83,8 @@
 .container{
   padding: 60px 35px 35px 35px;
   border-radius: 40px;
-  background: transparent;
-  /*box-shadow: 13px 13px 13px #725aea;*/
+  background: #ecf0f3;
+  box-shadow: 13px 13px 20px #cbced1;
   -webkit-border-radius: 40px;
   -moz-border-radius: 40px;
   -ms-border-radius: 40px;
@@ -87,19 +107,16 @@
 
 .title{
   text-align: center;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: bolder;
   padding-top: 20px;
   letter-spacing:4px;
-  user-select: none;
-
 }
 .sub-title{
   text-align: center;
   font-size: 18px;
   padding-top: 10px;
   letter-spacing: 4px;
-  user-select: none;
 }
 
 .form-group{
@@ -112,7 +129,7 @@
   outline: none;
   background: none;
   font-size: 18px;
-  color: black;
+  color: #555;
   padding: 20px 10px 20px 5px;
   text-align: center;
 }
@@ -122,7 +139,7 @@
   box-shadow: none;
 }
 
-.username, .password {
+.username, .password, .email {
   margin-bottom: 30px;
   border-radius: 25px;
   box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
@@ -132,7 +149,6 @@
   height: 30px;
   margin: 0 10px -3px 25px;
 }
-
 
 .sign-in-button, .register-in-button{
   outline: none;
@@ -146,7 +162,7 @@
   font-family: 'Montserrat', sans-serif;
   color:#fff;
   text-align: center;
-  background: rgb(72,121,202);
+  background: #24cfaa;
   box-shadow: 3px 3px 8px #b1b1b1,
   -3px -3px 8px #ffffff;
   transition: 0.5s;
@@ -157,9 +173,7 @@
   bottom:   20px;
   background: rgb(102,95,144);
 }
-.sign-in-button:hover {
-  background: rgb(113,119,163);
-}
+
 .register-in-button:hover {
   background: rgb(113,119,163);
 }
@@ -180,3 +194,4 @@
 .carousel-item img{
   border-radius: 40px;
 }
+

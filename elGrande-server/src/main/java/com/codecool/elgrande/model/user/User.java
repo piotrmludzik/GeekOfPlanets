@@ -14,14 +14,14 @@ public class User {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
 
-    @Column(name="player_id")
-    private int playerId;
-
     @Column(name="username")
     private String username;
 
     @Column(name="password")
     private String password;
+
+    @Column(name="enabled")
+    private int enabled;
 
     @Autowired
     public User() {
@@ -40,19 +40,23 @@ public class User {
         this.id = id;
     }
 
-    public int getPlayerId() {
-        return playerId;
-    }
-
-    public void setPlayerId(int playerId) {
-        this.playerId = playerId;
-    }
-
     public String getUsername() {
         return username;
     }
 
     public String getPassword() {
         return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public int getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(int enabled) {
+        this.enabled = enabled;
     }
 }
