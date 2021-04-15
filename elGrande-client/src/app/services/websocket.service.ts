@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {GameService} from './game.service';
 
 declare var SockJS;
 declare var Stomp;
@@ -12,7 +13,7 @@ export class WebsocketService {
 
   stompClient = null;
 
-  constructor() { }
+  constructor(private gameService: GameService) { }
 
   connect(): void {
     const socket = new SockJS('http://localhost:8080/space-game-websocket');
@@ -23,18 +24,19 @@ export class WebsocketService {
     }, (frame) => {
       // tslint:disable-next-line:only-arrow-functions typedef
       this.stompClient.subscribe('/user/queue/reply', (message) => {
-        console.log('WebSocket | Retriever message: ' + JSON.parse(message.body).content);
+        const msg = JSON.parse(message.body).content;
+        console.log('WebSocket | Retriever message: ' + msg);  // NOTE: dev code
+        this.messageController(msg);
       });
     });
   }
 
-  sendMessage(): void {
-    const message = JSON.stringify({
-      playerName: sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME),
-      targetX : 10,
-      targetY : 7
-    });
-    this.stompClient.send('/app/playerMovement', {}, message);
+  messageController(message): void {
+    this.gameService.movePlayer(message);
+  }
+
+  sendMessage(message): void {
+    this.stompClient.send('/app/playerMovement', {}, JSON.stringify(message));
   }
 
   disconnect(): void {

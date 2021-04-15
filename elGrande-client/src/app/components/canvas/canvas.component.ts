@@ -1,21 +1,11 @@
 import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
+import {WebsocketService} from '../../services/websocket.service';
+import {GameService} from '../../services/game.service';
 
-const gameBoardSetup = {
-  boardFieldWidth: 36,
-  boardFieldHeight: 18,
-  fieldSize: 32,
-  boardSize: {
-    width: 1000,
-    height: 1000,
-  }
-};
 const x = 5;
 const y = 5;
-let moveDirection: string;
-const spaceShip = {x: 0, y: 0};
 const spaceShipImage = new Image();
-spaceShipImage.src = '../assets/img/spaceShip_50.png';
-
+spaceShipImage.src = '../assets/img/spaceShip.png';
 
 @Component({
   selector: 'app-canvas',
@@ -24,68 +14,73 @@ spaceShipImage.src = '../assets/img/spaceShip_50.png';
 })
 export class CanvasComponent implements OnInit {
 
-
-
-  constructor() { }
   @ViewChild('canvas', { static: true })
   canvas: ElementRef<HTMLCanvasElement>;
 
   private ctx: CanvasRenderingContext2D;
-  @HostListener('window: keydown', ['$event'])
-  // tslint:disable-next-line:typedef
-  onKeypressEvent(event: KeyboardEvent) {
-    this.convertDirection(event);
-  }
 
+  constructor(private websocket: WebsocketService, private gameService: GameService) { }
 
   ngOnInit(): void {
     this.ctx = this.canvas.nativeElement.getContext('2d');
     const image = new Image();
     const canvas = this.ctx.canvas;
-    canvas.width = gameBoardSetup.boardSize.width;
-    canvas.height = gameBoardSetup.boardSize.height;
+    canvas.width = this.gameService.gameBoardSetup.boardSize.width;
+    canvas.height = this.gameService.gameBoardSetup.boardSize.height;
     this.drawSpaceship();
   }
 
-  convertDirection(event: KeyboardEvent): any {
+  @HostListener('window: keydown', ['$event'])
+  // tslint:disable-next-line:typedef
+  onKeypressEvent(event: KeyboardEvent) {
+    if (this.isArrows(event)) {
+      const moveDirection = this.convertDirection(event);
+      this.websocket.sendMessage({direction: moveDirection});
+    }
+  }
+
+  private isArrows(event: KeyboardEvent): any {
+    switch (event.code) {
+      case 'ArrowUp':
+      case 'ArrowDown':
+      case 'ArrowLeft':
+      case 'ArrowRight':
+        return true;
+      default:
+        return false;
+    }
+  }
+
+  private convertDirection(event: KeyboardEvent): any {
     const key = event.code;
     if (key === 'ArrowUp') {
-      moveDirection = 'N';
+      return 'N';
     } else if (key === 'ArrowDown') {
-      moveDirection = 'S';
+      return 'S';
     } else if (key === 'ArrowLeft') {
-      moveDirection = 'W';
+      return 'W';
     } else if (key === 'ArrowRight') {
-      moveDirection = 'E';
+      return 'E';
     }
-    this.getNewPosition(spaceShip.x, spaceShip.y);
+
+    return '';
   }
 
-  getNewPosition(playerX, playerY): any {
-    if (moveDirection === 'W') {
-      playerX -= gameBoardSetup.fieldSize;
-    } else if (moveDirection === 'N') {
-      playerY -= gameBoardSetup.fieldSize;
-    } else if (moveDirection === 'E') {
-      playerX += gameBoardSetup.fieldSize;
-    } else if (moveDirection === 'S') {
-      playerY += gameBoardSetup.fieldSize;
-    }
-    spaceShip.x = playerX;
-    spaceShip.y = playerY;
-
+  refreshCanvas(): void {
     this.clearBoard();
     this.drawSpaceship();
-
-    
-
-    return spaceShip;
-  }
-  drawSpaceship( ): any{
-    this.ctx.drawImage(spaceShipImage, spaceShip.x, spaceShip.y, spaceShipImage.width / 1 , spaceShipImage.height / 1 );
-  }
-  clearBoard(): void{
-    this.ctx.clearRect(0, 0, gameBoardSetup.boardSize.width, gameBoardSetup.boardSize.height);
   }
 
+  private clearBoard(): void {
+    this.ctx.clearRect(0, 0, this.gameService.gameBoardSetup.boardSize.width, this.gameService.gameBoardSetup.boardSize.height);
+  }
+
+  private drawSpaceship( ): any {
+    this.ctx.drawImage(
+      spaceShipImage,
+      this.gameService.spaceShip.x,
+      this.gameService.spaceShip.y,
+      spaceShipImage.width,
+      spaceShipImage.height);
+  }
 }

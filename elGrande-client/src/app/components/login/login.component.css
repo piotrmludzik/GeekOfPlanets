@@ -116,6 +116,7 @@
   padding: 20px 10px 20px 5px;
   text-align: center;
 }
+
 .form-control:focus {
   border-color: inherit;
   -webkit-box-shadow: none;
