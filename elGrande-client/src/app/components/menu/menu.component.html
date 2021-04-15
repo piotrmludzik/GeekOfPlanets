@@ -1,15 +1,15 @@
 <header>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="navbar-brand">Space Invader</div>
+      <div class="logged-user" *ngIf="isLoggedIn"  class="nav-link"> TEMP/Logged in as: {{getLoggedInUSerName()}}
+    </div>
     <ul class="navbar-nav navbar-collapse justify-content-end inline-navbar">
       <li>
-        <a *ngIf="isLoggedIn"  class="nav-link"> Logged in as: {{getLoggedInUSerName()}}</a>
         <a *ngIf="isLoggedIn" class="nav-link" href="/logout" (click)=handleLogout()>Logout</a>
       </li>
       <li>
         <a *ngIf="!isLoggedIn" class="nav-link" href="/" (click)=handleLogout()>Not logged in</a>
       </li>
-
     </ul>
   </nav>
 </header>
