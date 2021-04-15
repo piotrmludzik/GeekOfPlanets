@@ -1,6 +1,6 @@
 @import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
 #register-page{
-  background: url("https://images8.alphacoders.com/503/503792.jpg")  no-repeat center center fixed;
+  background: url("https://cdn.wallpapersafari.com/11/88/RpvTds.jpg")  no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -9,15 +9,17 @@
   width:100%;
   padding : 50px 0;
   height : 100%;
+  background-color: rgba(255,255,255, 0.6);
+  background-blend-mode: luminosity;
 }
 
 .carousel-item{
   max-height: 100%;
-
 }
 .carousel-inner{
   border-radius:0 10px 10px 0;
 }
+
 .carousel-caption{
   text-align:left;
   left:5%;
@@ -83,16 +85,12 @@
 .container{
   padding: 60px 35px 35px 35px;
   border-radius: 40px;
-  background: #ecf0f3;
-  box-shadow: 13px 13px 20px #cbced1;
-  -webkit-border-radius: 40px;
-  -moz-border-radius: 40px;
-  -ms-border-radius: 40px;
-  -o-border-radius: 40px;
+  background: transparent;
+
 }
 
 .logo{
-  background: url('src/assets/img/logo2.png') no-repeat center center;
+  background: url('src/assets/img/spaceShip_50.png') no-repeat center center;
   background-size:contain;
   width:130px;
   height: 130px;
@@ -107,16 +105,20 @@
 
 .title{
   text-align: center;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: bolder;
   padding-top: 20px;
   letter-spacing:4px;
+  user-select: none;
+  color: black;
 }
+
 .sub-title{
   text-align: center;
   font-size: 18px;
   padding-top: 10px;
   letter-spacing: 4px;
+  user-select: none;
 }
 
 .form-group{
@@ -142,7 +144,8 @@
 .username, .password, .email {
   margin-bottom: 30px;
   border-radius: 25px;
-  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
+  background-color: rgba(46, 49, 49, 1);
+  letter-spacing:4px;
 }
 
 .form-group svg{
@@ -150,7 +153,7 @@
   margin: 0 10px -3px 25px;
 }
 
-.sign-in-button, .register-in-button{
+.register-in-button{
   outline: none;
   border:none;
   cursor: pointer;
@@ -160,18 +163,15 @@
   font-size: 20px;
   font-weight: 700;
   font-family: 'Montserrat', sans-serif;
+  letter-spacing:4px;
   color:#fff;
   text-align: center;
-  background: #24cfaa;
-  box-shadow: 3px 3px 8px #b1b1b1,
-  -3px -3px 8px #ffffff;
+  background: rgb(72,121,202);
   transition: 0.5s;
 }
 .register-in-button{
-  position: absolute;
-  width: 90%;
-  bottom:   20px;
-  background: rgb(102,95,144);
+  position: relative;
+  background: #74B72E;
 }
 
 .register-in-button:hover {
@@ -194,4 +194,7 @@
 .carousel-item img{
   border-radius: 40px;
 }
-
+::placeholder {
+  color: rgba(218, 223, 225, 1);
+  letter-spacing:2px;
+}

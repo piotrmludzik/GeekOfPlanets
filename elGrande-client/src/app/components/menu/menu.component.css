@@ -4,8 +4,18 @@
 }
 .navbar-brand{
   user-select: none;
+  letter-spacing:4px;
+  color: white;
+  font-weight: bold;
 }
 
 .navbar-custom {
-  background-color: lightgreen;
+  background-color: transparent;
+  letter-spacing:4px;
+  color: white;
+  box-shadow: 1px 0 5px 2px  #fff inset;
+}
+
+.nav-link{
+  color: #74B72E;
 }

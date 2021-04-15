@@ -5,7 +5,8 @@ import {GameService} from '../../services/game.service';
 const x = 5;
 const y = 5;
 const spaceShipImage = new Image();
-spaceShipImage.src = '../assets/img/spaceShip.png';
+spaceShipImage.src = '../assets/img/spaceShip_50.png';
+
 
 @Component({
   selector: 'app-canvas',
