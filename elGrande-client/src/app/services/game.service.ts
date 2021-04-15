@@ -5,14 +5,14 @@ import { Injectable } from '@angular/core';
 })
 export class GameService {
 
-// NOTE: for development
+  // NOTE: for development
   gameBoardSetup = {
     boardFieldWidth: 36,
     boardFieldHeight: 18,
     fieldSize: 32,
     boardSize: {
-      width: 1000,
-      height: 1000,
+      width: 36 * 32,
+      height: 18 * 32,
     }
   };
   spaceShip = {x: 0, y: 0};
@@ -20,7 +20,7 @@ export class GameService {
   constructor() { }
 
   movePlayer(message): void {
-    this.spaceShip.x = message.targetX;
-    this.spaceShip.y = message.targetY;
+    this.spaceShip.x = message.targetX * 32;
+    this.spaceShip.y = message.targetY * 32;
   }
 }

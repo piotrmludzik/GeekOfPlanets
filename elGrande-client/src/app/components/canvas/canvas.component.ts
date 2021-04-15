@@ -1,6 +1,7 @@
 import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {WebsocketService} from '../../services/websocket.service';
 import {GameService} from '../../services/game.service';
+import {interval} from 'rxjs';
 
 const x = 5;
 const y = 5;
@@ -28,7 +29,11 @@ export class CanvasComponent implements OnInit {
     const canvas = this.ctx.canvas;
     canvas.width = this.gameService.gameBoardSetup.boardSize.width;
     canvas.height = this.gameService.gameBoardSetup.boardSize.height;
-    this.drawSpaceship();
+
+    setInterval(() => {
+      this.clearBoard();
+      this.drawSpaceship();
+    }, 250);
   }
 
   @HostListener('window: keydown', ['$event'])
