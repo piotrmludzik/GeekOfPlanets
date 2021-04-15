@@ -2,7 +2,6 @@
 #login-page{
   background: url("https://cdn.wallpapersafari.com/11/88/RpvTds.jpg")  no-repeat center center fixed;
   background-size: cover;
-
 }
 
 .login-block{
@@ -16,7 +15,6 @@
 
 .carousel-item{
   max-height: 100%;
-
 }
 .carousel-inner{
   border-radius:0 10px 10px 0;
@@ -75,11 +73,7 @@
   padding: 60px 35px 35px 35px;
   border-radius: 40px;
   background: transparent;
-  /*box-shadow: 13px 13px 13px #725aea;*/
-  -webkit-border-radius: 40px;
-  -moz-border-radius: 40px;
-  -ms-border-radius: 40px;
-  -o-border-radius: 40px;
+
 }
 
 .logo{
@@ -104,9 +98,8 @@
   letter-spacing:4px;
   user-select: none;
   color: black;
-
-
 }
+
 .sub-title{
   text-align: center;
   font-size: 18px;
@@ -139,7 +132,6 @@
 .username, .password {
   margin-bottom: 30px;
   border-radius: 25px;
-  /*box-shadow: inset 8px 8px 8px #000, inset -8px -8px 8px #000;*/
   background-color: rgba(46, 49, 49, 1);
   letter-spacing:4px;
 
@@ -165,14 +157,11 @@
   color:#fff;
   text-align: center;
   background: rgb(72,121,202);
-  /*box-shadow: 3px 3px 8px #b1b1b1,*/
-  /*-3px -3px 8px #ffffff;*/
   transition: 0.5s;
 }
 
 .register-in-button{
   position: relative;
-
   top:   50px;
   background: #74B72E;
 }
@@ -200,7 +189,7 @@
   border-radius: 40px;
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+::placeholder {
   color: rgba(218, 223, 225, 1);
   letter-spacing:2px;
 }

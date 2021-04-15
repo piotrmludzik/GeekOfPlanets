@@ -1,13 +1,20 @@
 <header>
   <nav class="navbar navbar-expand-md navbar-custom fixed-top">
     <div class="navbar-brand">Geek of Planets</div>
-      <div class="logged-user" *ngIf="isLoggedIn"  class="nav-link"> Player: {{getLoggedInUSerName()}}
+      <div class="logged-user" *ngIf="isLoggedIn"  class="nav-link"> Player: {{getLoggedInUSerName().toUpperCase()}}
     </div>
 
     <ul class="navbar-nav navbar-collapse justify-content-end inline-navbar">
-      <li>
-        <a *ngIf="isLoggedIn" class="nav-link" href="/logout" (click)=handleLogout()>Logout</a>
+      <li class="nav-link">
+        Health: 90 %
       </li>
+      <li class="nav-link">
+        Iron: 90 %
+      </li>
+      <li class="nav-link">
+        Ships: 1/10
+      </li>
+
       <li>
         <a *ngIf="!isLoggedIn" class="nav-link" href="/" (click)=handleLogout()>Not logged in</a>
       </li>
@@ -21,6 +28,9 @@
           <div class="divider dropdown-divider"></div>
           <a class="dropdown-item waves-light" mdbWavesEffect href="#">Separated link</a>
         </div>
+      </li>
+      <li>
+        <a *ngIf="isLoggedIn" class="nav-link"  style="color:aqua"href="/logout" (click)=handleLogout()>Logout</a>
       </li>
     </ul>
   </nav>
