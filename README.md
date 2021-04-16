@@ -27,7 +27,7 @@ The application was created as a final big project at [CodeCool](https://codecoo
 
 ## Team:
 
-- Przemyslaw Guszek
+- Przemyslaw Buszek
 - Dominik Lach
 - Piotr Janiszewski
 - Piotr Mludzik
@@ -48,5 +48,5 @@ Feel free to contact anyone of us in case of any issues, questions or comments.
 
 ## License
 
-Copyright (c) 2021 by Przemyslaw Guszek, Dominik Lach, Piotr Janiszewski, Piotr Mludzik, Magdalena Podolewska, Przemyslaw Stolarz. All rights reserved.  
+Copyright (c) 2021 by Przemyslaw Buszek, Dominik Lach, Piotr Janiszewski, Piotr Mludzik, Magdalena Podolewska, Przemyslaw Stolarz. All rights reserved.  
 Code in this repository is licensed under MIT license. See [LICENSE](https://github.com/piotrmludzik/elGrande/blob/master/LICENSE).
