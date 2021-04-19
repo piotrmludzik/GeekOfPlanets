@@ -1,6 +1,6 @@
 package com.codecool.geekofplanets.network.security.authentication;
 
-import com.codecool.geekofplanets.game.configuration.controller.GameController;
+import com.codecool.geekofplanets.game.controller.GameController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.Authentication;
@@ -15,7 +15,7 @@ import java.io.IOException;
 
 @Component
 public class RestAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
-    private final com.codecool.geekofplanets.game.configuration.controller.GameController gameController;
+    private final GameController gameController;
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     public RestAuthenticationSuccessHandler(@Lazy GameController gameController) {

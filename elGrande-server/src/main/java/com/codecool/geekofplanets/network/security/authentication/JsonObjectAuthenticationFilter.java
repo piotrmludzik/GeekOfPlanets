@@ -1,5 +1,6 @@
 package com.codecool.geekofplanets.network.security.authentication;
 
+import com.codecool.geekofplanets.network.security.model.UserCredentials;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
