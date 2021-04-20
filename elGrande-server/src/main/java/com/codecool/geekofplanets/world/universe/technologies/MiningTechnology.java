@@ -1,6 +1,6 @@
-package com.codecool.geekofplanets.world.model.technologies;
+package com.codecool.geekofplanets.world.universe.technologies;
 
-import com.codecool.geekofplanets.world.model.Resources;
+import com.codecool.geekofplanets.world.universe.Resources;
 
 public class MiningTechnology extends Technology{
     public MiningTechnology() {

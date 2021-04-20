@@ -1,7 +1,7 @@
-package com.codecool.geekofplanets.world.model.objects.buildings;
+package com.codecool.geekofplanets.world.universe.objects.buildings;
 
 
-import com.codecool.geekofplanets.world.model.Resources;
+import com.codecool.geekofplanets.world.universe.Resources;
 
 public class PowerPlant  extends Building {
     private int production;
@@ -12,8 +12,7 @@ public class PowerPlant  extends Building {
     }
 
     public void levelUp(){
-        this.addLevel();
-        this.getCost().substractCost(this.getCost().percentOfRecources(-1.5));
+        super.levelUp(-1.5);
         this.production += production;
     }
 }

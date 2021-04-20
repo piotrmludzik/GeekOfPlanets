@@ -3,7 +3,7 @@ package com.codecool.geekofplanets.game.controller;
 import com.codecool.geekofplanets.user.jdbc.model.UserModel;
 import com.codecool.geekofplanets.user.jdbc.service.UserService;
 import com.codecool.geekofplanets.world.jdbc.service.PlayerService;
-import com.codecool.geekofplanets.world.model.actors.Player;
+import com.codecool.geekofplanets.world.universe.actors.Player;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,6 @@ import java.util.List;
 public class GameController {
     private UserService userService;
     private PlayerService playerService;
-
     private final List<Player> currentPlayers = new LinkedList<>();
 
     @Autowired

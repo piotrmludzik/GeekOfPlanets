@@ -1,7 +1,7 @@
-package com.codecool.geekofplanets.world.model.objects.buildings.mines;
+package com.codecool.geekofplanets.world.universe.objects.buildings.mines;
 
 
-import com.codecool.geekofplanets.world.model.objects.buildings.Building;
+import com.codecool.geekofplanets.world.universe.objects.buildings.Building;
 
 abstract class Mine extends Building {
     private int production;
@@ -15,8 +15,7 @@ abstract class Mine extends Building {
     }
 
     public void levelUp(){
-        this.addLevel();
-        this.getCost().substractCost(this.getCost().percentOfRecources(-0.3));
+        super.levelUp(-0.3);
         this.setProduction((int)(getProduction()*1.2));
     }
 

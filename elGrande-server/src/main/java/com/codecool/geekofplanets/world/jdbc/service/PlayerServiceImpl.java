@@ -1,14 +1,10 @@
 package com.codecool.geekofplanets.world.jdbc.service;
 
-import com.codecool.geekofplanets.world.jdbc.model.FieldModel;
-import com.codecool.geekofplanets.world.jdbc.model.PlayerModel;
 import com.codecool.geekofplanets.world.jdbc.repository.PlayerRepository;
-import com.codecool.geekofplanets.world.model.Field;
-import com.codecool.geekofplanets.world.model.actors.Player;
+import com.codecool.geekofplanets.world.universe.actors.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -24,32 +20,17 @@ public class PlayerServiceImpl implements PlayerService {
 
     @Override
     public List<Player> findAllPlayers() {
-        List<PlayerModel> playerModalList = (List<PlayerModel>) playerRepository.findAll();
-        List<Player> playerList = new ArrayList<>();
-        for(PlayerModel player : playerModalList) {
-            FieldModel field = player.getField();
-            Field playerField = new Field(field.getX(), field.getY());
-            playerList.add(new Player(playerField, player.getName()));
-        }
-        return playerList;
+        return (List<Player>) playerRepository.findAll();
     }
 
     @Override
     public Player getPlayerById(String id) {
-        PlayerModel model = playerRepository.getPlayerById(id);
-        String name = model.getName();
-        FieldModel field = model.getField();
-        Field playerField = new Field(field.getX(), field.getY());
-        return new Player(playerField, name);
+        return playerRepository.getPlayerById(id);
     }
 
     @Override
     public Player getPlayerByUserId(UUID userId) {
-        PlayerModel model = playerRepository.getPlayerByUserId(userId);
-        String name = model.getName();
-        FieldModel field = model.getField();
-        Field playerField = new Field(field.getX(), field.getY());
-        return new Player(playerField, name);
+        return playerRepository.getPlayerByUserId(userId);
     }
 
     @Override
@@ -58,12 +39,8 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     @Override
-    public void addNewPlayer(Player player, UUID id) {
-        String name = player.getName();
-        PlayerModel newPlayer = new PlayerModel();
-        newPlayer.setName(name);
-        newPlayer.setUserId(id);
-        playerRepository.save(newPlayer);
+    public void addNewPlayer(Player player) {
+        playerRepository.save(player);
     }
 
     @Override

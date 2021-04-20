@@ -5,7 +5,7 @@ import com.codecool.geekofplanets.game.logic.Direction;
 import com.codecool.geekofplanets.game.logic.GameLogic;
 import com.codecool.geekofplanets.network.websocket.messages.ClientPlayerMovement;
 import com.codecool.geekofplanets.network.websocket.messages.ServerPlayerMovement;
-import com.codecool.geekofplanets.world.model.actors.Player;
+import com.codecool.geekofplanets.world.universe.actors.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;

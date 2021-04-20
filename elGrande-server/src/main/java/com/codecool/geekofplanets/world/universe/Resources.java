@@ -1,5 +1,11 @@
-package com.codecool.geekofplanets.world.model;
+package com.codecool.geekofplanets.world.universe;
 
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Resources {
     private int metal;
     private int hydrate;
@@ -28,37 +34,5 @@ public class Resources {
 
     public Resources percentOfRecources(double percent){
         return new Resources((int)(this.metal*percent), (int)(this.hydrate *percent), (int)(this.ether*percent), (int)(this.antimatter*percent));
-    }
-
-    public void setMetal(int metal) {
-        this.metal = metal;
-    }
-
-    public void setHydrate(int hydrate) {
-        this.hydrate = hydrate;
-    }
-
-    public void setEther(int ether) {
-        this.ether = ether;
-    }
-
-    public void setAntimatter(int antimatter) {
-        this.antimatter = antimatter;
-    }
-
-    public int getMetal() {
-        return metal;
-    }
-
-    public int getHydrate() {
-        return hydrate;
-    }
-
-    public int getEther() {
-        return ether;
-    }
-
-    public int getAntimatter() {
-        return antimatter;
     }
 }
