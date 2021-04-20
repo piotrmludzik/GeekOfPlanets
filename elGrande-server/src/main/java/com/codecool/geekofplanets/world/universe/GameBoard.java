@@ -5,6 +5,7 @@ import com.codecool.geekofplanets.game.config.qualifier.BoardHeight;
 import com.codecool.geekofplanets.game.config.qualifier.BoardWidth;
 import com.codecool.geekofplanets.world.universe.actors.Player;
 import com.codecool.geekofplanets.world.universe.objects.Planet;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@Getter
 @Component
 public class GameBoard {
     private final List<Player> players = new ArrayList<>();
@@ -25,9 +27,9 @@ public class GameBoard {
         this.height = height;
         this.width = width;
         this.board = new Field[width][height];
-        setPlanetOnBoard(new Field(3,1), "Earth", new Resources(1000,500,200,0));
-        setPlanetOnBoard(new Field(17,10), "Mars", new Resources(1000,500,200,0));
         initBoard();
+        setPlanetOnBoard(board[3][1], "Earth", new Resources(1000,500,200,0));
+        setPlanetOnBoard(board[17][10], "Mars", new Resources(1000,500,200,0));
     }
 
     private void initBoard() {
