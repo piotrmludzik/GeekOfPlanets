@@ -46,10 +46,11 @@ public class Planet extends FieldEntity {
         super(null);
     }
 
-    public Planet(Field field, Resources resources) {
-        super(field);
-        this.resources =  new Resources(1000,500,200,0);
-    }
+//    public Planet(Field field, Resources resources) {
+//        super(field);
+//        this.field = field;
+//        this.resources = resources;
+//    }
 
     public void newVisit(){
         long duration = Duration.between(LocalDate.now(), lastVisit).toSeconds();
@@ -90,6 +91,7 @@ public class Planet extends FieldEntity {
 
     public void setField(Field field) {
         this.field = field;
+        this.field.setPlanet(this);
     }
 
     @Override
@@ -107,5 +109,9 @@ public class Planet extends FieldEntity {
 
     public void discoverTechnology(Technologies technologies, String name){
         technologies.discover(name, resources);
+    }
+
+    public void setResources(Resources resources) {
+        this.resources = resources;
     }
 }

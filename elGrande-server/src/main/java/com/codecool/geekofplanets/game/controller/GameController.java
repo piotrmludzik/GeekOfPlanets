@@ -1,7 +1,7 @@
 package com.codecool.geekofplanets.game.controller;
 
+import com.codecool.geekofplanets.user.jdbc.model.UserModel;
 import com.codecool.geekofplanets.user.jdbc.service.UserService;
-import com.codecool.geekofplanets.user.model.User;
 import com.codecool.geekofplanets.world.jdbc.service.PlayerService;
 import com.codecool.geekofplanets.world.model.actors.Player;
 import lombok.Getter;
@@ -40,7 +40,7 @@ public class GameController {
     }
 
     public void setPlayer(String userName) {
-        User user = userService.getUserByUsername(userName);
+        UserModel user = userService.getUserByUsername(userName);
         Player player = playerService.getPlayerByUserId(user.getId());
 
         currentPlayers.add(player);

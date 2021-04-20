@@ -1,7 +1,7 @@
 package com.codecool.geekofplanets.user.jdbc.service;
 
+import com.codecool.geekofplanets.user.jdbc.model.AuthoritiesModel;
 import com.codecool.geekofplanets.user.jdbc.repository.AuthoritiesRepository;
-import com.codecool.geekofplanets.user.model.Authorities;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,12 +18,12 @@ public class AuthoritiesServiceImpl implements AuthoritiesService{
     }
 
     @Override
-    public List<Authorities> findAllAuthorities() {
-        return (List<Authorities>) authoritiesRepository.findAll();
+    public List<AuthoritiesModel> findAllAuthorities() {
+        return (List<AuthoritiesModel>) authoritiesRepository.findAll();
     }
 
     @Override
-    public void addNewAuthority(Authorities authorities) {
+    public void addNewAuthority(AuthoritiesModel authorities) {
         authoritiesRepository.save(authorities);
     }
 

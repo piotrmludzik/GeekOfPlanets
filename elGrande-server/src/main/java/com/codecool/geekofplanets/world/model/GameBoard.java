@@ -24,18 +24,20 @@ public class GameBoard {
         this.height = height;
         this.width = width;
         this.board = new Field[width][height];
-        setPlanetOnBoard(new Field(3,1), "Earth");
-        setPlanetOnBoard(new Field(17,10), "Mars");
         initBoard();
+        setPlanetOnBoard(board[3][1], "Earth", new Resources(1000,500,200,0));
+        setPlanetOnBoard(board[17][10], "Mars", new Resources(1000,600,300,0));
     }
 
     public void addFieldEntity(FieldEntity fieldEntity){
         fieldEntities.add(fieldEntity);
     }
 
-    public void setPlanetOnBoard(Field position, String name){
+    public void setPlanetOnBoard(Field position, String name, Resources resources){
         // TODO: move to GameLogic
-        Planet newPlanet = new Planet(position);
+        Planet newPlanet = new Planet();
+        newPlanet.setField(position);
+        newPlanet.setResources(resources);
         newPlanet.setName(name);
         planets.add(newPlanet);
         fieldEntities.add(newPlanet);

@@ -2,9 +2,8 @@ package com.codecool.geekofplanets.user.jdbc.controller;
 
 import com.codecool.geekofplanets.game.logic.GameLogic;
 import com.codecool.geekofplanets.network.dto.MessageDto;
+import com.codecool.geekofplanets.user.jdbc.model.UserModel;
 import com.codecool.geekofplanets.user.jdbc.service.UserService;
-import com.codecool.geekofplanets.user.model.User;
-import com.codecool.geekofplanets.world.model.Field;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,12 +33,11 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public MessageDto handleUserForm(@RequestBody User user) {
+    public MessageDto handleUserForm(@RequestBody UserModel user) {
         user.setEnabled(1);
         userService.addNewUser(user);
         UUID id = userService.getUserByUsername(user.getUsername()).getId();
-        Field field = new Field(2, 2);
-        gameLogic.createPlayer(user.getUsername(), field, id);
+        gameLogic.createPlayer(user.getUsername(), id);
 
         return new MessageDto("Hello registered");
     }

@@ -27,12 +27,14 @@ public class GameLogic {
         this.playerService = playerService;
     }
 
-    public void createPlayer(String name, Field field, UUID userId) {
+    public void createPlayer(String name, UUID userId) {
         Planet planet = gameBoard.getEmptyPlanet();
-        Player player = new Player(planet);
+        Field planetField = planet.getField();
+        Player player = new Player();
         player.setName(name);
-        player.setField(field);
         player.setUserId(userId);
+        player.setField(planetField);
+        player.setPlanet(planet);
         players.add(player);
         addPlayer(player);
     }
