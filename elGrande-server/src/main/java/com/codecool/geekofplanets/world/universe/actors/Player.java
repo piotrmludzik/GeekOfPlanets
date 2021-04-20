@@ -17,7 +17,6 @@ import java.util.UUID;
 @Setter
 
 public class Player extends FieldEntity {
-
     private UUID id;
     private String name;
     @Setter(AccessLevel.NONE)

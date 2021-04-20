@@ -3,6 +3,7 @@ package com.codecool.geekofplanets.world.universe;
 
 import com.codecool.geekofplanets.game.config.qualifier.BoardHeight;
 import com.codecool.geekofplanets.game.config.qualifier.BoardWidth;
+import com.codecool.geekofplanets.world.universe.actors.Player;
 import com.codecool.geekofplanets.world.universe.objects.Planet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -13,7 +14,7 @@ import java.util.List;
 
 @Component
 public class GameBoard {
-    private final List<FieldEntity> fieldEntities = new ArrayList<>();
+    private final List<Player> players = new ArrayList<>();
     private final List<Planet> planets = new ArrayList<>();
     private final Field[][] board;
     private final int height;
@@ -29,8 +30,15 @@ public class GameBoard {
         initBoard();
     }
 
-    public void addFieldEntity(FieldEntity fieldEntity){
-        fieldEntities.add(fieldEntity);
+    private void initBoard() {
+        for (int i = 0; i < this.width; i++) {
+            for (int j = 0; j < this.height; j++)
+                this.board[i][j] = new Field(i, j);
+        }
+    }
+
+    public void addPlayer(Player player){
+        players.add(player);
     }
 
     public void setPlanetOnBoard(Field position, String name){
@@ -38,7 +46,6 @@ public class GameBoard {
         Planet newPlanet = new Planet(position);
         newPlanet.setName(name);
         planets.add(newPlanet);
-        fieldEntities.add(newPlanet);
     }
 
     public Planet getEmptyPlanet(){
@@ -50,13 +57,6 @@ public class GameBoard {
             }
         }
         return null;
-    }
-
-    private void initBoard() {
-        for (int i = 0; i < this.width; i++) {
-            for (int j = 0; j < this.height; j++)
-                this.board[i][j] = new Field(i, j);
-        }
     }
 
     @Override

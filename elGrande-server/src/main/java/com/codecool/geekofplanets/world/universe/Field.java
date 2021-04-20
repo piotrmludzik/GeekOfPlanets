@@ -12,10 +12,8 @@ import org.springframework.stereotype.Component;
 @Getter
 @Setter
 public class Field {
-
     private Player player;
     private Planet planet;
-
     private int x;
     private int y;
 

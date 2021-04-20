@@ -7,29 +7,19 @@ import com.codecool.geekofplanets.world.universe.objects.buildings.mines.HydratM
 import com.codecool.geekofplanets.world.universe.objects.buildings.mines.MetalMine;
 import org.springframework.stereotype.Component;
 
-import java.util.UUID;
 
 @Component
 public class Buildings {
-    private UUID id;
     private final EtherMine etherMine = new EtherMine();
     private final HydratMine hydratMine = new HydratMine();
     private final MetalMine metalMine = new MetalMine();
-    private Docks docks;
+    private final Docks docks = null;
     private final Laboratory laboratory = new Laboratory();
     private final PowerPlant powerPlant = new PowerPlant();
     private final Shipyard shipyard = new Shipyard();
     private final Storage storage = new Storage();
     private Resources extraction;
     private final Building[] availableToBuild = new Building[9];
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
 
     public void buildNew(String name, Resources resources){
         switch (name) {

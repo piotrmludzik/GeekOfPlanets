@@ -5,17 +5,19 @@ import com.codecool.geekofplanets.world.universe.FieldEntity;
 import com.codecool.geekofplanets.world.universe.Resources;
 import com.codecool.geekofplanets.world.universe.objects.buildings.Buildings;
 import com.codecool.geekofplanets.world.universe.technologies.Technologies;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.Duration;
 import java.time.LocalDate;
-import java.util.UUID;
 
+@Getter
+@Setter
 @Component
 public class Planet extends FieldEntity {
     private Resources resources;
-    private UUID id;
     private String name;
     private boolean colonized = false;
     private Field field;
@@ -24,6 +26,11 @@ public class Planet extends FieldEntity {
 
     public Planet() {
         super(null);
+    }
+
+    @Autowired
+    public Planet(Field position){
+        super(position);
     }
 
     public Planet(Field field, Resources resources) {
@@ -37,52 +44,12 @@ public class Planet extends FieldEntity {
         this.lastVisit = LocalDate.now();
     }
 
-    @Autowired
-    public Planet(Field position){
-        super(position);
-    }
-
     public boolean isColonized() {
         return colonized;
     }
 
     public void colonize(){
         this.colonized = true;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setField(Field field) {
-        this.field = field;
-    }
-
-    @Override
-    public Field getField() {
-        return field;
-    }
-
-    public Buildings getBuildings() {
-        return buildings;
-    }
-
-    public void setBuildings(Buildings buildings) {
-        this.buildings = buildings;
     }
 
     public void discoverTechnology(Technologies technologies, String name){

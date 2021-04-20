@@ -5,13 +5,10 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
 
-import java.util.UUID;
-
 @Component
 @Getter
 @Setter
 public class Technologies {
-    private UUID id;
     private ColonizationTechology colonizationTechology;
     private CombatTechnology combatTechnology;
     private ConstructionTechnology constructionTechnology;
@@ -20,9 +17,6 @@ public class Technologies {
     private MiningTechnology miningTechnology;
     private SpyTechnology spyTechnology;
     private StorageTechnology storageTechnology;
-
-    public Technologies() {
-    }
 
     public void discover(String name, Resources resources) {
         switch (name) {
