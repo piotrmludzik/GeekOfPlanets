@@ -1,4 +1,4 @@
-package com.codecool.geekofplanets.user.model;
+package com.codecool.geekofplanets.user.jdbc.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -14,24 +14,25 @@ import java.util.UUID;
 @Setter
 @Entity
 @Table(name="authorities")
-public class Authorities {
+public class AuthoritiesModel {
+
     @Id
-    @GeneratedValue(generator="uuid2")
-    @GenericGenerator(name="uuid2", strategy="org.hibernate.id.UUIDGenerator")
+    @GeneratedValue(generator="UUID")
+    @GenericGenerator(name="UUID", strategy="org.hibernate.id.UUIDGenerator")
     private UUID id;
 
-    @OneToOne(cascade=CascadeType.MERGE, orphanRemoval=true)
+    @OneToOne(cascade= CascadeType.MERGE, orphanRemoval=true)
     @JoinColumn(name="username", referencedColumnName="username")
-    private User user;
+    private UserModel user;
 
     @Column(name="authority")
     private String authority;
 
     @Autowired
-    public Authorities() {
+    public AuthoritiesModel() {
     }
 
-    public Authorities(User user) {
+    public AuthoritiesModel(UserModel user) {
         this.user = user;
     }
 }

@@ -1,8 +1,8 @@
 package com.codecool.geekofplanets.user.jdbc.service;
 
+import com.codecool.geekofplanets.user.jdbc.model.AuthoritiesModel;
+import com.codecool.geekofplanets.user.jdbc.model.UserModel;
 import com.codecool.geekofplanets.user.jdbc.repository.UserRepository;
-import com.codecool.geekofplanets.user.model.Authorities;
-import com.codecool.geekofplanets.user.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -24,17 +24,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> findAllUsers() {
-        return (List<User>) userRepository.findAll();
+    public List<UserModel> findAllUsers() {
+        return (List<UserModel>) userRepository.findAll();
     }
 
     @Override
-    public User getUserById(String id) {
+    public UserModel getUserById(String id) {
         return userRepository.getUserById(id);
     }
 
     @Override
-    public User getUserByUsername(String username) {
+    public UserModel getUserByUsername(String username) {
         return userRepository.getUserByUsername(username);
     }
 
@@ -44,13 +44,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void addNewUser(User user) throws IllegalArgumentException {
+    public void addNewUser(UserModel user) throws IllegalArgumentException {
         if(usernameExists(user.getUsername())) {
             throw new IllegalArgumentException("Username: " + user.getUsername() + " already exists!");
         }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
-        Authorities authorities = new Authorities(user);
+        AuthoritiesModel authorities = new AuthoritiesModel(user);
         authorities.setAuthority("ROLE_USER");
         authoritiesService.addNewAuthority(authorities);
     }

@@ -41,7 +41,7 @@ public class UsersDatabaseConfig {
     public LocalContainerEntityManagerFactoryBean memberEntityManagerFactory(EntityManagerFactoryBuilder builder) {
         return builder
                 .dataSource(usersDataSource())
-                .packages("com.codecool.geekofplanets.user.model")
+                .packages("com.codecool.geekofplanets.user.jdbc.model")
                 .build();
     }
 

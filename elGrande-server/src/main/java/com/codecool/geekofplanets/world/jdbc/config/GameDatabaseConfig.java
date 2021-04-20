@@ -45,7 +45,7 @@ public class GameDatabaseConfig {
     public LocalContainerEntityManagerFactoryBean gameEntityManagerFactory(EntityManagerFactoryBuilder builder) {
         return builder
                 .dataSource(gameDataSource())
-                .packages("com.codecool.geekofplanets.world.model")
+                .packages("com.codecool.geekofplanets.world.jdbc.model")
                 .build();
     }
     @Primary

@@ -1,10 +1,12 @@
 package com.codecool.geekofplanets.user.jdbc.controller;
 
-import com.codecool.geekofplanets.game.logic.GameLogic;
 import com.codecool.geekofplanets.network.dto.MessageDto;
+import com.codecool.geekofplanets.user.jdbc.model.UserModel;
 import com.codecool.geekofplanets.user.jdbc.service.UserService;
-import com.codecool.geekofplanets.user.model.User;
+import com.codecool.geekofplanets.world.jdbc.service.FieldService;
+import com.codecool.geekofplanets.world.jdbc.service.PlayerService;
 import com.codecool.geekofplanets.world.model.Field;
+import com.codecool.geekofplanets.world.model.actors.Player;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,11 +18,13 @@ import java.util.UUID;
 public class UserController {
 
     private final UserService userService;
-    private final GameLogic gameLogic;
+    private final PlayerService playerService;
+    private final FieldService fieldService;
 
-    public UserController(UserService userService, GameLogic gameLogic) {
+    public UserController(UserService userService, PlayerService playerService, FieldService fieldService) {
         this.userService = userService;
-        this.gameLogic = gameLogic;
+        this.playerService = playerService;
+        this.fieldService = fieldService;
     }
 
     @GetMapping("/")
@@ -34,12 +38,13 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public MessageDto handleUserForm(@RequestBody User user) {
+    public MessageDto handleUserForm(@RequestBody UserModel user) {
         user.setEnabled(1);
         userService.addNewUser(user);
-        UUID id = userService.getUserByUsername(user.getUsername()).getId();
-        Field field = new Field(2, 2);
-        gameLogic.createPlayer(user.getUsername(), field, id);
+        UUID id = user.getId();
+        Field field = new Field(0, 0);
+        Player player = new Player(field, user.getUsername());
+        playerService.addNewPlayer(player, id);
 
         return new MessageDto("Hello registered");
     }
