@@ -1,10 +1,10 @@
 package com.codecool.geekofplanets.game.logic;
 
 import com.codecool.geekofplanets.game.controller.GameController;
-import com.codecool.geekofplanets.world.model.Field;
-import com.codecool.geekofplanets.world.model.GameBoard;
-import com.codecool.geekofplanets.world.model.actors.Player;
-import com.codecool.geekofplanets.world.model.objects.Planet;
+import com.codecool.geekofplanets.world.universe.Field;
+import com.codecool.geekofplanets.world.universe.GameBoard;
+import com.codecool.geekofplanets.world.universe.actors.Player;
+import com.codecool.geekofplanets.world.universe.objects.Planet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -23,12 +23,14 @@ public class GameLogic {
         this.gameBoard = gameBoard;
     }
 
-    public void createPlayer(String name, Field field) {
+    public Player createPlayer(String name) {
         Planet planet = gameBoard.getEmptyPlanet();
         Player player = new Player(planet);
         player.setName(name);
+        Field field = planet.getField();
         player.setField(field);
         players.add(player);
+        return player;
     }
 
     public void movePlayer(String playerName, Direction direction) {

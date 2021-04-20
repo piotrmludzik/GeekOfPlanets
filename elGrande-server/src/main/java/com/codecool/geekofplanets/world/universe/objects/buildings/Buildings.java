@@ -1,10 +1,10 @@
-package com.codecool.geekofplanets.world.model.objects.buildings;
+package com.codecool.geekofplanets.world.universe.objects.buildings;
 
 
-import com.codecool.geekofplanets.world.model.Resources;
-import com.codecool.geekofplanets.world.model.objects.buildings.mines.EtherMine;
-import com.codecool.geekofplanets.world.model.objects.buildings.mines.HydratMine;
-import com.codecool.geekofplanets.world.model.objects.buildings.mines.MetalMine;
+import com.codecool.geekofplanets.world.universe.Resources;
+import com.codecool.geekofplanets.world.universe.objects.buildings.mines.EtherMine;
+import com.codecool.geekofplanets.world.universe.objects.buildings.mines.HydratMine;
+import com.codecool.geekofplanets.world.universe.objects.buildings.mines.MetalMine;
 import org.springframework.stereotype.Component;
 
 @Component

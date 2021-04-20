@@ -2,7 +2,7 @@ package com.codecool.geekofplanets.world.jdbc.service;
 
 import com.codecool.geekofplanets.world.jdbc.model.FieldModel;
 import com.codecool.geekofplanets.world.jdbc.repository.FieldRepository;
-import com.codecool.geekofplanets.world.model.Field;
+import com.codecool.geekofplanets.world.universe.Field;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
