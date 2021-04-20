@@ -12,8 +12,7 @@ public class PowerPlant  extends Building {
     }
 
     public void levelUp(){
-        this.addLevel();
-        this.getCost().substractCost(this.getCost().percentOfRecources(-1.5));
+        super.levelUp(-1.5);
         this.production += production;
     }
 }

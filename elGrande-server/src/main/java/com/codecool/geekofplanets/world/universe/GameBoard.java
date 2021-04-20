@@ -25,8 +25,8 @@ public class GameBoard {
         this.height = height;
         this.width = width;
         this.board = new Field[width][height];
-        setPlanetOnBoard(new Field(3,1), "Earth");
-        setPlanetOnBoard(new Field(17,10), "Mars");
+        setPlanetOnBoard(new Field(3,1), "Earth", new Resources(1000,500,200,0));
+        setPlanetOnBoard(new Field(17,10), "Mars", new Resources(1000,500,200,0));
         initBoard();
     }
 
@@ -41,9 +41,9 @@ public class GameBoard {
         players.add(player);
     }
 
-    public void setPlanetOnBoard(Field position, String name){
+    public void setPlanetOnBoard(Field position, String name, Resources resources){
         // TODO: move to GameLogic
-        Planet newPlanet = new Planet(position);
+        Planet newPlanet = new Planet(position, resources);
         newPlanet.setName(name);
         planets.add(newPlanet);
     }

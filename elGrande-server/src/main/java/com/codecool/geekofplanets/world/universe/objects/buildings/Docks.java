@@ -9,7 +9,6 @@ public class Docks extends Building {
     }
 
     public void levelUp(){
-        this.addLevel();
-        this.getCost().substractCost(this.getCost().percentOfRecources(-2));
+        super.levelUp(-2);
     }
 }

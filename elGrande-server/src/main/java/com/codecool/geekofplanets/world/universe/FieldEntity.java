@@ -8,4 +8,8 @@ import lombok.Setter;
 public abstract class FieldEntity {
     private Field field;
     private String name;
+
+    public FieldEntity(Field field) {
+        this.field = field;
+    }
 }

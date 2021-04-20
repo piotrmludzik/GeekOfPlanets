@@ -15,8 +15,7 @@ abstract class Mine extends Building {
     }
 
     public void levelUp(){
-        this.addLevel();
-        this.getCost().substractCost(this.getCost().percentOfRecources(-0.3));
+        super.levelUp(-0.3);
         this.setProduction((int)(getProduction()*1.2));
     }
 

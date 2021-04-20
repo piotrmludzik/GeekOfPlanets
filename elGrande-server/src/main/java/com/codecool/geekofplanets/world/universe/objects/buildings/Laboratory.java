@@ -10,7 +10,6 @@ public class Laboratory  extends Building {
     }
 
     public void levelUp() {
-        this.addLevel();
-        this.getCost().substractCost(this.getCost().percentOfRecources(-0.5));
+        super.levelUp(-0.5);
     }
 }

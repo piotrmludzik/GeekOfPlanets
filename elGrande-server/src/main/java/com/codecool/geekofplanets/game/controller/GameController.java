@@ -18,7 +18,6 @@ import java.util.List;
 public class GameController {
     private UserService userService;
     private PlayerService playerService;
-
     private final List<Player> currentPlayers = new LinkedList<>();
 
     @Autowired

@@ -12,7 +12,10 @@ public abstract class Building {
     private int energyUsage;
     private int level = 0;
 
-    public abstract void levelUp();
+    public void levelUp(double percetage){
+        addLevel();
+        getCost().substractCost(this.getCost().percentOfRecources(percetage));
+    };
     public void addLevel(){
         this.level += 1;
     }

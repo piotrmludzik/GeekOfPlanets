@@ -18,9 +18,7 @@ import java.time.LocalDate;
 @Component
 public class Planet extends FieldEntity {
     private Resources resources;
-    private String name;
     private boolean colonized = false;
-    private Field field;
     private Buildings buildings;
     private LocalDate lastVisit;
 
@@ -33,9 +31,9 @@ public class Planet extends FieldEntity {
         super(position);
     }
 
-    public Planet(Field field, Resources resources) {
-        super(field);
-        this.resources =  new Resources(1000,500,200,0);
+    public Planet(Field position, Resources resources) {
+        super(position);
+        this.resources = resources;
     }
 
     public void newVisit(){

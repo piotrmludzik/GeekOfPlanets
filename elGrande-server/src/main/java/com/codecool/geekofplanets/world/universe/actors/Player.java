@@ -18,9 +18,7 @@ import java.util.UUID;
 
 public class Player extends FieldEntity {
     private UUID id;
-    private String name;
     @Setter(AccessLevel.NONE)
-    private Field field;
     private Statistics statistics;
     private Technologies technologies;
     private UUID userId;
@@ -30,10 +28,6 @@ public class Player extends FieldEntity {
         super(null);
     }
 
-    public void discoverTechnology(String name){
-        planet.discoverTechnology(technologies, name);
-    }
-
     @Autowired
     public Player(Planet planet) {
         super(planet.getField());
@@ -41,8 +35,12 @@ public class Player extends FieldEntity {
         this.planet = planet;
     }
 
-    public void setField(Field field) {
-        this.field = field;
-        this.field.setPlayer(this);
+    public void setOnField(Field field) {
+        super.setField(field);
+        super.getField().setPlayer(this);
+    }
+
+    public void discoverTechnology(String name){
+        planet.discoverTechnology(technologies, name);
     }
 }
