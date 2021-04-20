@@ -18,9 +18,7 @@ public class FieldServiceImpl implements FieldService{
 
     @Override
     public void addNewField(Field field) {
-        FieldModel newField = new FieldModel();
-        newField.setX(field.getX());
-        newField.setY(field.getY());
+        FieldModel newField = new FieldModel(field);
         fieldRepository.save(newField);
     }
 }

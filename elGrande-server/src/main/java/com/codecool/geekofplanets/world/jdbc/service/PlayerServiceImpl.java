@@ -45,10 +45,7 @@ public class PlayerServiceImpl implements PlayerService {
     @Override
     public Player getPlayerByUserId(UUID userId) {
         PlayerModel model = playerRepository.getPlayerByUserId(userId);
-        String name = model.getName();
-        FieldModel field = model.getField();
-        Field playerField = new Field(field.getX(), field.getY());
-        return new Player();
+        return new Player(model);
     }
 
     @Override
@@ -58,9 +55,7 @@ public class PlayerServiceImpl implements PlayerService {
 
     @Override
     public void addNewPlayer(Player player, UUID id) {
-        String name = player.getName();
-        PlayerModel newPlayer = new PlayerModel();
-        newPlayer.setName(name);
+        PlayerModel newPlayer = new PlayerModel(player);
         newPlayer.setUserId(id);
         playerRepository.save(newPlayer);
     }

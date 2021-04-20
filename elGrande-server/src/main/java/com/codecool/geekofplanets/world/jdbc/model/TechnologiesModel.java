@@ -1,5 +1,6 @@
 package com.codecool.geekofplanets.world.jdbc.model;
 
+import com.codecool.geekofplanets.world.universe.technologies.Technologies;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -25,5 +26,8 @@ public class TechnologiesModel {
 
     @Autowired
     public TechnologiesModel() {
+    }
+
+    public TechnologiesModel(Technologies technologies) {
     }
 }

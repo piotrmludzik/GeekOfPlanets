@@ -1,6 +1,7 @@
 package com.codecool.geekofplanets.world.universe;
 
 
+import com.codecool.geekofplanets.world.jdbc.model.FieldModel;
 import com.codecool.geekofplanets.world.universe.actors.Player;
 import com.codecool.geekofplanets.world.universe.objects.Planet;
 import lombok.Getter;
@@ -24,6 +25,11 @@ public class Field {
     public Field(int x, int y) {
         this.x = x;
         this.y = y;
+    }
+
+    public Field(FieldModel fieldModel) {
+        this.x = fieldModel.getX();
+        this.y = fieldModel.getY();
     }
 
     public void clearField(){

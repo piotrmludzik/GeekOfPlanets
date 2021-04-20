@@ -1,8 +1,10 @@
 package com.codecool.geekofplanets.world.universe.technologies;
 
+import com.codecool.geekofplanets.world.jdbc.model.TechnologiesModel;
 import com.codecool.geekofplanets.world.universe.Resources;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -18,7 +20,11 @@ public class Technologies {
     private SpyTechnology spyTechnology;
     private StorageTechnology storageTechnology;
 
+    @Autowired
     public Technologies() {
+    }
+
+    public Technologies(TechnologiesModel technologiesModel) {
     }
 
     public void discover(String name, Resources resources) {

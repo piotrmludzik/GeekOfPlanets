@@ -1,5 +1,6 @@
 package com.codecool.geekofplanets.world.universe.actors;
 
+import com.codecool.geekofplanets.world.jdbc.model.PlayerModel;
 import com.codecool.geekofplanets.world.universe.Field;
 import com.codecool.geekofplanets.world.universe.FieldEntity;
 import com.codecool.geekofplanets.world.universe.objects.Planet;
@@ -17,6 +18,7 @@ import java.util.UUID;
 @Setter
 
 public class Player extends FieldEntity {
+
     private UUID id;
     @Setter(AccessLevel.NONE)
     private Statistics statistics;
@@ -33,6 +35,23 @@ public class Player extends FieldEntity {
         super(planet.getField());
         this.statistics = new Statistics(0,0,8);
         this.planet = planet;
+    }
+
+    public Player(Field field, UUID id, Statistics statistics, Technologies technologies, UUID userId, Planet planet) {
+        super(field);
+        this.id = id;
+        this.statistics = statistics;
+        this.technologies = technologies;
+        this.userId = userId;
+        this.planet = planet;
+    }
+
+    public Player(PlayerModel playerModel) {
+        super(new Field(playerModel.getField()), playerModel.getName());
+        this.statistics = new Statistics(playerModel.getStatistics());
+        this.technologies = new Technologies(playerModel.getTechnologies());
+        this.userId = playerModel.getUserId();
+        this.planet = new Planet(playerModel.getPlanet());
     }
 
     public void setOnField(Field field) {
