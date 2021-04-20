@@ -1,6 +1,6 @@
 package com.codecool.geekofplanets.game.logic;
 
-import com.codecool.geekofplanets.world.model.Field;
+import com.codecool.geekofplanets.world.universe.Field;
 
 public enum Direction {
     NORTH("N") {

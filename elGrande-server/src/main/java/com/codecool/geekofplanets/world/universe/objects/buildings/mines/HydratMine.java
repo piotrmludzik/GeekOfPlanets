@@ -1,6 +1,6 @@
-package com.codecool.geekofplanets.world.model.objects.buildings.mines;
+package com.codecool.geekofplanets.world.universe.objects.buildings.mines;
 
-import com.codecool.geekofplanets.world.model.Resources;
+import com.codecool.geekofplanets.world.universe.Resources;
 
 
 public class HydratMine extends Mine {

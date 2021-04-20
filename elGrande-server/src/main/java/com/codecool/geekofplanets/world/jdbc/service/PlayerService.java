@@ -1,6 +1,6 @@
 package com.codecool.geekofplanets.world.jdbc.service;
 
-import com.codecool.geekofplanets.world.model.actors.Player;
+import com.codecool.geekofplanets.world.universe.actors.Player;
 
 import java.util.List;
 import java.util.UUID;

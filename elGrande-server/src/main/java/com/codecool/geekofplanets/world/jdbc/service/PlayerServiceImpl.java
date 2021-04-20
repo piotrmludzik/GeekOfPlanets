@@ -1,7 +1,7 @@
 package com.codecool.geekofplanets.world.jdbc.service;
 
 import com.codecool.geekofplanets.world.jdbc.repository.PlayerRepository;
-import com.codecool.geekofplanets.world.model.actors.Player;
+import com.codecool.geekofplanets.world.universe.actors.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

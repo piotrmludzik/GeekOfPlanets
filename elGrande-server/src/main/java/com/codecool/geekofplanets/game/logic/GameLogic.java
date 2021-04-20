@@ -2,10 +2,10 @@ package com.codecool.geekofplanets.game.logic;
 
 import com.codecool.geekofplanets.game.controller.GameController;
 import com.codecool.geekofplanets.world.jdbc.service.PlayerService;
-import com.codecool.geekofplanets.world.model.Field;
-import com.codecool.geekofplanets.world.model.GameBoard;
-import com.codecool.geekofplanets.world.model.actors.Player;
-import com.codecool.geekofplanets.world.model.objects.Planet;
+import com.codecool.geekofplanets.world.universe.Field;
+import com.codecool.geekofplanets.world.universe.GameBoard;
+import com.codecool.geekofplanets.world.universe.actors.Player;
+import com.codecool.geekofplanets.world.universe.objects.Planet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

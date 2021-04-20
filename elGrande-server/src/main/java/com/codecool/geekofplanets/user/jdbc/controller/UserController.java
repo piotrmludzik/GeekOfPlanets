@@ -4,7 +4,7 @@ import com.codecool.geekofplanets.game.logic.GameLogic;
 import com.codecool.geekofplanets.network.dto.MessageDto;
 import com.codecool.geekofplanets.user.jdbc.service.UserService;
 import com.codecool.geekofplanets.user.model.User;
-import com.codecool.geekofplanets.world.model.Field;
+import com.codecool.geekofplanets.world.universe.Field;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

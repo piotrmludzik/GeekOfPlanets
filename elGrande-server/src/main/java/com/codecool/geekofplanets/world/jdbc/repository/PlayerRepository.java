@@ -1,6 +1,6 @@
 package com.codecool.geekofplanets.world.jdbc.repository;
 
-import com.codecool.geekofplanets.world.model.actors.Player;
+import com.codecool.geekofplanets.world.universe.actors.Player;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

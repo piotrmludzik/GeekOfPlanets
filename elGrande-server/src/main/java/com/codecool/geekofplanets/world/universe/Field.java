@@ -1,8 +1,8 @@
-package com.codecool.geekofplanets.world.model;
+package com.codecool.geekofplanets.world.universe;
 
 
-import com.codecool.geekofplanets.world.model.actors.Player;
-import com.codecool.geekofplanets.world.model.objects.Planet;
+import com.codecool.geekofplanets.world.universe.actors.Player;
+import com.codecool.geekofplanets.world.universe.objects.Planet;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
-package com.codecool.geekofplanets.world.model.objects.buildings.mines;
+package com.codecool.geekofplanets.world.universe.objects.buildings.mines;
 
 
-import com.codecool.geekofplanets.world.model.objects.buildings.Building;
+import com.codecool.geekofplanets.world.universe.objects.buildings.Building;
 
 abstract class Mine extends Building {
     private int production;

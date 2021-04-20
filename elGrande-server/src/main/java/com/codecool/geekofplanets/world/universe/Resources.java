@@ -1,4 +1,4 @@
-package com.codecool.geekofplanets.world.model;
+package com.codecool.geekofplanets.world.universe;
 
 public class Resources {
     private int metal;

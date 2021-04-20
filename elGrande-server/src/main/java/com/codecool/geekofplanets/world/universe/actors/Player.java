@@ -1,9 +1,9 @@
-package com.codecool.geekofplanets.world.model.actors;
+package com.codecool.geekofplanets.world.universe.actors;
 
-import com.codecool.geekofplanets.world.model.Field;
-import com.codecool.geekofplanets.world.model.FieldEntity;
-import com.codecool.geekofplanets.world.model.objects.Planet;
-import com.codecool.geekofplanets.world.model.technologies.Technologies;
+import com.codecool.geekofplanets.world.universe.Field;
+import com.codecool.geekofplanets.world.universe.FieldEntity;
+import com.codecool.geekofplanets.world.universe.objects.Planet;
+import com.codecool.geekofplanets.world.universe.technologies.Technologies;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;

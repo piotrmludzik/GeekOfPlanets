@@ -1,6 +1,6 @@
-package com.codecool.geekofplanets.world.model.technologies;
+package com.codecool.geekofplanets.world.universe.technologies;
 
-import com.codecool.geekofplanets.world.model.Resources;
+import com.codecool.geekofplanets.world.universe.Resources;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Component;

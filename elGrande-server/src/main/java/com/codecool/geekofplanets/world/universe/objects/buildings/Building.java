@@ -1,7 +1,7 @@
-package com.codecool.geekofplanets.world.model.objects.buildings;
+package com.codecool.geekofplanets.world.universe.objects.buildings;
 
 
-import com.codecool.geekofplanets.world.model.Resources;
+import com.codecool.geekofplanets.world.universe.Resources;
 
 public abstract class Building {
     private Resources cost;

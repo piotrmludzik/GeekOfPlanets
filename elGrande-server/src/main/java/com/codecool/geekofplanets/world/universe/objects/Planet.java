@@ -1,15 +1,13 @@
-package com.codecool.geekofplanets.world.model.objects;
+package com.codecool.geekofplanets.world.universe.objects;
 
-import com.codecool.geekofplanets.world.model.Field;
-import com.codecool.geekofplanets.world.model.FieldEntity;
-import com.codecool.geekofplanets.world.model.Resources;
-import com.codecool.geekofplanets.world.model.objects.buildings.Buildings;
-import com.codecool.geekofplanets.world.model.technologies.Technologies;
-import org.hibernate.annotations.GenericGenerator;
+import com.codecool.geekofplanets.world.universe.Field;
+import com.codecool.geekofplanets.world.universe.FieldEntity;
+import com.codecool.geekofplanets.world.universe.Resources;
+import com.codecool.geekofplanets.world.universe.objects.buildings.Buildings;
+import com.codecool.geekofplanets.world.universe.technologies.Technologies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.*;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.util.UUID;

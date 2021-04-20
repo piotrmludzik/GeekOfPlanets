@@ -3,7 +3,7 @@ package com.codecool.geekofplanets.world.jdbc.controller;
 import com.codecool.geekofplanets.game.logic.GameLogic;
 import com.codecool.geekofplanets.network.dto.MessageDto;
 import com.codecool.geekofplanets.world.jdbc.service.PlayerService;
-import com.codecool.geekofplanets.world.model.actors.Player;
+import com.codecool.geekofplanets.world.universe.actors.Player;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 

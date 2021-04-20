@@ -1,9 +1,9 @@
-package com.codecool.geekofplanets.world.model;
+package com.codecool.geekofplanets.world.universe;
 
 
 import com.codecool.geekofplanets.game.config.qualifier.BoardHeight;
 import com.codecool.geekofplanets.game.config.qualifier.BoardWidth;
-import com.codecool.geekofplanets.world.model.objects.Planet;
+import com.codecool.geekofplanets.world.universe.objects.Planet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
