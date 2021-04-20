@@ -1,5 +1,6 @@
 package com.codecool.geekofplanets.world.jdbc.model;
 
+import com.codecool.geekofplanets.world.universe.actors.Statistics;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -31,5 +32,11 @@ public class StatisticsModel {
 
     @Autowired
     public StatisticsModel() {
+    }
+
+    public StatisticsModel(Statistics statistics) {
+        this.attack = statistics.getAttack();
+        this.defence = statistics.getDefence();
+        this.radius = statistics.getRadius();
     }
 }

@@ -1,6 +1,7 @@
 package com.codecool.geekofplanets.world.universe.objects.buildings;
 
 
+import com.codecool.geekofplanets.world.jdbc.model.BuildingsModel;
 import com.codecool.geekofplanets.world.universe.Resources;
 import com.codecool.geekofplanets.world.universe.objects.buildings.mines.EtherMine;
 import com.codecool.geekofplanets.world.universe.objects.buildings.mines.HydratMine;
@@ -19,6 +20,9 @@ public class Buildings {
     private final Storage storage = new Storage();
     private Resources extraction;
     private final Building[] availableToBuild = new Building[9];
+
+    public Buildings(BuildingsModel buildingsModel) {
+    }
 
     public void buildNew(String name, Resources resources){
         switch (name) {

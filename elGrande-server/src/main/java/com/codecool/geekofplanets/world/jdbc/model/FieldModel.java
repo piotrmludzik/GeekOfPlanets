@@ -1,5 +1,6 @@
 package com.codecool.geekofplanets.world.jdbc.model;
 
+import com.codecool.geekofplanets.world.universe.Field;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -28,5 +29,15 @@ public class FieldModel {
 
     @Autowired
     public FieldModel() {
+    }
+
+    public FieldModel(Field field) {
+        this.x = field.getX();
+        this.y = field.getY();
+    }
+
+    public FieldModel(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 }

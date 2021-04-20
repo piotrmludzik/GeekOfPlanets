@@ -1,5 +1,6 @@
 package com.codecool.geekofplanets.world.universe.objects;
 
+import com.codecool.geekofplanets.world.jdbc.model.PlanetModel;
 import com.codecool.geekofplanets.world.universe.Field;
 import com.codecool.geekofplanets.world.universe.FieldEntity;
 import com.codecool.geekofplanets.world.universe.Resources;
@@ -34,6 +35,25 @@ public class Planet extends FieldEntity {
     public Planet(Field position, Resources resources) {
         super(position);
         this.resources = resources;
+    }
+
+    public Planet(PlanetModel planetModel) {
+        super(new Field(planetModel.getField()), planetModel.getName());
+        this.resources = new Resources(planetModel.getResources());
+        this.colonized = planetModel.isColonized();
+        this.buildings = new Buildings(planetModel.getBuildings());
+        this.lastVisit = planetModel.getLastVisit();
+
+    }
+
+    public Planet(Field field, String name,
+                  Resources resources, boolean colonized,
+                  Buildings buildings, LocalDate lastVisit) {
+        super(field, name);
+        this.resources = resources;
+        this.colonized = colonized;
+        this.buildings = buildings;
+        this.lastVisit = lastVisit;
     }
 
     public void newVisit(){

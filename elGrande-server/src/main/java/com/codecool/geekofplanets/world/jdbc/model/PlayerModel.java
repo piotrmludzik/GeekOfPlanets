@@ -1,5 +1,6 @@
 package com.codecool.geekofplanets.world.jdbc.model;
 
+import com.codecool.geekofplanets.world.universe.actors.Player;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -36,10 +37,23 @@ public class PlayerModel {
     @JoinColumn(name="technologies_id", referencedColumnName="id")
     private TechnologiesModel technologies;
 
+    @OneToOne(cascade=CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name="planet_id", referencedColumnName="id")
+    private PlanetModel planet;
+
     @Column(name="user_id")
     private UUID userId;
 
     @Autowired
     public PlayerModel() {
+    }
+
+    public PlayerModel(Player player) {
+        this.name = player.getName();
+        this.field = new FieldModel(player.getField());
+        this.statistics = new StatisticsModel(player.getStatistics());
+        this.technologies = new TechnologiesModel(player.getTechnologies());
+        this.planet = new PlanetModel(player.getPlanet());
+        this.userId = player.getUserId();
     }
 }

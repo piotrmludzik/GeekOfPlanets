@@ -1,6 +1,7 @@
 package com.codecool.geekofplanets.world.universe;
 
 
+import com.codecool.geekofplanets.world.jdbc.model.ResourcesModel;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,6 +18,13 @@ public class Resources {
         this.hydrate = hydrate;
         this.ether = ether;
         this.antimatter = antimatter;
+    }
+
+    public Resources(ResourcesModel resources) {
+        this.metal = resources.getMetal();
+        this.hydrate = resources.getHydrate();
+        this.ether = resources.getEther();
+        this.antimatter = resources.getAntimatter();
     }
 
     public void substractCost(Resources cost){

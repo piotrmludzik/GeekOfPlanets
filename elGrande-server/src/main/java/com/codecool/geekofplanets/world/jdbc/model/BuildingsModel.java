@@ -1,5 +1,6 @@
 package com.codecool.geekofplanets.world.jdbc.model;
 
+import com.codecool.geekofplanets.world.universe.objects.buildings.Buildings;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -25,5 +26,8 @@ public class BuildingsModel {
 
     @Autowired
     public BuildingsModel() {
+    }
+
+    public BuildingsModel(Buildings buildings) {
     }
 }
