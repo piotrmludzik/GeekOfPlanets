@@ -15,31 +15,13 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 @Component
-@Entity
-@Table(name="planets")
 public class Planet extends FieldEntity {
-
-    private transient Resources resources;
-
-    @Id
-    @GeneratedValue(generator="uuid2")
-    @GenericGenerator(name="uuid2", strategy="org.hibernate.id.UUIDGenerator")
+    private Resources resources;
     private UUID id;
-
-    @Column(name="name")
     private String name;
-
-    @Column(name="is_colonized")
     private boolean colonized = false;
-
-    @OneToOne
-    @JoinColumn(name="field_id", referencedColumnName="id")
     private Field field;
-
-    @OneToOne(cascade=CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name="buildings_id", referencedColumnName="id")
     private Buildings buildings;
-
     private LocalDate lastVisit;
 
     public Planet() {
