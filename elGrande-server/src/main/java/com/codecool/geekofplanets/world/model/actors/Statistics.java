@@ -1,28 +1,12 @@
 package com.codecool.geekofplanets.world.model.actors;
 
-import org.hibernate.annotations.GenericGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.*;
-import java.util.UUID;
-
 @Component
-@Entity
-@Table(name="statistics")
 public class Statistics {
-    @Id
-    @GeneratedValue(generator="uuid2")
-    @GenericGenerator(name="uuid2", strategy="org.hibernate.id.UUIDGenerator")
-    private UUID id;
-
-    @Column(name="attack")
     private int attack;
-
-    @Column(name="defence")
     private int defence;
-
-    @Column(name="radius")
     private int radius;
 
     @Autowired
@@ -33,14 +17,6 @@ public class Statistics {
         this.attack = attack;
         this.defence = defence;
         this.radius = radius;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
     }
 
     public int getAttack() {

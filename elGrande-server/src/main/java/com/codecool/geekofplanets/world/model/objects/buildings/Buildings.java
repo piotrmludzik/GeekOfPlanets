@@ -5,43 +5,20 @@ import com.codecool.geekofplanets.world.model.Resources;
 import com.codecool.geekofplanets.world.model.objects.buildings.mines.EtherMine;
 import com.codecool.geekofplanets.world.model.objects.buildings.mines.HydratMine;
 import com.codecool.geekofplanets.world.model.objects.buildings.mines.MetalMine;
-import org.hibernate.annotations.GenericGenerator;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.util.UUID;
-
 @Component
-@Entity
-@Table(name="buildings")
 public class Buildings {
-
-    @Id
-    @GeneratedValue(generator="uuid2")
-    @GenericGenerator(name="uuid2", strategy="org.hibernate.id.UUIDGenerator")
-    private UUID id;
-
-    private final transient EtherMine etherMine = new EtherMine();
-    private final transient HydratMine hydratMine = new HydratMine();
-    private final transient MetalMine metalMine = new MetalMine();
+    private final EtherMine etherMine = new EtherMine();
+    private final HydratMine hydratMine = new HydratMine();
+    private final MetalMine metalMine = new MetalMine();
     private transient Docks docks;
-    private final transient Laboratory laboratory = new Laboratory();
-    private final transient PowerPlant powerPlant = new PowerPlant();
-    private final transient Shipyard shipyard = new Shipyard();
-    private final transient Storage storage = new Storage();
-    private transient Resources extraction;
-    private  transient final Building[] availableToBuild = new Building[9];
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
+    private final Laboratory laboratory = new Laboratory();
+    private final PowerPlant powerPlant = new PowerPlant();
+    private final Shipyard shipyard = new Shipyard();
+    private final Storage storage = new Storage();
+    private Resources extraction;
+    private final Building[] availableToBuild = new Building[9];
 
     public void buildNew(String name, Resources resources){
         switch (name) {
@@ -78,9 +55,6 @@ public class Buildings {
                 this.storage.levelUp();
         }
     }
-
-
-
 
     public Resources getExtraction(){
         extraction.setMetal(this.metalMine.getProduction());

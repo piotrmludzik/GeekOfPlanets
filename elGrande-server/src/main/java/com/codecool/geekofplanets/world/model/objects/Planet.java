@@ -5,41 +5,19 @@ import com.codecool.geekofplanets.world.model.FieldEntity;
 import com.codecool.geekofplanets.world.model.Resources;
 import com.codecool.geekofplanets.world.model.objects.buildings.Buildings;
 import com.codecool.geekofplanets.world.model.technologies.Technologies;
-import org.hibernate.annotations.GenericGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.*;
 import java.time.Duration;
 import java.time.LocalDate;
-import java.util.UUID;
 
 @Component
-@Entity
-@Table(name="planets")
 public class Planet extends FieldEntity {
-
-    private transient Resources resources;
-
-    @Id
-    @GeneratedValue(generator="uuid2")
-    @GenericGenerator(name="uuid2", strategy="org.hibernate.id.UUIDGenerator")
-    private UUID id;
-
-    @Column(name="name")
+    private Resources resources;
     private String name;
-
-    @Column(name="is_colonized")
     private boolean colonized = false;
-
-    @OneToOne
-    @JoinColumn(name="field_id", referencedColumnName="id")
     private Field field;
-
-    @OneToOne(cascade=CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name="buildings_id", referencedColumnName="id")
     private Buildings buildings;
-
     private LocalDate lastVisit;
 
     public Planet() {
@@ -69,14 +47,6 @@ public class Planet extends FieldEntity {
 
     public void colonize(){
         this.colonized = true;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
     }
 
     @Override

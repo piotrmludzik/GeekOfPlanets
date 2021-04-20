@@ -11,7 +11,7 @@ public interface PlayerService {
     Player getPlayerById(String id);
     Player getPlayerByUserId(UUID userId);
     void deletePlayerById(int id);
-    void addNewPlayer(Player player);
+    void addNewPlayer(Player player, UUID id);
     long getPlayerCount();
     void changePlayerName(String newName);
 }
