@@ -20,9 +20,9 @@ export class LogoutComponent implements OnInit {
       this.snackbarService.show('You have been successfully logged out.');
     });
 
-    // setTimeout(() => {
-    //   this.router.navigate(['login']);
-    // }, 1500);
+    setTimeout(() => {
+      this.router.navigate(['login']);
+    }, 1500);
   }
 
 }
