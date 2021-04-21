@@ -18,6 +18,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { SnackbarComponent } from './components/shared/snack-bar/snackbar.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { SnackbarComponent } from './components/shared/snack-bar/snackbar.compon
     MenuComponent,
     GameComponent,
     RegistrationComponent,
-    SnackbarComponent
+    SnackbarComponent,
+    DashboardComponent,
+    SidebarComponent
 
   ],
   imports: [

@@ -21,9 +21,9 @@ export class LogoutComponent implements OnInit {
       this.router.navigate(['login']);
     });
 
-    // setTimeout(() => {
-    //   this.router.navigate(['login']);
-    // }, 1500);
+    setTimeout(() => {
+      this.router.navigate(['login']);
+    }, 1500);
   }
 
 }
