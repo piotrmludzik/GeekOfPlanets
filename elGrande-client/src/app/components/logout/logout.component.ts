@@ -18,6 +18,7 @@ export class LogoutComponent implements OnInit {
   ngOnInit(): void {
     this.logoutService.executeLogoutService().subscribe((res) => {
       this.snackbarService.show('You have been successfully logged out.');
+      this.router.navigate(['login']);
     });
 
     // setTimeout(() => {
