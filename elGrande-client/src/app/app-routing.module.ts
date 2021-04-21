@@ -9,7 +9,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'game', component: GameComponent},
-  {path: 'logout', component: LoginComponent},
+  {path: 'logout', component: LogoutComponent},
   {path: 'registration', component: RegistrationComponent}, //TODO add route Guard;
 
 ];
