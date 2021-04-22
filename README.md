@@ -16,23 +16,23 @@ The application was created as a final big project at [CodeCool](https://codecoo
 ## Used technologies:
 
 [![Java](readme_res/technologies/java.png)](https://docs.oracle.com/en/java/)
-[![Intellij IDEA](readme_res/technologies/spring.png)](https://spring.io/)
-[![Intellij IDEA](readme_res/technologies/postgresql.png)](https://www.postgresql.org/)
+[![Spring](readme_res/technologies/spring.png)](https://spring.io/)
+[![Postgresql](readme_res/technologies/postgresql.png)](https://www.postgresql.org/)
 [![Intellij IDEA](readme_res/technologies/intellij.png)](https://www.jetbrains.com/idea/)
 [![HTML+CSS+JavaScript](readme_res/technologies/html_css_js.png)](https://developer.mozilla.org/en-US/docs/Web)
+[![Angu](readme_res/technologies/angular.png)](https://angular.io/)
 [![WebStorm](readme_res/technologies/webstorm.png)](https://www.jetbrains.com/webstorm/)
-[![WebStorm](readme_res/technologies/angular.png)](https://angular.io/)
 [![GitHub](readme_res/technologies/github.png)](https://github.com/)
 
 
 ## Team:
 
-- Przemyslaw Buszek
-- Dominik Lach
-- Piotr Janiszewski
-- Piotr Mludzik
-- Magdalena Podolewska
-- Przemyslaw Stolarz
+- [Przemyslaw Buszek](https://github.com/codewarrior123)
+- [Dominik Lach](https://github.com/mimik91)
+- [Piotr Janiszewski](https://github.com/janiszewskipeter)
+- [Piotr Mludzik](https://github.com/piotrmludzik)
+- [Magdalena Podolewska](https://github.com/theonlymagdela)
+- [Przemyslaw Stolarz](https://github.com/StolarzPrzemyslaw)
 
 
 ## Challenges:
