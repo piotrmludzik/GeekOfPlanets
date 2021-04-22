@@ -6,6 +6,7 @@ import com.codecool.geekofplanets.world.universe.GameBoard;
 import com.codecool.geekofplanets.world.universe.actors.Player;
 import com.codecool.geekofplanets.world.universe.objects.Planet;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import javax.xml.datatype.DatatypeConstants;
@@ -19,7 +20,7 @@ public class GameLogic {
     private final List<Player> players = new LinkedList<>();
 
     @Autowired
-    public GameLogic(GameController gameController, GameBoard gameBoard) {
+    public GameLogic(@Lazy GameController gameController, GameBoard gameBoard) {
         this.gameController = gameController;
         this.gameBoard = gameBoard;
     }

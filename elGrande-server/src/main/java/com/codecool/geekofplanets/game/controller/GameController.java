@@ -4,7 +4,7 @@ import com.codecool.geekofplanets.game.logic.Direction;
 import com.codecool.geekofplanets.game.logic.GameLogic;
 import com.codecool.geekofplanets.network.websocket.controller.WebSocketController;
 import com.codecool.geekofplanets.network.websocket.messages.ClientMsg;
-import com.codecool.geekofplanets.network.websocket.messages.ServerMsg;
+import com.codecool.geekofplanets.network.websocket.messages.VisibleFieldsMsg;
 import com.codecool.geekofplanets.user.jdbc.model.UserModel;
 import com.codecool.geekofplanets.user.jdbc.service.UserService;
 import com.codecool.geekofplanets.world.jdbc.service.PlayerService;
@@ -61,7 +61,8 @@ public class GameController {
     private void movePlayer(String playerName, ClientMsg clientMsg) {
         Player player = getPlayer(playerName);
         gameLogic.movePlayer(player, Direction.getDirection(clientMsg.getDirection()));
-        webSocketController.sendMessage(new ServerMsg());
+        VisibleFieldsMsg msg = new VisibleFieldsMsg(player.getFieldsInView());
+        webSocketController.sentVisibleFields(playerName, msg );
         player.setFieldsInView(gameLogic.getFieldsInView(player));
     }
 }
