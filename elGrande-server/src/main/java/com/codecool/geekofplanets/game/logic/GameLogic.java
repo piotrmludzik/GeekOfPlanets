@@ -8,6 +8,7 @@ import com.codecool.geekofplanets.world.universe.objects.Planet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.xml.datatype.DatatypeConstants;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -33,13 +34,35 @@ public class GameLogic {
         return player;
     }
 
-    public void movePlayer(String playerName, Direction direction) {
-        Player player = gameController.getPlayer(playerName);
+    public void movePlayer(Player player, Direction direction) {
         Field actualField = player.getField();
         Field destinationCoordinates = new Field(
                 actualField.getX() + direction.getCoordinates().getX(),
                 actualField.getY() + direction.getCoordinates().getY());
         player.setField(destinationCoordinates);
         actualField.clearField();
+    }
+
+    public List<Field> getFieldsInView(Player player) {
+        List<Field> fieldsInView = new LinkedList<>();
+        Field playerPosition = player.getField();
+        int playerRadius = player.getStatistics().getRadius();
+
+        for (int x = playerPosition.getX() - playerRadius; x <= playerPosition.getX() + playerRadius; x++) {
+            for (int y = playerPosition.getY() - playerRadius; y <= playerPosition.getY() + playerRadius; y++) {
+                if (!isOutOfBounds(x,y))
+                    fieldsInView.add(gameBoard.getField(x, y));
+            }
+        }
+
+        return fieldsInView;
+    }
+
+    private boolean isOutOfBounds(int x, int y){
+        if (x < 0 || y < 0)
+            return true;
+        if (x > gameBoard.getWidth() || y > gameBoard.getHeight())
+            return true;
+        return false;
     }
 }

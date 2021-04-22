@@ -1,6 +1,6 @@
 package com.codecool.geekofplanets.network.websocket.messages;
 
-public class ClientPlayerMovement {
+public class ClientMsg {
     private String direction;
 
     public String getDirection() {

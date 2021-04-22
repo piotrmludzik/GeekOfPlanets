@@ -1,11 +1,11 @@
 package com.codecool.geekofplanets.network.websocket.messages;
 
-public class ServerPlayerMovement {
+public class PlayerMovementMsg {
     private final String playerName;
     private final int targetX;
     private final int targetY;
 
-    public ServerPlayerMovement(String playerName, int targetX, int targetY) {
+    public PlayerMovementMsg(String playerName, int targetX, int targetY) {
         this.playerName = playerName;
         this.targetX = targetX;
         this.targetY = targetY;

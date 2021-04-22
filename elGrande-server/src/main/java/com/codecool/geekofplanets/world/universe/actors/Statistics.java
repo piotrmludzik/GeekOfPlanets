@@ -27,6 +27,6 @@ public class Statistics {
     public Statistics(StatisticsModel statisticsModel){
         this.attack = statisticsModel.getAttack();
         this.defence = statisticsModel.getDefence();
-        this.radius = statisticsModel.getDefence();
+        this.radius = statisticsModel.getRadius();
     }
 }

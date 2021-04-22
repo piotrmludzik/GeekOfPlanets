@@ -11,6 +11,8 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.UUID;
 
 @Component
@@ -25,6 +27,7 @@ public class Player extends FieldEntity {
     private Technologies technologies;
     private UUID userId;
     private Planet planet;
+    private List<Field> FieldsInView = new LinkedList<>();
 
     public Player() {
         super(null);
@@ -33,18 +36,18 @@ public class Player extends FieldEntity {
     @Autowired
     public Player(Planet planet) {
         super(planet.getField());
-        this.statistics = new Statistics(0,0,8);
+        this.statistics = new Statistics(0,0,1);
         this.planet = planet;
     }
 
-    public Player(Field field, UUID id, Statistics statistics, Technologies technologies, UUID userId, Planet planet) {
-        super(field);
-        this.id = id;
-        this.statistics = statistics;
-        this.technologies = technologies;
-        this.userId = userId;
-        this.planet = planet;
-    }
+//    public Player(Field field, UUID id, Statistics statistics, Technologies technologies, UUID userId, Planet planet) {
+//        super(field);
+//        this.id = id;
+//        this.statistics = statistics;
+//        this.technologies = technologies;
+//        this.userId = userId;
+//        this.planet = planet;
+//    }
 
     public Player(PlayerModel playerModel) {
         super(new Field(playerModel.getField()), playerModel.getName());

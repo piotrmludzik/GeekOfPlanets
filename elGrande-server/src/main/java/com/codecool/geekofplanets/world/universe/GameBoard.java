@@ -69,4 +69,16 @@ public class GameBoard {
     public String toString() {
         return String.format("GameBoard[board=%s, height=%d, width=%d]", Arrays.deepToString(board), height, width);
     }
+
+    public Field getField(int x, int y){
+        return board[x][y];
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public int getWidth() {
+        return width;
+    }
 }
