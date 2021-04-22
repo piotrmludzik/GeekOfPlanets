@@ -57,7 +57,10 @@ CREATE TABLE planets (
                              REFERENCES field (id),
 
                          CONSTRAINT fk_buildings FOREIGN KEY (buildings_id)
-                             REFERENCES buildings (id)
+                             REFERENCES buildings (id),
+
+                             CONSTRAINT fk_resources FOREIGN KEY (resources_id)
+                                REFERENCES resources (id)
 );
 
 DROP TABLE IF EXISTS player;
